@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      working-directory: docs
+      working-directory: .
       run: docker build . --tag invariant-docs:main
     - name: Login to Invariant Container Registry
       run: echo ${{ secrets.INVARIANT_REGISTRY_PASSWORD }} | docker login -u ${{ secrets.INVARIANT_REGISTRY_USERNAME }} --password-stdin https://images.invariantnet.com
