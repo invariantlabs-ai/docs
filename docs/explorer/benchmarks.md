@@ -14,7 +14,7 @@ To facilitate the comparison of AI agents, Invariant hosts a number of popular b
 
 <figure>
 
-<img src="./assets/benchmarks-datasets.svg" alt="Benchmarks and Datasets" style="width: 100%;">
+<img src="../assets/benchmarks-datasets.svg" alt="Benchmarks and Datasets" style="width: 100%;">
 
 </figure>
 
@@ -54,7 +54,7 @@ For instance, to associate your `gpt-4o` agent dataset with the `webarena` bench
 
 To enable comparison and inspection of your agent dataset, ensure that the dataset is public and accessible to everyone on the web. You can do so by updating the dataset's visibility settings on the Explorer.
 
-<img src='./assets/make-public.png' alt='Make Public' style='width: 80%; display: block; margin: 0 auto;'>
+<img src='../assets/make-public.png' alt='Make Public' style='width: 80%; display: block; margin: 0 auto;'>
 
 ### Step 5: Submit Your Results to the Benchmark Registry
 

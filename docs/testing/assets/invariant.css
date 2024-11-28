@@ -291,7 +291,7 @@ a {
     text-decoration: underline;
 }
 
-.md-nav__list a, .tiles a {
+.md-nav__list a {
     text-decoration: none;
 }
 
@@ -353,8 +353,4 @@ span.llm::before {
 
 .jupyter-wrapper {
     margin-top: -20pt;
-}
-
-label.md-nav__title {
-    display: none;
 }

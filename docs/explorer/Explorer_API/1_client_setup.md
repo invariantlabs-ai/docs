@@ -3,7 +3,7 @@
 The SDK exposes a `Client` class. To create an object of this type, you need two variables: the Invariant API endpoint URL and the API key.
 
 ## Getting the API Key
-Navigate to the <img class='inline-invariant' src="../assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
+Navigate to the <img class='inline-invariant' src="../../assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
 
 Once you have created an account, go to your [User Settings](https://explorer.invariantlabs.ai/settings) and generate an API key.
 
