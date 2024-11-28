@@ -2,7 +2,7 @@
 
 <div class='subtitle'>Use Explorer to view test failures and debug your agent.</div>
 
-When building test suites with `testing`, you can use the [Invariant Explorer](https://explorer.invariantlabs.ai/docs/) to visually inspect the results of your tests, which can greatly improve your debugging workflow. 
+When building test suites with `testing`, you can use the [Invariant Explorer](../../explorer/index.md) to visually inspect the results of your tests, which can greatly improve your debugging workflow. 
 
 To do so, just run your tests with the `--push` flag to send the results to the Explorer:
 
@@ -20,7 +20,7 @@ The Explorer can render long-form agent traces in a more readable format, and it
 
 ### 1. Sign Up for Explorer
 
-To use Explorer, first make sure to sign up for an account according to [the instructions in the Explorer documentation](https://explorer.invariantlabs.ai/docs/) and obtain your personal API key.
+To use Explorer, first make sure to sign up for an account according to [the instructions in the Explorer documentation](../../explorer/index.md) and obtain your personal API key.
 
 Next, store your Invariant API as a environment variable in your current shell:
 
