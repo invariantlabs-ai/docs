@@ -195,7 +195,7 @@ We use the `expect_equals` assertion, which is less strict than `assert_equal`, 
 ```python
 expected_response = "I can only help with Python code."
 expect_equals(
-            "I can only help with Python code.", trace.messages(-1)["content"]
+           expected_response, trace.messages(-1)["content"]
         )
 ```
 Another way to do it is to use our `levenshtein()` function which calculate Levenshtein distance. So we assert that the Levenshtein distance between the response and the expected response is smaller than 5.
