@@ -39,7 +39,7 @@ def test_assert():
         )
 ```
 
-## `assert_true` and `assert_that` and `assert_equals`
+## Assertions
 
 To make hard (leading to test failure) assertions, you can use the `assert_true`, `assert_that`, and `assert_equals` functions. These functions are similar to the ones you might know from unit testing frameworks like `unittest` or `pytest`, but they add support for localization.
 
@@ -98,7 +98,7 @@ def assert_true(
 - `assert_true` checks for a boolean condition (true or false), e.g. the result of a `.contains(...)` check.
 
 
-### `assert_false``
+### `assert_false`
 ```py
 def assert_false(
     actual_value: InvariantBool | bool,
@@ -119,7 +119,7 @@ def assert_that(
 
 - `assert_that` uses a designated `Matcher` class to check the message content. In this case, `IsSimilar` is used to compare the message content to some expected value with a given threshold for maximum allowed difference.
 
-## `expect_true`, `expect_false`, `expect_that` and `expect_equals`
+## Expectations (Soft Assertions)
 
 Next to hard assertions, `testing` also supports _soft assertions_ that do not lead to test failure. 
 
