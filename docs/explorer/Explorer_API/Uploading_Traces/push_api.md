@@ -22,7 +22,7 @@ The `PushTracesRequest` class holds the request data for a trace upload request.
 
 ##### `messages` <span class='type'>List[List[Dict]]</span> <span class='required'/>
 
-The list of messages or events to be uploaded. 
+This represents the traces in a dataset. Each `List[Dict]` is a single trace within the dataset. Each `dict` is a single message within a trace - these can represet a user prompt, a tool call, a tool output, etc.
 
 Must be in the [required trace format](../2_traces.md). Must not be empty.
 
