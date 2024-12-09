@@ -70,7 +70,7 @@ def test_capital_finder_agent_when_capital_found(swarm_wrapper):
             "France", get_capital_tool_calls[0]["function"]["arguments"]["country_name"]
         )
 
-        assert_true(trace.messages(-1)["content"].contains("Paris"))
+        assert_true(trace.messages(-1)["content"].contains("paris"))
 ```
 
 We first use the `tool_calls()` method to retrieve all tool calls where the name is `get_capital`. Then, we assert that there is exactly one such tool call. We also assert that the argument `country_name` passed to the tool call is `France`. Additionally, we verify that the last message contains `Paris`, our desired answer.
