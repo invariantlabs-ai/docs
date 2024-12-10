@@ -73,7 +73,7 @@ ________________________________________________________________________________
 #     },
 #  ]
 ```
-The test result provides information about which assertion failed but also [localizes the assertion failure precisely](Writing_Tests/1_Traces.ipynb) in the provided list of agent messages.
+The test result provides information about which assertion failed but also [localizes the assertion failure precisely](./Writing_Tests/tests.md) in the provided list of agent messages.
 
 **Visual Test Viewer (Explorer):**
 
@@ -92,7 +92,7 @@ Like the terminal output, the Explorer highlights the relevant ranges, but does 
 * Comprehensive [`Trace` API](Writing_Tests/1_Traces.ipynb) for easily navigating and checking agent traces.
 * [Assertions library](Writing_Tests/2_Assertions.md) to check agent behavior, including fuzzy checkers such as _Levenshtein distance_, _semantic similarity_ and _LLM-as-a-judge_ pipelines.
 * Full [`pytest` compatibility](Running_Tests/PyTest_Compatibility.md) for easy integration with existing test and CI/CD pipelines.
-* Parameterized tests for [testing multiple scenarios](Writing_Tests/3_Parameterized_Tests.md) with a single test function.
+* Parameterized tests for [testing multiple scenarios](Writing_Tests/parameterized-tests) with a single test function.
 * [Visual test viewer](Writing_Tests/4_Visual_Test_Viewer.md) for exploring large traces and debugging test failures.
 
 ## Next Steps

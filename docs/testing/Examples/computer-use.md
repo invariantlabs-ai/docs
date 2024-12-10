@@ -2,7 +2,11 @@
 title: Computer Use Agent
 ---
 
-# Intro
+# Computer Use Agents
+
+<div class="subtitle">
+Test your Computer Use agent with <code>testing</code>
+</div>
 
 Anthropic has recently announced a [Computer Use Agent](https://docs.anthropic.com/en/docs/build-with-claude/computer-use), an AI Agent capable
 of interacting with a computer desktop environment. For this example, we prompt the agent to act as a QA engineer with the knowledge about the documentation of 
