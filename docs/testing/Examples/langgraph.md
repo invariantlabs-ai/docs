@@ -6,6 +6,13 @@ title: LangGraph
 
 LangGraph is a [library](https://github.com/langchain-ai/langgraph) for building stateful, multi-actor applications with LLMs, used to create agent and multi-agent workflows. In this example, we build a weather agent that helps us answer queries about the weather by using tool calling.
 
+## Setup
+To use `langgraph`, you need to need to install the corresponding package:
+
+```bash
+pip install langgraph
+```
+
 ## Agent code
 
 You can view the agent code [here](https://github.com/invariantlabs-ai/testing/blob/main/sample_tests/langgraph/weather_agent/weather_agent.py).

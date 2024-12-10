@@ -6,13 +6,20 @@ title: OpenAI Swarm
 
 OpenAI has introduced [Swarm](https://github.com/openai/swarm), a framework for building and managing multi-agent systems. In this example, we build a capital finder agent that uses tool calling to answer queries about finding the capital of a given country.
 
+## Setup
+To use `Swarm`, you need to need to install the corresponding package:
+
+```bash
+pip install openai-swarm
+```
+
 ## Agent code
 You can view the agent code [here](sample_tests/swarm/capital_finder_agent/capital_finder_agent.py).
 
 This can be invoked as:
 
 ```python
-from invariant.testing import SwarmWrapper
+from invariant.wrappers.swarm_wrapper import SwarmWrapper
 from swarm import Swarm
 
 from .capital_finder_agent import create_agent
