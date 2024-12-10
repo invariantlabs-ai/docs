@@ -2,7 +2,11 @@
 title: OpenAI Swarm
 ---
 
-# Intro
+# Swarm Agents
+
+<div class="subtitle">
+Test your OpenAI <code>swarm</code> agents.
+</div>
 
 OpenAI has introduced [Swarm](https://github.com/openai/swarm), a framework for building and managing multi-agent systems. In this example, we build a capital finder agent that uses tool calling to answer queries about finding the capital of a given country.
 
@@ -49,6 +53,11 @@ poetry run invariant test sample_tests/swarm/capital_finder_agent/test_capital_f
     as higihlighted in the terminal.
 
 ## Unit tests
+
+We can now use `testing` to assess the correctness of our agent. We will write two tests to verify different properties of the agents' behavior. For this, we want to verify that:
+
+1. The agent can correctly answer a query about the capital of France.
+2. The agent handles correctly when a given capital cannot be determined.
 
 ### Test 1: Capital is correctly returned by the Agent
 

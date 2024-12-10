@@ -2,7 +2,11 @@
 title: LangGraph
 ---
 
-# Intro
+# LangGraph Agents
+
+<div class="subtitle">
+Write tests for your <code>langgraph</code> applications.
+</div>
 
 LangGraph is a [library](https://github.com/langchain-ai/langgraph) for building stateful, multi-actor applications with LLMs, used to create agent and multi-agent workflows. In this example, we build a weather agent that helps us answer queries about the weather by using tool calling.
 
@@ -45,6 +49,14 @@ poetry run invariant test sample_tests/langgraph/weather_agent/test_weather_agen
     as higihlighted in the terminal.
 
 ## Unit tests
+
+We can now use `testing` to assess the correctness of our agent. We will write two tests to verify different properties of the agents' behavior. For this, we want to verify that:
+
+1. The agent can correctly answer a query about the weather in San Francisco.
+
+2. The agent can correctly answer queries when asked about both the weather in San Francisco and New York City.
+
+For this, we will use `TraceFactory` to create traces from the invocation response and then use the corresponding `Trace` methods to examine the resulting runtime traces.
 
 ### Test 1:
 
