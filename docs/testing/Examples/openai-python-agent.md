@@ -1,14 +1,12 @@
 ---
-title: OpenAI Python Agent
+title: Function Calling Agents
 ---
 
-# OpenAI Function Calling Agent
+# Function Calling Agents
 
 <div class="subtitle">
-Test an OpenAI function calling agent using <code>testing</code>.
+Test an OpenAI function calling agent using <code>testing</code>
 </div>
-
-# Intro
 
 OpenAI's function calling can be used to build agents that integrate with external tools and APIs, allowing the agent to call custom functions and deliver enhanced, context-aware responses. More details can be found here: [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)
 
