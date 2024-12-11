@@ -15,10 +15,18 @@ Using [**localized assertions**](Writing_Tests/1_Traces.ipynb), `testing` always
 ## Installation
 
 ```
-pip install invariant
+pip install invariant-ai
 ```
 
 ## A quick example
+
+The example below uses `extract(...)` to detect `locations` from messages. This uses the `gpt-4o` model from OpenAI.
+
+Setup your OpenAI key as
+
+```bash
+export OPENAI_API_KEY=<your-key>
+```
 
 ```python
 # content of tests/test_weather.py
