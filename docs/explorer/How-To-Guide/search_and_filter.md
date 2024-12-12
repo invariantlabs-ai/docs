@@ -6,7 +6,6 @@ and filter them according to different criteria. For instance, searching for `ma
 ### Exact search
 
 The simplest form of search is an exact search which searches for exact string (but case-insensitively) in the trace.
-The set of traces contained ![search](assets/images/search_screenshot.png)
 
 ### Filters
 

@@ -62,7 +62,7 @@ After the tool calls are executed, the agent can observe the output of the tool 
     ```json
     {
         "role": "tool",
-        "content": "Email sent successfully.",
+        "content": "Email sent successfully."
     }
     ```
 
