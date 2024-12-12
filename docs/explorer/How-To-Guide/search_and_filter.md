@@ -1,11 +1,12 @@
 # Search
 
 Often, there is a large number of traces in the dataset. In this section, we describe how to search over these traces efficiently
-and filter them according to different criteria.
+and filter them according to different criteria. For instance, searching for `maps` would return all traces containing the word `maps` somewhere in the trace.
 
 ### Exact search
 
-Any text put in the search box, including spaces, is searched for exactly (but case-insensitively) in the trace.
+The simplest form of search is an exact search which searches for exact string (but case-insensitively) in the trace.
+The set of traces contained ![search](assets/images/search_screenshot.png)
 
 ### Filters
 
