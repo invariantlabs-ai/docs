@@ -10,7 +10,7 @@ Test an OpenAI function calling agent using <code>testing</code>
 
 OpenAI's function calling can be used to build agents that integrate with external tools and APIs, allowing the agent to call custom functions and deliver enhanced, context-aware responses. More details can be found here: [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)
 
-In this chapter we are testing simple OpenAI function calling agent as [implemented in this file](https://github.com/invariantlabs-ai/testing/blob/main/sample_tests/openai/test_python_agent.py).
+In this chapter we are testing simple OpenAI function calling agent as [implemented in this file](https://github.com/invariantlabs-ai/invariant/blob/main/testing/sample_tests/openai/test_python_agent.py).
 
 ## Agent Overview
 

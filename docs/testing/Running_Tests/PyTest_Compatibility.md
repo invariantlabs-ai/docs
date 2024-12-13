@@ -25,7 +25,7 @@ results. This name will be used to derive a fresh dataset name on each run
 ```
 
 Flag to indicate whether to [push data to Explorer](./Visual_Debugger.md). If set to true,
-the `INVARIANT_API_KEY` environment variable must be set. Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs) to learn how to obtain your own API key.
+the `INVARIANT_API_KEY` environment variable must be set. Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
 ### Example Commands
 
