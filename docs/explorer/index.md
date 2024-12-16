@@ -14,6 +14,10 @@ You can use Explorer to visualize, analyze, and collaborate on your AI agent tra
 
 First, navigate to the <img class='inline-invariant' src="assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
 
+If you prefer to keep your data local, you can also [self-host Explorer](./self-hosted.md) on your own infrastructure.
+
+## 2. Create an API Key
+
 Once you have created an account, go to your [User Settings](https://explorer.invariantlabs.ai/settings) and generate an API key.
 
 Make note of your API key, as you will need it to authenticate your uploads. If you're running in a shell, you can export the API key now as an environment variable:
@@ -22,15 +26,17 @@ Make note of your API key, as you will need it to authenticate your uploads. If 
 export INVARIANT_API_KEY=<your-api-key>
 ```
 
-## 2. Install the Invariant SDK
+## 3. Install the Invariant SDK
 
-Next, install the Invariant SDK in your Python environment, by running the following command. See [Installation](installation.md) for alternative methods using different package managers.
+Next, install the Invariant SDK in your Python environment, by running the following command. See [Installation](Explorer_API/installation.md) for alternative methods using different package managers.
 
 ```bash
 pip install invariant-sdk
 ```
 
-## 3. Prepare Your Traces and Upload
+> **Self-Host** Note that for the self-hosted version of Explorer, you will need to [configure the SDK](./self-hosted.md/#usage-and-access) to point to your custom endpoint.
+
+## 4. Prepare Your Traces and Upload
 
 Now, you can start preparing your AI agent traces for upload. The Invariant SDK then provides a `Client` class that you can use to upload your traces in an Invariant-compatible format:
 

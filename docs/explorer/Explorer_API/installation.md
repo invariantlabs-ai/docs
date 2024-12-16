@@ -1,4 +1,4 @@
-# Installation
+# SDK Installation
 
 <div class='subtitle'>Installing the Invariant SDK for Python</div>
 
