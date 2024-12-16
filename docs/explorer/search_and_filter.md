@@ -1,13 +1,20 @@
 # Search
 
-Often, there is a large number of traces in the dataset. In this section, we describe how to search over these traces efficiently
-and filter them according to different criteria. For instance, searching for `maps` would return all traces containing the word `maps` somewhere in the trace.
+<div class='subtitle'>Use Explorer Search to quickly find and filter traces</div>
 
-### Exact search
+Often, there is a large number of traces in the dataset. In this chapter, we describe how to search over these traces efficiently and filter them according to different criteria. 
+
+For instance, searching for `maps` would return all traces containing the word `maps` somewhere in the trace.
+
+<img src="/assets/images/search.png" class="img-fluid" alt="Search bar in the Invariant Explorer">
+
+## Exact search
 
 The simplest form of search is an exact search which searches for exact string (but case-insensitively) in the trace.
 
-### Filters
+For instance the term `maps` queries for traces containing the word `maps`, `Maps`, `MAPS`, etc.
+
+## Filtered Search
 
 Separately from exact search, any white-space-separated token containing a `:` is interpreted as a filter. 
 There are several types of filters:
