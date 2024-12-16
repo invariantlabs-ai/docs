@@ -2,7 +2,7 @@
 
 <div class='subtitle'>Use the self-hosted version of Explorer for local use</div>
 
-Next to the managed cloud deployment of <img class='inline-invariant' src="/assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai), you can also run a self-hosted version of Explorer for local use.
+Next to the managed cloud deployment of <img class='inline-invariant' src="../assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai), you can also run a self-hosted version of Explorer for local use.
 
 This allows you to keep your traces private while still benefiting from the visualization and analysis features of Explorer. The self-hosted version of Explorer is available as a Docker Composer setup that you can run on your local machine.
 

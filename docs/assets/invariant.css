@@ -242,8 +242,8 @@ h2, h3, h4 {
 
 h2 {
     border-top: 1pt solid #e5e5e58e;
-    padding-top: 10pt;
-    margin-top: 20pt !important;
+    padding-top: 20pt;
+    margin-top: 30pt !important;
 }
 
 h5 {
