@@ -30,6 +30,7 @@ export OPENAI_API_KEY=<your-key>
 
 ```python
 # content of tests/test_weather.py
+import invariant.testing.functional as F
 from invariant.testing import Trace, assert_equals
 
 def test_weather():
@@ -47,7 +48,7 @@ def test_weather():
         locations = trace.messages()[-1]["content"].extract("locations")
 
         # assert that the agent responded about Paris and only Paris
-        assert_equals(1, locations.len(), 
+        assert_equals(1, F.len(locations), 
             "The agent should respond about one location only")
 
         assert_equals("Paris", locations[0], "The agent should respond about Paris")
@@ -63,7 +64,7 @@ ERROR: 1 hard assertions failed:
 
  
     # assert that the agent responded about Paris and only Paris
-    assert_equals(1, locations.len(), 
+    assert_equals(1, F.len(locations), 
         "The agent should respond about one location only")
     
 >   assert_equals("Paris", locations[0], "The agent should respond about Paris")
