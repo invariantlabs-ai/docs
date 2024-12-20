@@ -10,6 +10,9 @@ This quickstart guide will walk you through the process of setting up the Invari
 
 You can use Explorer to visualize, analyze, and collaborate on your AI agent traces, as well as compare them with other agents and models.
 
+![Explorer](./assets/explorer-overview.png)
+<center>Viewing agent traces in Explorer</center>
+
 ## 1. Create an Explorer Account
 
 First, navigate to the <img class='inline-invariant' src="assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
@@ -91,22 +94,22 @@ To learn more about what you can do with Explorer, check out any of the followin
 
 <div class='tiles'>
 
-<a href="benchmarks.html" class='tile'>
+<a href="benchmarks" class='tile'>
     <span class='tile-title'>Benchmarks →</span>
     <span class='tile-description'>Submit your AI agent to the Invariant benchmark registry for comparison</span>
 </a>
 
-<a href="Explorer_API/2_traces.html" class='tile'>
+<a href="Explorer_API/2_traces" class='tile'>
     <span class='tile-title'>Trace Format →</span>
     <span class='tile-description'>Learn about the Invariant trace format and how to structure your traces for ingestion</span>
 </a>
 
-<a href="Explorer_API/1_client_setup.html" class='tile'>
+<a href="Explorer_API/1_client_setup" class='tile'>
     <span class='tile-title'>Client Setup →</span>
     <span class='tile-description'>Setting up endpoints and authentication for the Invariant SDK</span>
 </a>
 
-<a href="Explorer_API/Uploading_Traces/push_api.html" class='tile'>
+<a href="Explorer_API/Uploading_Traces/push_api" class='tile'>
     <span class='tile-title'>Pushing Traces →</span>
     <span class='tile-description'>Learn about traces, datasets and annotations.</span>
 </a>
