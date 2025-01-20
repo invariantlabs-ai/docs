@@ -14,9 +14,13 @@ The GetDatasetMetadata API allows you to get the metadata associated with a data
 
 The `get_dataset_metadata method` is used to get the metadata for a dataset from the Invariant API using the `dataset_name`.
 
-##### `request` <span class='type'>dataset_name</span> <span class='required'/>
+##### `dataset_name` <span class='type'>str</span> <span class='required'/>
 
 The name of the dataset.
+
+##### `owner_username` <span class='type'>str</span> <span class='optional'/>
+
+The name of the owner of the dataset. If the dataset is not owned by the caller and it is public, pass in the owner_username with the dataset_name to view it metadata.
 
 ##### `request_kwargs` <span class='type'>Optional[Dict[str, Any]]</span> <span class='optional'/>
 
