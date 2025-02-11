@@ -21,7 +21,17 @@ export INVARIANT_API_KEY=YourAPIKey
 
 ## Creating a Client
 
-In your Python code, you can create a `Client` object. This object will use the environment variables you set up earlier to authenticate your uploads.
+In your Python code, you can create an `AsyncClient` or a `Client` object. This object will use the environment variables you set up earlier to authenticate your uploads.
+
+```python
+from invariant_sdk.async_client import AsyncClient
+
+client = AsyncClient()
+```
+
+Without parameters, the `AsyncClient` object will automatically use the environment variables you set up earlier and the default Explorer instance at `https://explorer.invariantlabs.ai`.
+
+To create a sync client:
 
 ```python
 from invariant_sdk.client import Client
@@ -29,11 +39,22 @@ from invariant_sdk.client import Client
 client = Client()
 ```
 
-Without parameters, the `Client` object will automatically use the environment variables you set up earlier and the default Explorer instance at `https://explorer.invariantlabs.ai`.
 
 ## Overriding Environment Configuration
 
-If you want to override the environment configuration or use a different API key, you can also pass the API endpoint URL and API key as arguments to the `Client` constructor directly.
+If you want to override the environment configuration or use a different API key, you can also pass the API endpoint URL and API key as arguments to the `AsyncClient` constructor directly.
+
+```python
+from invariant_sdk.async_client import AsyncClient
+
+client = AsyncClient(
+    api_url="https://explorer.invariantlabs.ai",
+    # Add the API key here.
+    api_key="YourAPIKey",
+)
+```
+
+For the sync `Client` type:
 
 ```python
 from invariant_sdk.client import Client

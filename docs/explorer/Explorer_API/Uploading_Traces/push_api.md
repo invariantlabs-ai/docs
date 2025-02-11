@@ -104,8 +104,37 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 
 The response object from the Invariant API.
 
+> AsyncClient Example
+    ```python
+    from invariant_sdk.async_client import AsyncClient
+    from invariant_sdk.types.push_traces import PushTracesRequest
 
-> Example
+    client = AsyncClient()
+
+    request = PushTracesRequest(
+        messages=[
+            [
+                {"role": "user", "content": "one"},
+                {"role": "assistant", "content": "two \n three"},
+            ]
+        ],
+        annotations=[
+            [
+                {
+                    "content": "annotating one",
+                    "address": "messages[0].content:L0",
+                    "extra_metadata": {"key1": "value1"},
+                }
+            ]
+        ],
+        metadata=[{"meta_key_1": "meta_value_1"}],
+        dataset="dataset_name"
+    )
+
+    response = await client.push_trace(request)
+    ```
+
+> Client Example
     ```python
     from invariant_sdk.client import Client
     from invariant_sdk.types.push_traces import PushTracesRequest
@@ -165,7 +194,40 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 
 The response object from the Invariant API.
 
-> Example
+> AsyncClient Example
+    ```python
+    from invariant_sdk.async_client import AsyncClient
+
+    client = AsyncClient()
+
+    messages = [
+        [
+            {"role": "user", "content": "one"},
+            {"role": "assistant", "content": "two \n three"},
+        ]
+    ]
+
+    annotations = [
+        [
+            {
+                "content": "annotating one",
+                "address": "messages[0].content:L0",
+                "extra_metadata": {"key1": "value1"},
+            }
+        ]
+    ]
+
+    metadata = [{"meta_key_1": "meta_value_1"}]
+
+    response = await client.create_request_and_push_trace(
+        messages=messages,
+        annotations=annotations,
+        metadata=metadata,
+        dataset="dataset_name"
+    )
+    ```
+
+> Client Example
     ```python
     from invariant_sdk.client import Client
 
