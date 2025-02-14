@@ -6,7 +6,7 @@ Often, there is a large number of traces in the dataset. In this chapter, we des
 
 For instance, searching for `maps` would return all traces containing the word `maps` somewhere in the trace.
 
-<img src="/assets/images/search.png" class="img-fluid" alt="Search bar in the Invariant Explorer">
+<img src="../assets/search.png" class="img-fluid" alt="Search bar in the Invariant Explorer">
 
 ## Exact search
 

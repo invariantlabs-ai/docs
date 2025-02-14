@@ -32,8 +32,17 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 
 The response object from the Invariant API.
 
+> AsyncClient Example
+    ```python
+    from invariant_sdk.async_client import AsyncClient
+    from invariant_sdk.types.push_traces import PushTracesRequest
 
-> Example
+    client = AsyncClient()
+
+    dataset_metadata = await client.get_dataset_metadata(dataset_name="some_dataset_name")
+    ```
+
+> Client Example
     ```python
     from invariant_sdk.client import Client
     from invariant_sdk.types.push_traces import PushTracesRequest

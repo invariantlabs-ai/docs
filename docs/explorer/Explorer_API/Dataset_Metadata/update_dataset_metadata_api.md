@@ -80,8 +80,61 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 
 The response object from the Invariant API.
 
+> AsyncClient Example
+    ```python
+    from invariant_sdk.async_client import AsyncClient
+    from invariant_sdk.types.update_dataset_metadata import UpdateDatasetMetadataRequest, MetadataUpdate
 
-> Example
+    client = AsyncClient()
+
+    # Metadata state: {}
+
+    request_1 = UpdateDatasetMetadataRequest(
+        dataset_name="some_name",
+        metadata=MetadataUpdate(benchmark="some_benchmark")
+    )
+    response_1 = await client.update_dataset_metadata(request_1)
+
+    # Metadata state: {"benchmark": "some_benchmark"}
+
+    request_2 = UpdateDatasetMetadataRequest(
+        dataset_name="some_name",
+        metadata=MetadataUpdate(accuracy=5, name="xyz")
+    )
+
+    response_2 = await client.update_dataset_metadata(request_2)
+
+    # Metadata state: {"benchmark": "some_benchmark", "accuracy": 5, "name": "xyz"}
+
+    request_3 = UpdateDatasetMetadataRequest(
+        dataset_name="some_name",
+        replace_all=True
+        metadata=MetadataUpdate(benchmark="new_benchmark")
+    )
+
+    response_3 = await client.update_dataset_metadata(request_3)
+
+    # Metadata state: {"benchmark": "new_benchmark"}
+
+    ```
+
+> AsyncClient Example to clear all previously set metadata
+    ```python
+    from invariant_sdk.async_client import AsyncClient
+    from invariant_sdk.types.update_dataset_metadata import UpdateDatasetMetadataRequest, MetadataUpdate
+
+    client = AsyncClient()
+
+    request = UpdateDatasetMetadataRequest(
+        dataset_name="some_name",
+        replace_all=True,
+        metadata=MetadataUpdate()
+    )
+
+    response = await client.update_dataset_metadata(request)
+    ```
+
+> Client Example
     ```python
     from invariant_sdk.client import Client
     from invariant_sdk.types.update_dataset_metadata import UpdateDatasetMetadataRequest, MetadataUpdate
@@ -89,13 +142,13 @@ The response object from the Invariant API.
     client = Client()
 
     # Metadata state: {}
-    
+
     request_1 = UpdateDatasetMetadataRequest(
         dataset_name="some_name",
         metadata=MetadataUpdate(benchmark="some_benchmark")
     )
     response_1 = client.update_dataset_metadata(request_1)
-    
+
     # Metadata state: {"benchmark": "some_benchmark"}
 
     request_2 = UpdateDatasetMetadataRequest(
@@ -119,7 +172,7 @@ The response object from the Invariant API.
 
     ```
 
-> Example to clear all previously set metadata
+> Client Example to clear all previously set metadata
     ```python
     from invariant_sdk.client import Client
     from invariant_sdk.types.update_dataset_metadata import UpdateDatasetMetadataRequest, MetadataUpdate
@@ -160,8 +213,50 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 ##### <span class='type'>Dict</span>
 
 The response object from the Invariant API.
+> AsyncClient Example
+    ```python
+    from invariant_sdk.async_client import AsyncClient
 
-> Example
+    client = AsyncClient()
+
+    # Metadata state: {}
+    
+    response_1 = await client.create_request_and_update_dataset_metadata(
+        dataset_name="some_name",
+        metadata={"benchmark": "some_benchmark"}
+    )
+    
+    # Metadata state: {"benchmark": "some_benchmark"}
+
+    response_2 = await client.create_request_and_update_dataset_metadata(
+        dataset_name="some_name",
+        metadata={"accuracy": 5, "name": "xyz"}
+    )
+
+    # Metadata state: {"benchmark": "some_benchmark", "accuracy": 5, "name": "xyz"}
+
+    response_3 = await client.create_request_and_update_dataset_metadata(
+        dataset_name="some_name",
+        replace_all=True,
+        metadata={"benchmark": "new_benchmark"}
+    )
+
+    # Metadata state: {"benchmark": "new_benchmark"}
+    ```
+
+> AsyncClient Example to clear all previously set metadata
+    ```python
+    from invariant_sdk.async_client import AsyncClient
+
+    client = AsyncClient()
+
+    response = await client.create_request_and_update_dataset_metadata(
+        dataset_name="some_name"
+        replace_all=True,
+    )
+    ```
+
+> Client Example
     ```python
     from invariant_sdk.client import Client
 
@@ -192,7 +287,7 @@ The response object from the Invariant API.
     # Metadata state: {"benchmark": "new_benchmark"}
     ```
 
-> Example to clear all previously set metadata
+> Client Example to clear all previously set metadata
     ```python
     from invariant_sdk.client import Client
 
