@@ -2,15 +2,84 @@
 title: OpenAI Swarm
 ---
 
-# Swarm Agents
+# Testing Swarm Agents
 
 <div class="subtitle">
 Test your OpenAI <code>swarm</code> agents.
 </div>
 
-OpenAI has introduced [Swarm](https://github.com/openai/swarm), a framework for building and managing multi-agent systems. In this example, we build a capital finder agent that uses tool calling to answer queries about finding the capital of a given country.
+OpenAI's [Swarm](https://github.com/openai/swarm) is a powerful framework for building and managing multi-agent systems. In this guide, we will build a capital finder agent that uses tool calling to answer queries about finding the capital of a given country.
+
+## Quickstart
+
+To get started quickly with testing your Swarm agent, you can use the following code snippet. For a more in-depth explanation, please refer to the rest of the guide.
+
+```python
+# swarm dependency
+from swarm import Agent, Swarm
+
+# for assertions
+from invariant.testing import assert_true
+from invariant.testing import functional as F
+
+# for swarm testing support
+from invariant.testing.wrappers.swarm_wrapper import SwarmWrapper
+
+
+def get_capital(country_name: str) -> str:
+    """Get the capital of a country."""
+    pass
+
+
+agent = Agent(
+    name="An agent that helps users learn about the capitals of countries",
+    instructions="...",
+    functions=[get_capital],
+)
+
+
+def test_agent():
+    # prepare test input
+    messages = [{"role": "user", "content": "What is the capital of France?"}]
+
+    # prepare swarm
+    swarm = Swarm()
+    # use Invariant's Swarm wrapper to auto-extract the agent trace
+    swarm = SwarmWrapper(swarm)
+
+    # run agent
+    response = swarm.run(
+        agent=agent,
+        messages=messages,
+    )
+
+    # make assertions about trace
+    trace = SwarmWrapper.to_invariant_trace(response)
+
+    with trace.as_context():
+        get_capital_tool_calls = trace.tool_calls(name="get_capital")
+
+        # should have one 'get_capital' tool call
+        assert_true(F.len(get_capital_tool_calls) == 1)
+
+```
+
+Run with
+
+```bash
+invariant test test.py
+```
+
+When running with `--push` you will also be able to inspect your test results in [Explorer](https://explorer.invariantlabs.ai).
+
+<img src="/testing/Examples/swarm-explorer.png"
+alt="OpenAI Swarm agent testing"
+style="width: 200% !important;">
+
+<center>OpenAI Swarm agent testing</center>
 
 ## Setup
+
 To use `Swarm`, you need to need to install the corresponding package:
 
 ```bash
@@ -18,9 +87,10 @@ pip install openai-swarm
 ```
 
 ## Agent code
-You can view the agent code [here](https://github.com/invariantlabs-ai/invariant/blob/main/invariant/testing/sample_tests/swarm/capital_finder_agent/capital_finder_agent.py)
 
-This can be invoked as:
+You can view the full code example of the example agent [here](https://github.com/invariantlabs-ai/invariant/blob/main/invariant/testing/sample_tests/swarm/capital_finder_agent/capital_finder_agent.py)
+
+The agent can be invoked as follows.
 
 ```python
 from invariant.wrappers.swarm_wrapper import SwarmWrapper
@@ -37,14 +107,14 @@ response = swarm_wrapper.run(
 )
 ```
 
-SwarmWrapper is a lightweight wrapper around the Swarm class. The response of its `run(...)` method includes the current Swarm response along with the history of all messages exchanged.
+SwarmWrapper is a lightweight wrapper around the Swarm class. The response of its `run(...)` method includes the current Swarm response along with the history of all messages exchanged. This makes it easy to extract the full trace of the agent's execution.
 
 ## Running example tests
 
 You can run the example tests discussed in this notebook by running the following command in the root of the repository:
 
 ```bash
-poetry run invariant test sample_tests/swarm/capital_finder_agent/test_capital_finder_agent.py --push --dataset_name swarm_capital_finder_agent
+invariant test sample_tests/swarm/capital_finder_agent/test_capital_finder_agent.py --push --dataset_name swarm_capital_finder_agent
 ```
 
 !!! note
@@ -133,4 +203,20 @@ Finally, we verify that the last message does not contain `Madrid`, consistent w
 
 ## Conclusion
 
-We have seen how to to write unit tests for specific test cases when building an agent with the Swarm framework.
+This guide has walked you through testing an OpenAI Swarm agent using Invariant. We have seen how to write tests for an agent that finds the capital of a country. We have also seen how to use the `SwarmWrapper` to extract the trace of the agent's execution.
+
+If you want to continue exploring, you can read some of the following chapters next.
+
+<div class='tiles'>
+
+<a href="/testing/Writing_Tests/Matchers" class='tile primary'>
+    <span class='tile-title'>Matchers →</span>
+    <span class='tile-description'>Learn more about Matchers to write assertions</span>
+</a>
+
+<a href="/testing/Writing_Tests/parameterized-tests/" class='tile primary'>
+    <span class='tile-title'>Paremeterized Tests →</span>
+    <span class='tile-description'>Learn how to parameterize your tests for more robust testing</span>
+</a>
+
+</div>

@@ -9,7 +9,7 @@ Test your Computer Use agent with <code>testing</code>
 </div>
 
 Anthropic has recently announced a [Computer Use Agent](https://docs.anthropic.com/en/docs/build-with-claude/computer-use), an AI Agent capable
-of interacting with a computer desktop environment. For this example, we prompt the agent to act as a QA engineer with the knowledge about the documentation of 
+of interacting with a computer desktop environment. For this example, we prompt the agent to act as a QA engineer with the knowledge about the documentation of
 the Invariant SDK and the Invariant Explorer UI, and we ask it to perform tasks related to testing the agent.
 
 ## Running the example
@@ -22,7 +22,7 @@ poetry run invariant test sample_tests/demos/computer_use_agent.py --push --data
 
 !!! note
 
-    If you want to run the example without sending the results to the Explorer UI, you can always run without the `--push` flag. You will still see the parts of the trace that fail 
+    If you want to run the example without sending the results to the Explorer UI, you can always run without the `--push` flag. You will still see the parts of the trace that fail
     as higihlighted in the terminal.
 
 ## Global assertions
@@ -41,6 +41,7 @@ def does_not_click_on_firefox_menu(trace: Trace):
 ```
 
 Next, we can make sure that tool outputs do not contain `ModuleNotFoundError`, which typically indicates coding mistakes that the agent made.
+
 ```python
 def does_not_make_python_error(trace: Trace):
     """Agent should not produce code that results in ModuleNotFoundError."""
@@ -49,6 +50,7 @@ def does_not_make_python_error(trace: Trace):
 ```
 
 We also noticed that the agent often overwrites the existing files using the `create` command. We can add a check for that:
+
 ```python
 def does_not_make_file_edit_errors(trace: Trace):
     """Given a trace, assert that the agent does not make a file edit error."""
@@ -81,10 +83,10 @@ def test_annotation():
     with trace.as_context():
         trace.run_assertions(global_asserts)
         assert_true(trace.messages(0)["content"].contains("nice nice"))
-        
+
         expect_true(max(F.frequency(
             F.filter(
-                lambda x: "http" in x.value, 
+                lambda x: "http" in x.value,
                 F.map(lambda tc: tc["function"]["arguments"]["text"], trace.tool_calls({"arguments.action": "type", "name": "computer"}))
             )
         ).values()) <= 1)
@@ -115,7 +117,7 @@ def test_firefox_menu():
         trace.run_assertions(global_asserts)
 ```
 
-### Task 3: Empty dataset and upload traces using SDK 
+### Task 3: Empty dataset and upload traces using SDK
 
 <div class='tiles'>
 <a href="https://explorer.invariantlabs.ai/u/mbalunovic/computer_use_agent-1733382354/t/3" class='tile'>
@@ -130,7 +132,7 @@ contains `create_request_and_push_trace` string.
 
 ```python
 def test_food_dataset():
-    trace = run_agent("""create an empty dataset "chats-about-food", then use sdk to push 4 different traces 
+    trace = run_agent("""create an empty dataset "chats-about-food", then use sdk to push 4 different traces
     to it and then finally use sdk to update the metadata of the dataset to have "weather="snowy day" and "mood"="great"
     after that go to the UI and verify that there are 4 traces and metadata is good""")
     with trace.as_context():
@@ -154,7 +156,7 @@ Here, we would like to assert that the dataset created using the SDK actually ap
 
 ```python
 def test_anthropic():
-    trace = run_agent("""use https://github.com/anthropics/anthropic-sdk-python to generate some traces and upload them 
+    trace = run_agent("""use https://github.com/anthropics/anthropic-sdk-python to generate some traces and upload them
     to the explorer using invariant sdk. your ANTHROPIC_API_KEY is already set up with a valid key""")
     with trace.as_context():
         trace.run_assertions(global_asserts)
@@ -176,6 +178,7 @@ First, we have a simple assertion that checks whether the agent imports `anthrop
 using `contains_any` function.
 
 For this, we need two things:
+
 1. Extract the dataset name from the tool output using a regex: `Dataset: (\w+)`, for instance `dataset_name` is `claude_examples`
 2. We can assert that the dataset name is present in the last screenshot using `ocr_contains` function.
 
@@ -188,14 +191,13 @@ For this, we need two things:
 </a>
 </div>
 
-
 In this test, we use the agent to create a FastAPI application with an endpoint that counts the number of words in a string.
 First, we assert that the agent does not run any bash command that results in a "Permission denied" error.
 Then, in the second part, we assert that the agent edits the same file in two different tool calls.
 
 ```python
 def test_code_agent_fastapi():
-    trace = run_agent("""use fastapi to create a count_words api that receives a string and counts 
+    trace = run_agent("""use fastapi to create a count_words api that receives a string and counts
     the number of words in it, then write a small client that tests it with a couple of different inputs""")
 
     with trace.as_context():
@@ -225,7 +227,7 @@ In the second part, we use `F.map` to get the `file_text` argument from the `str
 </div>
 
 In this test, we ask the agent to write a function `compute_fibonacci(n)` that computes the n-th Fibonacci number and test it on a few inputs.
-We then assert that executing the code `print(compute_fibonacci(12))` results in the `144` being present in the standard output (note that this asssertion requires 
+We then assert that executing the code `print(compute_fibonacci(12))` results in the `144` being present in the standard output (note that this asssertion requires
 Docker to be installed).
 
 ```python
