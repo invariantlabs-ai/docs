@@ -18,7 +18,7 @@ pip install openai-swarm
 ```
 
 ## Agent code
-You can view the agent code [here](sample_tests/swarm/capital_finder_agent/capital_finder_agent.py).
+You can view the agent code [here](https://github.com/invariantlabs-ai/invariant/blob/main/invariant/testing/sample_tests/swarm/capital_finder_agent/capital_finder_agent.py)
 
 This can be invoked as:
 
