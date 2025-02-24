@@ -55,8 +55,8 @@ nav:
     - Overview: explorer/index.md
     - Benchmarks: explorer/benchmarks.md
     - Search: explorer/search.md
-    - Self-Hosted Explorer: explorer/self-hosted.md
-    - Traces And Datasets: explorer/traces-datasets.md
+    - Self-Host Explorer: explorer/self-hosted.md
+    - Traces and Datasets: explorer/traces-datasets.md
     - Explorer API:
       - Client Setup: explorer/api/client-setup.md
       - Trace Format: explorer/api/trace-format.md
