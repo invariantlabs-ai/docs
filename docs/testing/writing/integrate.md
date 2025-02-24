@@ -36,44 +36,28 @@ Each message has a `role` key that specifies the role of the speaker (e.g., `use
 
 Based on this simple format, it is easy to integrate your agent with Invariant `testing`.
 
-> **Extended Format Support** `testing` also supports additional custom properties in the trace format, e.g. for metadata. Note, however, that convenience methods like `Trace.tool_calls()` assume the standard format. Similarly, if you are planning to visualize the trace in [Explorer](/explorer/), we advise you to stick to the standard format.
+> **Extended Format Support** `testing` also supports additional custom properties in the trace format, e.g. for metadata. Note, however, that convenience methods like `Trace.tool_calls()` assume the standard format. Similarly, if you are planning to visualize the trace in [Explorer](explorer/index.md), we advise you to stick to the standard format.
 
 To learn about how to do this, follow one of the example guides below:
 
 <div class='tiles'>
 
-<<<<<<< HEAD
-<a href="/docs/testing/Examples/computer-use/" class='tile primary'>
-=======
 <a href="/testing/examples/computer-use/" class='tile primary'>
->>>>>>> 068f461 (Add redirects so that we continue to support the older URLs till we move them to the new URLs.)
     <span class='tile-title'>Computer Use Agents →</span>
     <span class='tile-description'>Integrate your computer use agent with Invariant <code>testing</code></span>
 </a>
 
-<<<<<<< HEAD
-<a href="/docs/testing/Examples/langgraph/" class='tile primary'>
-=======
 <a href="/testing/examples/langgraph/" class='tile primary'>
->>>>>>> 068f461 (Add redirects so that we continue to support the older URLs till we move them to the new URLs.)
     <span class='tile-title'>LangGraph Agents →</span>
     <span class='tile-description'>Test your LangGraph agent with <code>testing</code></span>
 </a>
 
-<<<<<<< HEAD
-<a href="/docs/testing/Examples/openai-python-agent/" class='tile'>
-=======
 <a href="/testing/examples/openai-python-agent/" class='tile'>
->>>>>>> 068f461 (Add redirects so that we continue to support the older URLs till we move them to the new URLs.)
     <span class='tile-title'>Function Calling Agents →</span>
     <span class='tile-description'>Integrate your agent with Invariant <code>testing</code> using function calls</span>
 </a>
 
-<<<<<<< HEAD
-<a href="/docs/testing/Examples/swarm/" class='tile'>
-=======
 <a href="/testing/examples/swarm/" class='tile'>
->>>>>>> 068f461 (Add redirects so that we continue to support the older URLs till we move them to the new URLs.)
     <span class='tile-title'>Swarm Agents →</span>
     <span class='tile-description'>Test your swarm agent with Invariant <code>testing</code></span>
 </a>

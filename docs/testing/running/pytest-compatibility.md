@@ -8,7 +8,7 @@
 
 `invariant test` is a lightweight wrapper of the original `pytest` CLI. It is designed to be a drop-in replacement for `pytest` in your existing test suite.
 
-On top of the standard `pytest` arguments, `invariant test` supports the following extra arguments to enable [pushing to Explorer](./Visual_Debugger.md).
+On top of the standard `pytest` arguments, `invariant test` supports the following extra arguments to enable [pushing to Explorer](./visual-debugging.md).
 
 **Extra Arguments**
 

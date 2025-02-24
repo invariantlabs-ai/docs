@@ -40,7 +40,7 @@ This will pull and launch the required Explorer Docker containers on your machin
 
 ## Using the Self-Hosted Explorer
 
-The self-hosted version of Explorer is configured to run on `http://localhost`. You can access it in your browser at this address. The local instance provides the same API as the managed cloud instance, so you can use the [Invariant SDK](./api/client-setup) to connect to it.
+The self-hosted version of Explorer is configured to run on `http://localhost`. You can access it in your browser at this address. The local instance provides the same API as the managed cloud instance, so you can use the [Invariant SDK](api/client-setup.md) to connect to it.
 
 ### Storage
 
@@ -48,7 +48,7 @@ The self-hosted version of Explorer will create a `data/` directory in the curre
 
 ### Usage and Access
 
-You can access the self-hosted version of Explorer at `http://localhost`. To use it with the [Invariant SDK](./api/client-setup) you can set the `INVARIANT_API_ENDPOINT` environment variable to `http://localhost/`. For security reasons, you'll still need to create and provide an API key to access the self-hosted version of Explorer.
+You can access the self-hosted version of Explorer at `http://localhost`. To use it with the [Invariant SDK](api/client-setup.md) you can set the `INVARIANT_API_ENDPOINT` environment variable to `http://localhost/`. For security reasons, you'll still need to create and provide an API key to access the self-hosted version of Explorer.
 
 ### Updates
 `invariant explorer` will automatically check for updates and pull the latest stable version of the Explorer Docker images. If you want to try the latest development version, you can use the `--version=main` flag. Note however, that database migrations may be required when switching between versions, which may not always be backwards compatible.
