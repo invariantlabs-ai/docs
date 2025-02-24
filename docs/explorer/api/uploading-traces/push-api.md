@@ -24,7 +24,7 @@ The `PushTracesRequest` class holds the request data for a trace upload request.
 
 This represents the traces in a dataset. Each `List[Dict]` is a single trace within the dataset. Each `dict` is a single message within a trace - these can represet a user prompt, a tool call, a tool output, etc.
 
-Must be in the [required trace format](../2_traces.md). Must not be empty.
+Must be in the [required trace format](../../trace-format). Must not be empty.
 
 ##### `annotations` <span class='type'>Optional[List[List[AnnotationCreate]]</span> <span class='optional'/>
 
@@ -48,13 +48,13 @@ Must be a list of dictionaries if provided and must be the same length as messag
 
 Each metadata dictionary can have arbitrary keys and values for storing additional information about the trace.
 
-See [File Uploads](../Uploading_Traces/file_uploads.md) for more information on metadata.
+See [File Uploads](../file-uploads) for more information on metadata.
 
 ### `AnnotationCreate`
 
 The `AnnotationCreate` class holds the data for an annotation to be created.
 
-See [Annotations](../3_annotations.md) for more information on annotations.
+See [Annotations](../../annotations) for more information on annotations.
 
 ##### `content` <span class='type'>str</span> <span class='required'/>
 

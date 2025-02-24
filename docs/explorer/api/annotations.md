@@ -16,7 +16,7 @@ Annotations provide additional context, facilitating collaboration and agent err
 
 ## Annotation Format
 
-You can add annotations to traces at upload time. For this, both during [file upload](./Uploading_Traces/file_uploads.md) and via the [Push API](./Uploading_Traces/push_api.md), you can include an `annotations` field in the trace data. This field should be an array of objects, each representing an annotation. Each annotation object should have the following fields:
+You can add annotations to traces at upload time. For this, both during [file upload](../uploading-traces/file-uploads) and via the [Push API](../uploading-traces/push-api), you can include an `annotations` field in the trace data. This field should be an array of objects, each representing an annotation. Each annotation object should have the following fields:
 
 ##### `content` <span class='type'>string</span> <span class='required'/>
 
