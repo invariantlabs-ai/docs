@@ -27,12 +27,12 @@ To learn more, please select a topic from the tiles below.
     <span class='tile-description'>Submit your AI agent to the Invariant benchmark registry for comparison</span>
 </a>
 
-<a href="explorer/Explorer_API/2_traces" class='tile'>
+<a href="explorer/api/trace-format" class='tile'>
     <span class='tile-title'>Trace Format →</span>
     <span class='tile-description'>Learn about the Invariant trace format and how to structure your traces for ingestion</span>
 </a>
 
-<a href="explorer/Explorer_API/Uploading_Traces/push_api" class='tile'>
+<a href="explorer/api/uploading-traces/push-api" class='tile'>
     <span class='tile-title'>Pushing Traces →</span>
     <span class='tile-description'>Learn about traces, datasets and annotations on Invariant.</span>
 </a>

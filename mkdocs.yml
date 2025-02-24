@@ -25,6 +25,29 @@ use_directory_urls: true
 
 plugins:
   - mkdocs-jupyter
+  # TODO(Hemang): Remove these once we change the URLs in the other places.
+  - redirects:
+      redirect_maps:
+        explorer/traces_datasets.md: explorer/traces-datasets.md
+        explorer/Explorer_API/2_traces.md: explorer/api/trace-format.md
+        explorer/Explorer_API/1_client_setup.md: explorer/api/client-setup.md
+        explorer/Explorer_API/3_annotations.md: explorer/api/annotations.md
+        explorer/Explorer_API/installation.md: explorer/api/sdk-installation.md
+        explorer/Explorer_API/Dataset_Metadata/get_dataset_metadata_api.md: explorer/api/dataset-metadata/get.md
+        explorer/Explorer_API/Dataset_Metadata/update_dataset_metadata_api.md: explorer/api/dataset-metadata/update.md
+        explorer/Explorer_API/Uploading_Traces/file_uploads.md: explorer/api/uploading-traces/file-uploads.md
+        explorer/Explorer_API/Uploading_Traces/push_api.md: explorer/api/uploading-traces/push-api.md
+        testing/Examples/computer-use.md: testing/examples/computer-use.md
+        testing/Examples/langgraph.md: testing/examples/langgraph.md
+        testing/Examples/openai-python-agent.md: testing/examples/openai-python-agent.md
+        testing/Examples/swarm.md: testing/examples/swarm.md
+        testing/Running_Tests/PyTest_Compatibility.md: testing/running/pytest-compatibility.md
+        testing/Running_Tests/Visual_Debugger.md: testing/running/visual-debugging.md
+        testing/Writing_Tests/Integrate_Your_Agent.md: testing/writing/integrate.md
+        testing/Writing_Tests/Matchers.md: testing/writing/matchers.md
+        testing/Writing_Tests/parameterized-tests.md: testing/writing/parameterized-tests.md
+        testing/Writing_Tests/tests.md: testing/writing/tests.md
+        testing/Writing_Tests/traces.md: testing/writing/traces.ipynb
 
 nav:
   - Welcome: index.md
