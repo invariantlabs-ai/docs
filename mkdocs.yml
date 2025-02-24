@@ -25,3 +25,40 @@ use_directory_urls: true
 
 plugins:
   - mkdocs-jupyter
+
+nav:
+  - Welcome: index.md
+  - Explorer:
+    - Overview: explorer/index.md
+    - Benchmarks: explorer/benchmarks.md
+    - Search: explorer/search.md
+    - Self-Hosted Explorer: explorer/self-hosted.md
+    - Traces And Datasets: explorer/traces-datasets.md
+    - Explorer API:
+      - Client Setup: explorer/api/client-setup.md
+      - Trace Format: explorer/api/trace-format.md
+      - Annotations: explorer/api/annotations.md
+      - SDK Installation: explorer/api/sdk-installation.md
+      - Dataset Metadata: 
+        - GetDatasetMetadata API : explorer/api/dataset-metadata/get.md
+        - UpdateDatasetMetadata API : explorer/api/dataset-metadata/update.md
+      - Uploading Traces: 
+        - File Uploads: explorer/api/uploading-traces/file-uploads.md
+        - Push API: explorer/api/uploading-traces/push-api.md
+  - Testing: 
+    - Overview: testing/index.md
+    - Quickstart: testing/quickstart.md
+    - Examples: 
+      - Computer Use Agent: testing/examples/computer-use.md
+      - LangGraph: testing/examples/langgraph.md
+      - Function Calling Agents: testing/examples/openai-python-agent.md
+      - OpenAI Swarm: testing/examples/swarm.md
+    - Running Tests: 
+      - pytest Compatibility: testing/running/pytest-compatibility.md
+      - Visual Debugging: testing/running/visual-debugging.md
+    - Writing Tests: 
+      - Integrate Your Agent: testing/writing/integrate.md
+      - Matchers: testing/writing/matchers.md
+      - Parameterized Tests: testing/writing/parameterized-tests.md
+      - Tests: testing/writing/tests.md
+      - Traces: testing/writing/traces.ipynb
