@@ -72,7 +72,7 @@ invariant test test.py
 
 When running with `--push` you will also be able to inspect your test results in [Explorer](https://explorer.invariantlabs.ai).
 
-<img src="/docs/testing/Examples/swarm-explorer.png"
+<img src="../assets/swarm-explorer.png"
 alt="OpenAI Swarm agent testing"
 style="width: 200% !important;">
 
