@@ -28,6 +28,7 @@ plugins:
   # TODO(Hemang): Remove these once we change the URLs in the other places.
   - redirects:
       redirect_maps:
+        explorer/search_and_filter.md: explorer/search.md
         explorer/traces_datasets.md: explorer/traces-datasets.md
         explorer/Explorer_API/2_traces.md: explorer/api/trace-format.md
         explorer/Explorer_API/1_client_setup.md: explorer/api/client-setup.md
