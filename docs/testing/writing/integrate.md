@@ -36,7 +36,7 @@ Each message has a `role` key that specifies the role of the speaker (e.g., `use
 
 Based on this simple format, it is easy to integrate your agent with Invariant `testing`.
 
-> **Extended Format Support** `testing` also supports additional custom properties in the trace format, e.g. for metadata. Note, however, that convenience methods like `Trace.tool_calls()` assume the standard format. Similarly, if you are planning to visualize the trace in [Explorer](explorer/index.md), we advise you to stick to the standard format.
+> **Extended Format Support** `testing` also supports additional custom properties in the trace format, e.g. for metadata. Note, however, that convenience methods like `Trace.tool_calls()` assume the standard format. Similarly, if you are planning to visualize the trace in [Explorer](https://explorer.invariantlabs.ai/explorer/), we advise you to stick to the standard format.
 
 To learn about how to do this, follow one of the example guides below:
 
