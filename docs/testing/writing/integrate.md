@@ -42,22 +42,22 @@ To learn about how to do this, follow one of the example guides below:
 
 <div class='tiles'>
 
-<a href="/testing/examples/computer-use/" class='tile primary'>
+<a href="../../examples/computer-use/" class='tile primary'>
     <span class='tile-title'>Computer Use Agents →</span>
     <span class='tile-description'>Integrate your computer use agent with Invariant <code>testing</code></span>
 </a>
 
-<a href="/testing/examples/langgraph/" class='tile primary'>
+<a href="../../examples/langgraph/" class='tile primary'>
     <span class='tile-title'>LangGraph Agents →</span>
     <span class='tile-description'>Test your LangGraph agent with <code>testing</code></span>
 </a>
 
-<a href="/testing/examples/openai-python-agent/" class='tile'>
+<a href="../../examples/openai-python-agent/" class='tile'>
     <span class='tile-title'>Function Calling Agents →</span>
     <span class='tile-description'>Integrate your agent with Invariant <code>testing</code> using function calls</span>
 </a>
 
-<a href="/testing/examples/swarm/" class='tile'>
+<a href="../../examples/swarm/" class='tile'>
     <span class='tile-title'>Swarm Agents →</span>
     <span class='tile-description'>Test your swarm agent with Invariant <code>testing</code></span>
 </a>
