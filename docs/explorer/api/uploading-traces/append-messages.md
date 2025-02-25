@@ -73,7 +73,7 @@ The response object from the Invariant API.
 
 ### `create_request_and_append_messages`
 
-The `create_request_and_append_messages` method is used to append messages to an existing trace. It creates a request object from the provided messages and trace id pushes this data to the API.
+The `create_request_and_append_messages` method is used to append messages to an existing trace. It creates a request object from the provided messages and trace id and pushes this data to the API.
 
 ##### `messages` <span class='type'>List[Dict]</span> <span class='required'/>
 
