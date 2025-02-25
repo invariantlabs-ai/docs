@@ -41,13 +41,3 @@ The response object from the Invariant API.
 
     dataset_metadata = await client.get_dataset_metadata(dataset_name="some_dataset_name")
     ```
-
-> Client Example
-    ```python
-    from invariant_sdk.client import Client
-    from invariant_sdk.types.push_traces import PushTracesRequest
-
-    client = Client()
-
-    dataset_metadata = client.get_dataset_metadata(dataset_name="some_dataset_name")
-    ```
