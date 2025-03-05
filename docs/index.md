@@ -70,7 +70,7 @@ print(response.messages[-1]["content"])
 
 With this code, your agent is automatically tracked and all execution traces will be logged in a designated dataset on the <img class='inline-invariant' src="assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai).
 
-This enables you to analyze, debug and ensure the security of your agentic system, during development and operation. It also opens up your agent to the Invariant family of tools, allowing you to [observe and debug](./explorer/) your agent, [test it](testing/), and [analyze it for security vulnerabilities](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer).
+Overall, this integration opens up your agent to the Invariant family of tools, allowing you to [observe and debug](./explorer/) your agent, [test it](testing/), and [analyze it for security vulnerabilities](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer).
 
 In the next sections, we will introduce the Invariant eco-system and how to get started with it.
 
@@ -98,27 +98,34 @@ You can use each tool independently, or in combination with each other. The foll
                 <i class='more'>→</i>
             </div>
         </div> -->
-        <div class='offline'>
-            <hr/>
-            <div class='title'>Trace Analysis</div>
-            <a class='box fill clear' href='./explorer'>
-                <p>Explorer</p>
-                <i>Trace viewing and debugging</i>
-                <i class='more'>→</i>
-            </a>
-            <a class='box fill clear' href='./testing'>
-                <p>Testing</p>
-                <i>Agent Unit Testing</i>
-                <i class='more'>→</i>
-            </a>
-            <a class='box fill clear' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
-                <p>Analyzer</p>
-                <i>Agent Security Scanner</i>
-                <i class='more'>→</i>
-            </a>
-        </div>
     </div>
     <div class='clear box thirdparty'>
+        LLM Provider
+    </div>
+</div>
+<div class='overview'>
+    <div class='clear box thirdparty hidden'>
+        Agent
+    </div>
+    <div class='offline'>
+        <div class='title'>Trace Analysis</div>
+        <a class='box fill clear' href='./explorer'>
+            <p>Explorer</p>
+            <i>Trace viewing</i>
+            <i class='more'>→</i>
+        </a>
+        <a class='box fill clear' href='./testing'>
+            <p>Testing</p>
+            <i>Agent Unit Testing</i>
+            <i class='more'>→</i>
+        </a>
+        <a class='box fill clear' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
+            <p>Analyzer</p>
+            <i>Agent Security Scanner</i>
+            <i class='more'>→</i>
+        </a>
+    </div>
+    <div class='clear box thirdparty hidden'>
         LLM Provider
     </div>
 </div>
