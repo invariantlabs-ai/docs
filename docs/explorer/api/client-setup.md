@@ -21,7 +21,7 @@ export INVARIANT_API_KEY=YourAPIKey
 
 ## Creating a Client
 
-In your Python code, you can create an `AsyncClient` or a `Client` object. This object will use the environment variables you set up earlier to authenticate your uploads.
+In your Python code, you can create an `AsyncClient` (which exposes asynchronous methods) or a `Client` (which exposes synchronous methods) object. This object will use the environment variables you set up earlier to authenticate your uploads.
 
 ```python
 from invariant_sdk.async_client import AsyncClient

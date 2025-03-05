@@ -58,7 +58,7 @@ We can now use `testing` to assess the correctness of our agent. We will write t
 
 For this, we will use `TraceFactory` to create traces from the invocation response and then use the corresponding `Trace` methods to examine the resulting runtime traces.
 
-### Test 1:
+### Test 1
 
 <div class='tiles'>
 <a target="_blank" href="https://explorer.invariantlabs.ai/u/hemang1729/langgraph_weather_agent-1733695457/t/1" class='tile'>
@@ -101,7 +101,7 @@ Next, we use the `messages()` method with the `role="tool"` filter to check the 
 
 Finally, we confirm that the last message also includes our desired answer.
 
-### Test 2:
+### Test 2
 
 <div class='tiles'>
 <a target="_blank" href="https://explorer.invariantlabs.ai/u/hemang1729/langgraph_weather_agent-1733695457/t/2" class='tile'>

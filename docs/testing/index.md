@@ -6,7 +6,7 @@ title: Overview
 
 Invariant `testing` is a lightweight library to write and run AI agent tests. It provides helpers and assertions that enable you to write robust tests for your agentic applications.
 
-Using [**localized assertions**](Writing_Tests/1_Traces.ipynb), `testing` always points you to the exact part of the agent's behavior that caused a test to fail, making it easy to debug and resolve issues (_think: stacktraces for agents_).
+Using [**localized assertions**](writing/traces.ipynb), `testing` always points you to the exact part of the agent's behavior that caused a test to fail, making it easy to debug and resolve issues (_think: stacktraces for agents_).
 
 
 <br/>
@@ -82,11 +82,11 @@ ________________________________________________________________________________
 #     },
 #  ]
 ```
-The test result provides information about which assertion failed but also [localizes the assertion failure precisely](./Writing_Tests/tests.md) in the provided list of agent messages.
+The test result provides information about which assertion failed but also [localizes the assertion failure precisely](writing/tests.md) in the provided list of agent messages.
 
 **Visual Test Viewer (Explorer):**
 
-As an alternative to the command line, you can also [visualize test results](./Running_Tests/Visual_Debugger.md) on the [Invariant Explorer](https://explorer.invariantlabs.ai/):
+As an alternative to the command line, you can also [visualize test results](running/visual-debugging.md) on the [Invariant Explorer](https://explorer.invariantlabs.ai/):
 
 ```py
 $ invariant test --push
@@ -98,12 +98,12 @@ Like the terminal output, the Explorer highlights the relevant ranges, but does 
 
 ## Features
 
-* Comprehensive [`Trace` API](Writing_Tests/1_Traces.ipynb) for easily navigating and checking agent traces.
-* [Assertions library](Writing_Tests/2_Assertions.md) to check agent behavior, including fuzzy checkers such as _Levenshtein distance_, _semantic similarity_ and _LLM-as-a-judge_ pipelines.
-* Full [`pytest` compatibility](Running_Tests/PyTest_Compatibility.md) for easy integration with existing test and CI/CD pipelines.
-* Parameterized tests for [testing multiple scenarios](Writing_Tests/parameterized-tests) with a single test function.
-* [Visual test viewer](Writing_Tests/4_Visual_Test_Viewer.md) for exploring large traces and debugging test failures.
+* Comprehensive [`Trace` API](writing/traces.ipynb) for easily navigating and checking agent traces.
+* [Assertions library](writing/matchers.md) to check agent behavior, including fuzzy checkers such as _Levenshtein distance_, _semantic similarity_ and _LLM-as-a-judge_ pipelines.
+* Full [`pytest` compatibility](running/pytest-compatibility.md) for easy integration with existing test and CI/CD pipelines.
+* Parameterized tests for [testing multiple scenarios](writing/parameterized-tests.md) with a single test function.
+* [Visual test viewer](running/visual-debugging.md) for exploring large traces and debugging test failures.
 
 ## Next Steps
 
-* [Quickstart Guide](./quickstart.md)
+* [Quickstart Guide](quickstart.md)

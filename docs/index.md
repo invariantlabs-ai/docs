@@ -4,7 +4,7 @@ title: Welcome
 
 # Invariant Agent Security and Debugging
 
-<div class='subtitle'>Invariant offers a low-friction toolchain for securing, testing, and debugging agentic AI systems.</div>
+<div class='subtitle'>A toolchain for securing and debugging agentic AI systems.</div>
 
 The Invariant eco-system offers a toolchain for building and securing agentic AI systems. It is designed to help you build secure agentic systems _from scratch_ or to _secure an existing system with very little overhead_.
 
@@ -99,12 +99,12 @@ You can click any of the boxes to learn more about the respective tool.
     <span class='tile-description'>Use Invariant <code>testing</code> to build debuggable unit tests for your AI agents</span>
 </a>
 
-<a href="explorer/Explorer_API/2_traces" class='tile'>
+<a href="explorer/api/trace-format" class='tile'>
     <span class='tile-title'>Trace Format →</span>
     <span class='tile-description'>Learn about the Invariant trace format and how to structure your traces for ingestion</span>
 </a>
 
-<a href="explorer/Explorer_API/Uploading_Traces/push_api" class='tile'>
+<a href="explorer/api/uploading-traces/push-api" class='tile'>
     <span class='tile-title'>Pushing Traces →</span>
     <span class='tile-description'>Learn about traces, datasets and annotations on Invariant.</span>
 </a>

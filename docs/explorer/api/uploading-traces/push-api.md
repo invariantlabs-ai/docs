@@ -24,7 +24,7 @@ The `PushTracesRequest` class holds the request data for a trace upload request.
 
 This represents the traces in a dataset. Each `List[Dict]` is a single trace within the dataset. Each `dict` is a single message within a trace - these can represet a user prompt, a tool call, a tool output, etc.
 
-Must be in the [required trace format](../2_traces.md). Must not be empty.
+Must be in the [required trace format](../trace-format.md). Must not be empty.
 
 ##### `annotations` <span class='type'>Optional[List[List[AnnotationCreate]]</span> <span class='optional'/>
 
@@ -48,13 +48,13 @@ Must be a list of dictionaries if provided and must be the same length as messag
 
 Each metadata dictionary can have arbitrary keys and values for storing additional information about the trace.
 
-See [File Uploads](../Uploading_Traces/file_uploads.md) for more information on metadata.
+See [File Uploads](file-uploads.md) for more information on metadata.
 
 ### `AnnotationCreate`
 
 The `AnnotationCreate` class holds the data for an annotation to be created.
 
-See [Annotations](../3_annotations.md) for more information on annotations.
+See [Annotations](../annotations.md) for more information on annotations.
 
 ##### `content` <span class='type'>str</span> <span class='required'/>
 
@@ -103,36 +103,6 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 ##### <span class='type'>PushTracesResponse</span>
 
 The response object from the Invariant API.
-
-> AsyncClient Example
-    ```python
-    from invariant_sdk.async_client import AsyncClient
-    from invariant_sdk.types.push_traces import PushTracesRequest
-
-    client = AsyncClient()
-
-    request = PushTracesRequest(
-        messages=[
-            [
-                {"role": "user", "content": "one"},
-                {"role": "assistant", "content": "two \n three"},
-            ]
-        ],
-        annotations=[
-            [
-                {
-                    "content": "annotating one",
-                    "address": "messages[0].content:L0",
-                    "extra_metadata": {"key1": "value1"},
-                }
-            ]
-        ],
-        metadata=[{"meta_key_1": "meta_value_1"}],
-        dataset="dataset_name"
-    )
-
-    response = await client.push_trace(request)
-    ```
 
 > Client Example
     ```python
@@ -193,39 +163,6 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 ##### <span class='type'>PushTracesResponse</span>
 
 The response object from the Invariant API.
-
-> AsyncClient Example
-    ```python
-    from invariant_sdk.async_client import AsyncClient
-
-    client = AsyncClient()
-
-    messages = [
-        [
-            {"role": "user", "content": "one"},
-            {"role": "assistant", "content": "two \n three"},
-        ]
-    ]
-
-    annotations = [
-        [
-            {
-                "content": "annotating one",
-                "address": "messages[0].content:L0",
-                "extra_metadata": {"key1": "value1"},
-            }
-        ]
-    ]
-
-    metadata = [{"meta_key_1": "meta_value_1"}]
-
-    response = await client.create_request_and_push_trace(
-        messages=messages,
-        annotations=annotations,
-        metadata=metadata,
-        dataset="dataset_name"
-    )
-    ```
 
 > Client Example
     ```python

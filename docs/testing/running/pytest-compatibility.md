@@ -8,7 +8,7 @@
 
 `invariant test` is a lightweight wrapper of the original `pytest` CLI. It is designed to be a drop-in replacement for `pytest` in your existing test suite.
 
-On top of the standard `pytest` arguments, `invariant test` supports the following extra arguments to enable [pushing to Explorer](./Visual_Debugger.md).
+On top of the standard `pytest` arguments, `invariant test` supports the following extra arguments to enable [pushing to Explorer](./visual-debugging.md).
 
 **Extra Arguments**
 
@@ -24,7 +24,7 @@ results. This name will be used to derive a fresh dataset name on each run
 --push (optional)
 ```
 
-Flag to indicate whether to [push data to Explorer](./Visual_Debugger.md). If set to true,
+Flag to indicate whether to [push data to Explorer](./visual-debugging.md). If set to true,
 the `INVARIANT_API_KEY` environment variable must be set. Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
 ### Example Commands

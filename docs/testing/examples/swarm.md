@@ -72,7 +72,7 @@ invariant test test.py
 
 When running with `--push` you will also be able to inspect your test results in [Explorer](https://explorer.invariantlabs.ai).
 
-<img src="/docs/testing/Examples/swarm-explorer.png"
+<img src="../assets/swarm-explorer.png"
 alt="OpenAI Swarm agent testing"
 style="width: 200% !important;">
 
@@ -209,12 +209,12 @@ If you want to continue exploring, you can read some of the following chapters n
 
 <div class='tiles'>
 
-<a href="/docs/testing/Writing_Tests/Matchers" class='tile primary'>
+<a href="../../writing/matchers/" class='tile primary'>
     <span class='tile-title'>Matchers →</span>
     <span class='tile-description'>Learn more about Matchers to write assertions</span>
 </a>
 
-<a href="/docs/testing/Writing_Tests/parameterized-tests/" class='tile primary'>
+<a href="../../writing/parameterized-tests/" class='tile primary'>
     <span class='tile-title'>Paremeterized Tests →</span>
     <span class='tile-description'>Learn how to parameterize your tests for more robust testing</span>
 </a>

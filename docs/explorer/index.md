@@ -31,7 +31,7 @@ export INVARIANT_API_KEY=<your-api-key>
 
 ## 3. Install the Invariant SDK
 
-Next, install the Invariant SDK in your Python environment, by running the following command. See [Installation](Explorer_API/installation.md) for alternative methods using different package managers.
+Next, install the Invariant SDK in your Python environment, by running the following command. See [Installation](api/sdk-installation.md) for alternative methods using different package managers.
 
 ```bash
 pip install invariant-sdk
@@ -78,7 +78,7 @@ client.create_request_and_push_trace(traces, dataset="my-first-dataset")
 
 This will upload your traces to the Invariant Explorer under a new dataset named `my-first-dataset`. If the corresponding dataset already exists, the traces will be appended to it.
 
-To learn more about the expected trace format see the chapter on the [trace format requirements](Explorer_API/2_traces.md).
+To learn more about the expected trace format see the chapter on the [trace format requirements](api/trace-format.md).
 
 ## Work With Your Traces in Explorer
 
@@ -99,17 +99,17 @@ To learn more about what you can do with Explorer, check out any of the followin
     <span class='tile-description'>Submit your AI agent to the Invariant benchmark registry for comparison</span>
 </a>
 
-<a href="Explorer_API/2_traces" class='tile'>
+<a href="api/trace-format" class='tile'>
     <span class='tile-title'>Trace Format →</span>
     <span class='tile-description'>Learn about the Invariant trace format and how to structure your traces for ingestion</span>
 </a>
 
-<a href="Explorer_API/1_client_setup" class='tile'>
+<a href="api/client-setup" class='tile'>
     <span class='tile-title'>Client Setup →</span>
     <span class='tile-description'>Setting up endpoints and authentication for the Invariant SDK</span>
 </a>
 
-<a href="Explorer_API/Uploading_Traces/push_api" class='tile'>
+<a href="api/uploading-traces/push-api" class='tile'>
     <span class='tile-title'>Pushing Traces →</span>
     <span class='tile-description'>Learn about traces, datasets and annotations.</span>
 </a>
