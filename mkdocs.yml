@@ -70,6 +70,8 @@ nav:
         - File Uploads: explorer/api/uploading-traces/file-uploads.md
         - Push API: explorer/api/uploading-traces/push-api.md
         - Append Messages API: explorer/api/uploading-traces/append-messages.md
+  - Gateway:
+    - Overview: gateway/index.md
   - Testing: 
     - Overview: testing/index.md
     - Quickstart: testing/quickstart.md
