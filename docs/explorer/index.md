@@ -6,11 +6,12 @@ title: Overview
 
 <div class='subtitle'>Learn how to upload your AI agent traces to the Invariant Explorer</div>
 
-This quickstart guide will walk you through the process of setting up the Invariant SDK to upload your AI agent traces to the <img class='inline-invariant' src="assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai). 
+This quickstart guide will walk you through the process of setting up the Invariant SDK to upload your AI agent traces to the <img class='inline-invariant' src="assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai).
 
 You can use Explorer to visualize, analyze, and collaborate on your AI agent traces, as well as compare them with other agents and models.
 
 ![Explorer](./assets/explorer-overview.png)
+
 <center>Viewing agent traces in Explorer</center>
 
 ## 1. Create an Explorer Account
@@ -29,9 +30,49 @@ Make note of your API key, as you will need it to authenticate your uploads. If 
 export INVARIANT_API_KEY=<your-api-key>
 ```
 
-## 3. Install the Invariant SDK
+## 3. Upload Your Traces
 
-Next, install the Invariant SDK in your Python environment, by running the following command. See [Installation](api/sdk-installation.md) for alternative methods using different package managers.
+You can now upload your AI agent traces to the Invariant Explorer.
+
+For this, you have two options: (A) Automatic upload via the Invariant Gateway, or (B) manual upload via the Invariant SDK.
+
+### Option A: Using Invariant Gateway for Automatic Tracing
+
+The recommended way for frictionless ingestion of your traces is to use the [Invariant Gateway](../gateway/index.md). This is a hosted service that automatically ingests your traces and makes them available in Explorer.
+
+To do so, Gateway proxies your LLM provider like OpenAI (forwarding the request and response behind the scenes) and then extracts the relevant information from the LLM responses to create a trace, automatically making it available in Explorer.
+
+```python hl_lines="3 8"
+http_client = Client(
+    headers={
+        "Invariant-Authorization": "Bearer {your-invariant-api-key}"
+    },
+)
+openai = OpenAI(
+    http_client=http_client,
+    base_url="https://explorer.invariantlabs.ai/api/v1/gateway/my-first-dataset/openai",
+)
+
+result = openai.chat.completions.create(
+    model="gpt-4",
+    messages=[
+        {"role": "user", "content": "What is the capital of France?"},
+    ],
+)
+print("result: ", result)
+```
+
+To learn more about using Gateway, check out the [Gateway documentation](../gateway/index.md). This also includes instructions for self-hosting and alternative LLM providers.
+
+To determine the dataset name, replace `my-first-dataset` in the URL with the name of your dataset.
+
+### Option B: Use the Invariant SDK
+
+If, instead, you want more control over the shape and content of your traces, you can also use the manual upload method via the Invariant SDK.
+
+#### B.1 Install the SDK
+
+First, install the Invariant SDK in your Python environment, by running the following command. See [Installation](api/sdk-installation.md) for alternative methods using different package managers.
 
 ```bash
 pip install invariant-sdk
@@ -39,7 +80,7 @@ pip install invariant-sdk
 
 > **Self-Host** Note that for the self-hosted version of Explorer, you will need to [configure the SDK](./self-hosted.md/#usage-and-access) to point to your custom endpoint.
 
-## 4. Prepare Your Traces and Upload
+#### B.2 Prepare Your Traces and Upload
 
 Now, you can start preparing your AI agent traces for upload. The Invariant SDK then provides a `Client` class that you can use to upload your traces in an Invariant-compatible format:
 
@@ -82,7 +123,7 @@ To learn more about the expected trace format see the chapter on the [trace form
 
 ## Work With Your Traces in Explorer
 
-You can now navigate to the following URL to view your uploaded traces:
+After uploading your traces, you can now navigate to the following URL to view your uploaded traces:
 
 ```
 https://explorer.invariantlabs.ai/<your_username>/my-first-dataset/t/1
