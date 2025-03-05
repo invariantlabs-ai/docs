@@ -8,7 +8,7 @@ title: Welcome
 
 The Invariant eco-system offers a toolchain for building and securing agentic AI systems. It can be used both to build secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
 
-For this, it relies on an entirely transparent proxy that intercepts and traces the LLM calls of your agent. This enables security guardrailing and insights during operation, without requiring any code changes to the agent.
+For this, it relies on an entirely transparent proxy that intercepts and traces the LLM calls of your agent. This enables security guardrailing and insights during development and operation, without requiring any code changes to the actual agent system.
 
 <div class='overview small'>
     <div class='clear box thirdparty'>
@@ -68,11 +68,11 @@ print(response.messages[-1]["content"])
 # Output: "It seems to be sunny."
 ```
 
-With this code, your agent is automatically tracked and all execution traces will be logged in a designated dataset on the <img class='inline-invariant' src="assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai).
+With this code, your agent is automatically tracked and all execution traces will be logged in a designated dataset in Explorer ([screenshot here](./explorer/)).
 
-Overall, this integration opens up your agent to the Invariant family of tools, allowing you to [observe and debug](./explorer/) your agent, [test it](testing/), and [analyze it for security vulnerabilities](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer).
+Overall, this integration opens up your agent system to the full Invariant family of tools, allowing you to [observe and debug](./explorer/), [write unit tests](testing/), and [analyze your agent's behavior for security vulnerabilities](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer).
 
-In the next sections, we will introduce the Invariant eco-system and how to get started with it.
+This documentation describes how to get started with Invariant eco-system and how to use the different tools, to build and secure your agentic AI systems.
 
 ## Overview
 
