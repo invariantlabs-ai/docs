@@ -37,7 +37,7 @@ http_client = Client(
 )
 openai = OpenAI(
     http_client=http_client,
-    base_url="https://explorer.invariantlabs.ai//api/v1/gateway/{your-dataset-name}/openai",
+    base_url="https://explorer.invariantlabs.ai/api/v1/gateway/{your-dataset-name}/openai",
 )
 
 result = openai.chat.completions.create(
