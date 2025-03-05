@@ -4,9 +4,9 @@ title: Welcome
 
 # Invariant Agent Security and Debugging
 
-<div class='subtitle'>A toolchain for securing and debugging agentic AI systems.</div>
+<div class='subtitle'>A security and debugging layer for agentic AI systems.</div>
 
-The Invariant eco-system offers a toolchain for building and securing agentic AI systems. It is designed to help you build secure agentic systems _from scratch_ or to _secure an existing system with very little overhead_.
+The Invariant eco-system offers a toolchain for building and securing agentic AI systems. It can be used both to build secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
 
 For this, it relies on an entirely transparent proxy that intercepts and traces the LLM calls of your agent. This enables security guardrailing and insights during operation, without requiring any code changes to the agent.
 

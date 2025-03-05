@@ -17,7 +17,7 @@ This enables you to _observe and debug_ your agents in [Invariant Explorer](http
 
 ### 1. Getting the Invariant API Key
 
-Navigate to the <img class='inline-invariant' src="../../assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
+Navigate to the <img class='inline-invariant' src="../assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
 
 Once you have created an account, go to your [User Settings](https://explorer.invariantlabs.ai/settings) and generate an API key.
 
