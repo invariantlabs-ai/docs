@@ -72,6 +72,15 @@ nav:
         - Append Messages API: explorer/api/uploading-traces/append-messages.md
   - Gateway:
     - Overview: gateway/index.md
+    - LLM Provider Integrations:
+      - OpenAI: gateway/llm-provider-integrations/openai.md
+      - Anthropic: gateway/llm-provider-integrations/anthropic.md
+    - Agent Integrations:
+      - Microsoft AutoGen: gateway/agent-integrations/microsoft-autogen.md
+      - OpenAI Swarm: gateway/agent-integrations/openai-swarm.md
+      - OpenHands: gateway/agent-integrations/openhands.md
+      - SWE Agent: gateway/agent-integrations/swe-agent.md
+      - Browser Use: gateway/agent-integrations/browser-use.md
   - Testing: 
     - Overview: testing/index.md
     - Quickstart: testing/quickstart.md

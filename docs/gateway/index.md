@@ -13,40 +13,40 @@ This enables you to _observe and debug_ your agents in [Invariant Explorer](http
 
 ![Gateway](./assets/overview.svg)
 
-## Quick Example with OpenAI
+## Features
+- ✅ **Single Line Setup**: Just change the base URL of your LLM provider to the Invariant Gateway.
+- ✅ **Intercepts agents on an LLM-level** for better debugging and analysis.
+- ✅ **Tool Calling and Computer Use Support** to capture all forms of agentic interactions.
+- ✅ **Seamless forwarding and LLM streaming** to OpenAI, Anthropic, and other LLM providers.
+- ✅ **Store and organize runtime traces** in the [Invariant Explorer](https://explorer.invariantlabs.ai/).
 
-### 1. Getting the Invariant API Key
+---
 
-Navigate to the <img class='inline-invariant' src="../assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai) and create an account via GitHub Sign-In.
+<div class='tiles'>
 
-Once you have created an account, go to your [User Settings](https://explorer.invariantlabs.ai/settings) and generate an API key.
+<a href="llm-provider-integrations/openai" class='tile primary'>
+    <span class='tile-title'>OpenAI Integration →</span>
+    <span class='tile-description'>Seamlessly connect to OpenAI APIs through the Invariant Gateway.</span>
+</a>
 
-### 2. Setup OpenAI API Key
+<a href="llm-provider-integrations/anthropic" class='tile primary'>
+    <span class='tile-title'>Anthropic Integration →</span>
+    <span class='tile-description'>Leverage the Invariant Gateway for smooth Anthropic API interactions.</span>
+</a>
 
-```bash
-export OPENAI_API_KEY={your-openai-api-key}
-```
+<a href="agent-integrations/openhands" class='tile'>
+    <span class='tile-title'>OpenHands Integration →</span>
+    <span class='tile-description'>Enhance and debug your OpenHands agents effortlessly using the Gateway.</span>
+</a>
 
-### 3. Code
+<a href="agent-integrations/swe-agent" class='tile'>
+    <span class='tile-title'>SWE-agent Integration →</span>
+    <span class='tile-description'>Streamline the development and debugging of SWE-agent applications with the Gateway.</span>
+</a>
 
-```python
-http_client = Client(
-    headers={
-        "Invariant-Authorization": "Bearer {your-invariant-api-key}"
-    },
-)
-openai = OpenAI(
-    http_client=http_client,
-    base_url="https://explorer.invariantlabs.ai/api/v1/gateway/{your-dataset-name}/openai",
-)
+<a href="agent-integrations/browser-use" class='tile'>
+    <span class='tile-title'>Browser Use Integration →</span>
+    <span class='tile-description'>Optimize and troubleshoot your Browser Use applications with Invariant Gateway.</span>
+</a>
 
-result = openai.chat.completions.create(
-    model="gpt-4",
-    messages=[
-        {"role": "user", "content": "What is the capital of France?"},
-    ],
-)
-print("result: ", result)
-```
-
-This would push your trace to the [Invariant Explorer](https://explorer.invariantlabs.ai/) where it will be available in the dataset name used above.
+</div>
