@@ -1,6 +1,8 @@
 # OpenHands Integration
 
-[OpenHands](https://github.com/All-Hands-AI/OpenHands) (formerly OpenDevin) is a platform for software development agents powered by AI. 
+<div class='subtitle'>Use Gateway with OpenHands</div>
+
+[OpenHands](https://github.com/All-Hands-AI/OpenHands) (formerly OpenDevin) is a platform for software development agents powered by AI.
 
 You can easily modify the OpenHands setup to use the Invariant Gateway.
 
@@ -8,9 +10,11 @@ You can easily modify the OpenHands setup to use the Invariant Gateway.
 
 Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
-OpenHands does not support custom headers, so you **cannot** pass the Invariant API Key via `Invariant-Authorization` header. However, **there is a workaround** using the Invariant Gateway.
-
 ## Adjust the API Key Format
+
+OpenHands does not support custom headers, so you **cannot** pass the Invariant API Key via the `Invariant-Authorization` header as usual.
+
+However, you can still use Gateway by relying on its support for secret key concatenation.
 
 Instead of setting your LLM Provider's API Key normally, modify the environment variable as follows:
 
@@ -35,7 +39,7 @@ The Invariant Gateway extracts the `invariant-auth` field from the API key and c
 
 This will automatically trace your agent interactions in Invariant Explorer.
 
-## Explore other integrations
+## Explore Other Integrations
 
 <div class='tiles'>
 

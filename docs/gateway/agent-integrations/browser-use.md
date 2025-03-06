@@ -1,6 +1,8 @@
 # Browser Use Integration
 
-[Browser Use](https://github.com/browser-use/browser-use) is the easiest way to connect your AI agents with the browser.
+<div class='subtitle'>Use Gateway with <code>browser-use</code></div>
+
+[Browser Use](https://github.com/browser-use/browser-use) is a simple library to connect your AI agents with the browser.
 
 You can easily modify the Browser Use setup to use the Invariant Gateway.
 
@@ -8,10 +10,11 @@ You can easily modify the Browser Use setup to use the Invariant Gateway.
 
 Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
-Browser Use does not support custom headers, so you **cannot** pass the Invariant API Key via `Invariant-Authorization` header. However, **there is a workaround** using the Invariant Gateway.
-
-
 ## Adjust the API Key Format
+
+`browser-use` does not support custom headers, so you **cannot** pass the Invariant API Key via the `Invariant-Authorization` header as usual.
+
+However, you can still use Gateway by relying on its support for secret key concatenation.
 
 Instead of setting your LLM Provider's API Key normally, modify the environment variable as follows:
 
@@ -21,6 +24,8 @@ export ANTHROPIC_API_KEY={your-anthropic-api-key};invariant-auth={your-invariant
 ```
 
 ## Code
+
+You can now use the Invariant Gateway with your `browser-use` client as follows:
 
 ```python
 import asyncio
@@ -46,14 +51,14 @@ async def main():
 
 asyncio.run(main())
 ```
+
 > **Note:** Do not include the curly braces `{}`.
 
 The Invariant Gateway extracts the `invariant-auth` field from the API key and correctly forwards it to Invariant Explorer while sending the actual API key to OpenAI or Anthropic.
 
 This will automatically trace your agent interactions in Invariant Explorer.
 
-
-## Explore other integrations
+## Explore Other Integrations
 
 <div class='tiles'>
 
@@ -61,7 +66,6 @@ This will automatically trace your agent interactions in Invariant Explorer.
     <span class='tile-title'>Microsoft AutoGen Integration →</span>
     <span class='tile-description'>Enhance and debug your Microsoft AutoGen agents effortlessly using the Gateway.</span>
 </a>
-
 
 <a href="../openai-swarm" class='tile'>
     <span class='tile-title'>OpenAI Swarm Integration →</span>

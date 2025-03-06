@@ -1,18 +1,26 @@
 # OpenAI Integration
 
-With just a few changes in your ```OpenAI``` client setup, you can start using the Invariant Gateway to visualize and debug your traces.
+<div class='subtitle'>Using Invariant Gateway with OpenAI</div>
+
+With just a few changes in your `OpenAI` client setup, you can start using the Invariant Gateway to visualize and debug your traces.
 
 ## Getting the Invariant API Key
+
+First, you need to obtain your Invariant API key. This key is essential for authenticating your requests to the Invariant Gateway.
 
 Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
 ## Setup OpenAI API Key
+
+In your runtime environment, set the OpenAI API key as an environment variable. This is necessary for the OpenAI client to authenticate requests.
 
 ```bash
 export OPENAI_API_KEY={your-openai-api-key}
 ```
 
 ## Code
+
+You can now use the Invariant Gateway with your Anthropic client as follows:
 
 ```python
 from httpx import Client
@@ -37,9 +45,9 @@ result = openai_client.chat.completions.create(
 print("result: ", result)
 ```
 
-This would push your trace to the [Invariant Explorer](https://explorer.invariantlabs.ai/) where it will be available under the dataset used above.
+This code will push your trace to the [Invariant Explorer](https://explorer.invariantlabs.ai/) where it will be available under the dataset name used above, i.e. `your-dataset-name`.
 
-## Explore other integrations
+## Explore Other Integrations
 
 <div class='tiles'>
 

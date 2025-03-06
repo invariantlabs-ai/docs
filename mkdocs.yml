@@ -72,7 +72,8 @@ nav:
         - Append Messages API: explorer/api/uploading-traces/append-messages.md
   - Gateway:
     - Overview: gateway/index.md
-    - LLM Provider Integrations:
+    - Self-Hosted Gateway: gateway/self-hosted.md
+    - LLM Integrations:
       - OpenAI: gateway/llm-provider-integrations/openai.md
       - Anthropic: gateway/llm-provider-integrations/anthropic.md
     - Agent Integrations:

@@ -1,12 +1,16 @@
 # OpenAI Swarm Integration
 
-[OpenAI Swarm](https://github.com/openai/swarm) relies on OpenAI's Python client, the setup is very similar to the standard OpenAI integration:
+<div class='subtitle'>Use Gateway with OpenAI Swarm</div>
+
+[OpenAI Swarm](https://github.com/openai/swarm) relies on OpenAI's Python client, which makes it very easy to integrate Gateway, similar to the standard [OpenAI integration](../llm-provider-integrations/openai.md).
 
 ## Getting the Invariant API Key
 
 Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
 ## Code
+
+You can now use the Invariant Gateway with your OpenAI Swarm client as follows:
 
 ```python
 from swarm import Swarm, Agent
@@ -43,7 +47,7 @@ print(response.messages[-1]["content"])
 
 This will automatically trace your agent interactions in Invariant Explorer.
 
-## Explore other integrations
+## Explore Other Integrations
 
 <div class='tiles'>
 

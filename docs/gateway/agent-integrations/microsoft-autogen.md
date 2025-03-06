@@ -1,14 +1,21 @@
 # Microsoft AutoGen Integration
 
-[Microsoft AutoGen]((https://github.com/microsoft/autogen)) is an open-source programming framework for building AI agents and facilitating cooperation among multiple agents to solve tasks.
+<div class='subtitle'>Integrate Gateway with AutoGen</div>
+
+[Microsoft AutoGen](https://github.com/microsoft/autogen) is an open-source programming framework for building AI agents and facilitating cooperation among multiple agents to solve tasks.
 
 You can easily modify the AutoGen setup to use the Invariant Gateway.
 
 ## Getting the Invariant API Key
 
+First, you need to obtain your Invariant API key. This key is essential for authenticating your requests to the Invariant Gateway.
+
 Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
 ## Code
+
+You can now use the Invariant Gateway with your AutoGen client as follows:
+
 ```python
 import asyncio
 from autogen_agentchat.agents import AssistantAgent
@@ -33,7 +40,7 @@ asyncio.run(main())
 
 This will automatically trace your agent interactions in Invariant Explorer.
 
-## Explore other integrations
+## Explore Other Integrations
 
 <div class='tiles'>
 
@@ -56,6 +63,5 @@ This will automatically trace your agent interactions in Invariant Explorer.
     <span class='tile-title'>Browser Use Integration →</span>
     <span class='tile-description'>Optimize and troubleshoot your Browser Use applications with Invariant Gateway.</span>
 </a>
-
 
 </div>

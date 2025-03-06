@@ -74,6 +74,33 @@ Overall, this integration opens up your agent system to the full Invariant famil
 
 This documentation describes how to get started with Invariant eco-system and how to use the different tools, to build and secure your agentic AI systems.
 
+## Getting Started as a Security Admin
+
+Looking to observe and secure AI agents in your organization? Read our no-code quickstart guides below, for configuring different agents directly with the Invariant Gateway.
+
+This way, you can keep track of your organization's agents, without having to change their code.
+
+If you are interested in deploying your own dedicated instance of the Invariant Gateway, see [self-hosting](./gateway/self-hosted.md).
+
+<div class='tiles'>
+
+<a href="gateway/agent-integrations/openhands" class='tile'>
+    <span class='tile-title'>OpenHands Integration →</span>
+    <span class='tile-description'>Enhance and debug your OpenHands agents effortlessly using the Gateway.</span>
+</a>
+
+<a href="gateway/agent-integrations/swe-agent" class='tile'>
+    <span class='tile-title'>SWE-agent Integration →</span>
+    <span class='tile-description'>Streamline the development and debugging of SWE-agent applications with the Gateway.</span>
+</a>
+
+<a href="gateway/agent-integrations/browser-use" class='tile'>
+    <span class='tile-title'>Browser Use Integration →</span>
+    <span class='tile-description'>Optimize and troubleshoot your Browser Use applications with Invariant Gateway.</span>
+</a>
+
+</div>
+
 ## Overview
 
 With the gateway at the core, Invariant offers a family of tools for trace analysis and testing, allowing you to secure, debug and test your AI agents.

@@ -1,17 +1,20 @@
 # SWE-agent Integration
 
-[SWE-agent](https://github.com/SWE-agent/SWE-agent) allows your preferred language model (e.g., GPT-4o or Claude Sonnet 3.5) to autonomously utilize tools for various tasks, such as fixing issues in real GitHub repositories.
+<div class='subtitle'>Use Gateway with SWE-agent</div>
 
-You can easily modify the SWE-agent setup to use the Invariant Gateway. 
+[SWE-agent](https://github.com/SWE-agent/SWE-agent) allows your preferred language model (e.g., GPT-4o or Claude Sonnet 3.5) to autonomously utilize tools for various software engineering tasks, such as fixing issues in real GitHub repositories.
+
+You can easily modify the SWE-agent setup to use the Invariant Gateway.
 
 ## Getting the Invariant API Key
 
 Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explorer) to learn how to obtain your own API key.
 
-SWE-agent does not support custom headers, so you **cannot** pass the Invariant API Key via `Invariant-Authorization` header. However, **there is a workaround** using the Invariant Gateway.
-
-
 ## Adjust the API Key Format
+
+SWE-agent does not support custom headers, so you **cannot** pass the Invariant API Key via the `Invariant-Authorization` header as usual.
+
+However, you can still use Gateway by relying on its support for secret key concatenation.
 
 Instead of setting your LLM Provider's API Key normally, modify the environment variable as follows:
 
@@ -34,7 +37,7 @@ The Invariant Gateway extracts the `invariant-auth` field from the API key and c
 
 This will automatically trace your agent interactions in Invariant Explorer.
 
-## Explore other integrations
+## Explore Other Integrations
 
 <div class='tiles'>
 
