@@ -357,7 +357,10 @@ span.llm::before {
 }
 
 label.md-nav__title {
-    display: none;
+    img {
+        display: inline;
+    }
+    background-color: blue;
 }
 
 .overview {

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-# ./dev build
+# ./do build
 # docker build -t invariant-docs .
-# ./dev up
+# ./do serve
 # docker build -t invariant-docs . && docker run -it -p 8000:8000 -e DEV_MODE=true -v .:/docs/ invariant-docs
 
 import sys
