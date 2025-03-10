@@ -10,7 +10,7 @@ Visit the [Explorer Documentation](https://explorer.invariantlabs.ai/docs/explor
 ## Setup Gemini API Key
 
 ```bash
-export GEMINI_API_KEY={your-anthropic-api-key}
+export GEMINI_API_KEY={your-gemini-api-key}
 ```
 
 ## Code
