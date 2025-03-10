@@ -76,6 +76,7 @@ nav:
     - LLM Integrations:
       - OpenAI: gateway/llm-provider-integrations/openai.md
       - Anthropic: gateway/llm-provider-integrations/anthropic.md
+      - Gemini: gateway/llm-provider-integrations/gemini.md
     - Agent Integrations:
       - Microsoft AutoGen: gateway/agent-integrations/microsoft-autogen.md
       - OpenAI Swarm: gateway/agent-integrations/openai-swarm.md
