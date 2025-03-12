@@ -51,14 +51,14 @@ This code will push your trace to the [Invariant Explorer](https://explorer.inva
 
 <div class='tiles'>
 
-<a href="../anthropic" class='tile'>
+<a href="../openai" class='tile'>
     <span class='tile-title'>OpenAI Integration →</span>
     <span class='tile-description'>Seamlessly connect to OpenAI APIs through the Invariant Gateway.</span>
 </a>
 
-<a href="../../agent-integrations/microsoft-autogen" class='tile'>
-    <span class='tile-title'>Microsoft AutoGen Integration →</span>
-    <span class='tile-description'>Enhance and debug your Microsoft AutoGen agents effortlessly using the Gateway.</span>
+<a href="../gemini" class='tile'>
+    <span class='tile-title'>Gemini Integration →</span>
+     <span class='tile-description'>Leverage the Invariant Gateway for smooth Gemini API interactions.</span>
 </a>
 
 <a href="../../agent-integrations/openai-swarm" class='tile'>
