@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-# ./do build
+# ./run build
 # docker build -t invariant-docs .
-# ./do serve
+# ./run serve
 # docker build -t invariant-docs . && docker run -it -p 8000:8000 -e DEV_MODE=true -v .:/docs/ invariant-docs
 
 import sys
@@ -29,5 +29,5 @@ elif sys.argv[1] == "up":
     webbrowser.open("http://localhost:8000")
     p.wait()
 else:
-    print("Usage: ./dev build | ./dev up")
+    print("Usage: ./run <build|up>")
     sys.exit(1)

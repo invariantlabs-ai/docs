@@ -78,6 +78,7 @@ nav:
       - Anthropic: gateway/llm-provider-integrations/anthropic.md
     - Agent Integrations:
       - Microsoft AutoGen: gateway/agent-integrations/microsoft-autogen.md
+      - OpenAI Agents SDK: gateway/agent-integrations/openai-agents-sdk.md
       - OpenAI Swarm: gateway/agent-integrations/openai-swarm.md
       - OpenHands: gateway/agent-integrations/openhands.md
       - SWE Agent: gateway/agent-integrations/swe-agent.md
