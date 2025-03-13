@@ -49,6 +49,15 @@ plugins:
         testing/Writing_Tests/parameterized-tests.md: testing/writing/parameterized-tests.md
         testing/Writing_Tests/tests.md: testing/writing/tests.md
         testing/Writing_Tests/traces.md: testing/writing/traces.ipynb
+        # Redirects so that we avoid showing directory listing.
+        explorer/api/index.md: explorer/api/client-setup.md
+        explorer/api/dataset-metadata/index.md: explorer/api/dataset-metadata/get.md
+        explorer/api/uploading-traces/index.md: explorer/api/uploading-traces/file-uploads.md
+        gateway/llm-provider-integrations/index.md: gateway/llm-provider-integrations/openai.md
+        gateway/agent-integrations/index.md: gateway/agent-integrations/microsoft-autogen.md
+        testing/examples/index.md: testing/examples/computer-use.md
+        testing/running/index.md: testing/running/pytest-compatibility.md
+        testing/writing/index.md: testing/writing/integrate.md
 
 nav:
   - Welcome: index.md
