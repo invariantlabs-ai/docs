@@ -93,6 +93,21 @@ nav:
       - OpenHands: gateway/agent-integrations/openhands.md
       - SWE Agent: gateway/agent-integrations/swe-agent.md
       - Browser Use: gateway/agent-integrations/browser-use.md
+  - Guardrails:
+    - Overview: guardrails/index.md
+    - Guardrail Example Library:
+      - RAG: guardrails/examples/rag.md
+      - Code Execution after URL: guardrails/examples/url.md
+      - Unsafe Code: guardrails/examples/url.md
+      - GitHub Issues: guardrails/examples/github_pip.md
+      - Prevent Information Leak: guardrails/examples/leak.md
+      - PII Leak: guardrails/examples/pii.md
+      - Secrets: guardrails/examples/secrets.md
+      - GitHub Token Leak: guardrails/examples/github_token.md
+      - Email Address: guardrails/examples/email.md
+      - Syntax: guardrails/examples/syntax.md
+      - Copyright: guardrails/examples/copyright.md
+      - Loop Detection: guardrails/examples/loop.md
   - Testing: 
     - Overview: testing/index.md
     - Quickstart: testing/quickstart.md
