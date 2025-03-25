@@ -1,4 +1,9 @@
 site_name: Invariant Documentation
+
+hooks:
+# custom transform hooks for guardrails and traces
+- mkdocs_config.py
+
 theme:
   name: material
   custom_dir: docs/overrides

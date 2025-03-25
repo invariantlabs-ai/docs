@@ -19,6 +19,16 @@ body {
     --text-color: #0C0C13;
 }
 
+.trace-container {
+    position: relative;
+}
+
+.trace-iframe {
+    width: 100%;
+    border: none;
+    height: 500px;
+}
+
 h1 {
     font-family: NeueMontreal, system-ui, -apple-system, "Helvetica Neue", sans-serif;
 }
@@ -543,4 +553,26 @@ label.md-nav__title {
 .overview.small {
     margin-top: 30pt;
     margin-bottom: 30pt;
+}
+
+
+@media print {
+    .md-invariant {
+        display: none
+    }
+}
+
+.btn-invariant {
+    border-radius: .1rem;
+    cursor: pointer;
+    outline-offset: .1rem;
+    position: absolute;
+    right: 0.5em;
+    top: 2em;
+    transition: color .25s;
+    height: 1.125em;
+    width: 1.125em;
+    z-index: 1;
+    background-image: url("/assets/logo.svg");
+    background-size: 1.125em;
 }
