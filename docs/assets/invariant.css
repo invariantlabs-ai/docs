@@ -7,8 +7,10 @@
     src: url("./NeueMontreal-Medium.otf") format("opentype");
     font-weight: 500;
 }
+
+
 body {
-    font-family: NeueMontreal, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
     position: relative;
@@ -20,7 +22,7 @@ body {
 }
 
 h1 {
-    font-family: NeueMontreal, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .md-header {
@@ -31,7 +33,7 @@ h1 {
 
 .md-header__topic {
     color: var(--text-color);
-    font-weight: 300 !important;
+    font-weight: 500 !important;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -60,10 +62,9 @@ h1 {
     color: var(--text-color);
     
     color: #0C0C13;
-    font-family: "NeueMontreal";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 38px;
     font-style: normal;
-    font-weight: 400;
     line-height: 52px;
     letter-spacing: 0.55px;
     margin-bottom: 20pt;
@@ -123,6 +124,7 @@ div.subtitle {
     font-size: 18pt;
     opacity: 0.5;
     margin-bottom: 0pt;
+    font-weight: 500;
 }
 
 p>img:not(.inline-invariant) {
@@ -201,7 +203,7 @@ a.tile span:nth-child(2) {
 
 strong {
     font-weight: 600 !important;
-    font-family: NeueMontreal, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 blockquote {
@@ -237,8 +239,13 @@ figure.wide {
     max-width: 500pt !important;
 }
 
+h1 {
+    font-weight: 600 !important;
+}
+
 h2, h3, h4 {
     margin-top: 40pt !important;
+    font-weight: 500 !important;
 }
 
 h2 {
@@ -543,4 +550,39 @@ label.md-nav__title {
 .overview.small {
     margin-top: 30pt;
     margin-bottom: 30pt;
+}
+
+.md-typeset .md-code__content {
+    border-radius: 5pt;
+    font-size: 12pt;
+}
+
+code {
+    border-radius: 5pt;
+    border: 2pt solid #E5E5E5;
+}
+
+.md-grid {
+    max-width: 100%;
+    margin-left: 0pt;
+}
+
+.md-content {
+    max-width: 40rem;
+    margin: auto;
+}
+
+.md-header {
+    background-color: #f6f6f6;
+    height: 41pt;
+}
+.md-header__topic {
+    font-size: 16pt;
+    font-family: NeueMontreal,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+    font-weight: 500;
+}
+.md-header img {
+    width: 20pt !important;
+    height: 20pt !important;
+    margin-right: -3pt;
 }

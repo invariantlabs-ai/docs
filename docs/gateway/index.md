@@ -15,11 +15,11 @@ This enables you to _easily observe and debug_ your agent applications without a
 
 ## Features
 
-- ✅ **Single Line Setup**: Just change the base URL of your LLM to the Invariant Gateway.
-- ✅ **Intercepts agents on an LLM-level** for better debugging and analysis.
-- ✅ **Tool Calling and Computer Use Support** to capture all forms of agentic interactions.
-- ✅ **Seamless forwarding and LLM streaming** to OpenAI, Anthropic, and others.
-- ✅ **Stores and organize runtime traces** in the [Invariant Explorer](https://explorer.invariantlabs.ai/).
+- **Single Line Setup**: Just change the base URL of your LLM to the Invariant Gateway.
+- **Intercepts agents on an LLM-level** for better debugging and analysis.
+- **Tool Calling and Computer Use Support** to capture all forms of agentic interactions.
+- **Seamless forwarding and LLM streaming** to OpenAI, Anthropic, and others.
+- **Stores and organize runtime traces** in the [Invariant Explorer](https://explorer.invariantlabs.ai/).
 
 ## Getting Started as a Security Admin
 
