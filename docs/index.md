@@ -6,9 +6,9 @@ title: Welcome
 
 <div class='subtitle'>A security and debugging layer for agentic AI systems.</div>
 
-The Invariant eco-system offers a toolchain for building and securing agentic AI systems. It can be used both to build secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
+Invariant offers a toolchain for building and securing agentic AI systems. It supports building secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
 
-For this, it relies on an entirely transparent proxy that intercepts and traces the LLM calls of your agent. This enables security guardrailing and insights during development and operation, without requiring any code changes to the actual agent system.
+For this, the _Invariant Gateway_ intercepts and traces the LLM calls of your agent. This enables security guardrailing and insights during development and operation, without requiring any code changes.
 
 <div class='overview small'>
     <div class='clear box thirdparty'>

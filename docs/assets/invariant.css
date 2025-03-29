@@ -17,6 +17,8 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased !important;
     text-rendering: optimizeLegibility;
+    
+    background-color: #f6f6f6;
 
     --text-color: #0C0C13;
 }
@@ -173,16 +175,16 @@ a.tile {
     display: inline-block;
     flex: 1;
     min-width: 228pt;
-    background-color: rgb(239, 239, 239);
+    background-color: white;
     border-radius: 5pt;
     padding: 10pt;
     margin: 10pt;
-    transition: background-color 0.2s;
+    border: 2pt solid #E5E5E5;
 }
 
 a.tile:hover {
     text-decoration: none;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(240, 240, 240);
 }
 
 a.tile span {
@@ -372,13 +374,18 @@ label.md-nav__title {
 
 .overview {
     --body-blue: #6a7aff;
-    --primary-blue: #3e3aff;
+    --primary-blue: #3d3affac;
     border-radius: 4pt;
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 5pt 20pt;
     align-items: center;
+}
+
+
+.md-sidebar__scrollwrap {
+    background-color: #f6f6f6;
 }
 
 .overview .box {
@@ -410,7 +417,7 @@ label.md-nav__title {
 }
 
 .overview .online {
-    border: 1pt dashed var(--primary-blue);
+    border: 2pt dashed var(--primary-blue);
     width: calc(100% - 50pt);
     height: 90pt;
     position: absolute;
@@ -428,7 +435,7 @@ label.md-nav__title {
 }
 
 .offline {
-    border: 1pt dashed var(--primary-blue);
+    border: 2pt dashed var(--primary-blue);
     width: calc(62.5%);
     left: -1pt;
     z-index: 0;
@@ -456,7 +463,6 @@ label.md-nav__title {
     position: absolute;
     top: -25pt;
     left: -25%;
-    /* border-top: 1pt dashed rgb(204, 204, 204); */
     background: none;
     background-color: transparent;
 }
@@ -502,7 +508,7 @@ label.md-nav__title {
 .overview .box.clear {
     background-color: white;
     color: var(--primary-blue);
-    border: 1pt solid var(--primary-blue);
+    border: 2pt solid var(--primary-blue);
 }
 
 .overview .box.clear:hover {
@@ -535,8 +541,8 @@ label.md-nav__title {
 .overview .box.thirdparty {
     background-color: white;
     color: grey;
-    border-width: 1pt;
-    border-color: grey;
+    border-width: 2pt;
+    border-color: #E5E5E5;
     min-height: auto;
     height: auto;
     white-space: nowrap;
@@ -560,6 +566,7 @@ label.md-nav__title {
 code {
     border-radius: 5pt;
     border: 2pt solid #E5E5E5;
+    background-color: white !important;
 }
 
 .md-grid {
@@ -585,4 +592,12 @@ code {
     width: 20pt !important;
     height: 20pt !important;
     margin-right: -3pt;
+}
+
+.md-nav__title {
+    box-shadow: none !important;
+}
+
+.md-nav--primary .md-nav__title[for=__drawer], .md-nav__title {
+    background: transparent !important;
 }
