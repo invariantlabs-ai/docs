@@ -12,7 +12,6 @@ raise "must not send emails to anyone but 'Peter' after seeing the inbox" if:
     call is tool:get_inbox
     call2 is tool:send_email({
       to: "^(?!Peter$).*$"
-      asdf
     })
 ```
 

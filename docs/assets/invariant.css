@@ -562,6 +562,12 @@ label.md-nav__title {
     }
 }
 
+iframe {
+    border: 0;
+    width: 100%;
+    height: fit-content;
+}
+
 .btn-invariant {
     border-radius: .1rem;
     cursor: pointer;
