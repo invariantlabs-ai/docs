@@ -220,10 +220,11 @@ strong {
 
 blockquote {
     background-color: #fdfdfd;
-    border-left: 0.5pt solid #3E3AFF !important;
+    border-left: 2pt solid #3E3AFF !important;
     border-radius: 5pt;
     font-size: 12pt;
-    border: 1pt solid #3E3AFF;
+    padding-right: 5pt;
+    border: 2pt solid #3E3AFF;
     background-color: hsl(241, 100%, 99.5%);
     overflow: hidden;
     color: black;
@@ -231,10 +232,6 @@ blockquote {
     padding-top: 5pt;
 }
 
-blockquote pre {
-    position: relative;
-    margin-left: -10pt;
-}
 
 blockquote p {
     font-size: 12pt !important;
@@ -396,6 +393,7 @@ label.md-nav__title {
 
 .md-sidebar__scrollwrap {
     background-color: #f6f6f6;
+    height: calc(100vh - 80pt) !important;
 }
 
 .overview .box {
@@ -638,4 +636,19 @@ code {
 
 .md-nav--primary .md-nav__title[for=__drawer], .md-nav__title {
     background: transparent !important;
+}
+
+blockquote pre {
+    position: relative;
+    margin-left: -10pt;
+}
+
+blockquote code {
+    border-radius: 0pt !important;
+    border-left-width: 0pt;
+    border-right-width: 0pt;
+}
+
+ul.md-nav__list {
+    font-weight: 400;
 }
