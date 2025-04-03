@@ -397,24 +397,24 @@ label.md-nav__title {
 }
 
 .overview .box {
-    border-radius: 4pt;
+    border-radius: 10pt;
     text-decoration: none;
-    background-color: var(--body-blue);
-    border: 2pt solid var(--primary-blue);
-    padding: 10pt;
+    background-color: #8993FE;
+    border: 2pt solid #8993FE;
+    padding: 20pt 10pt;
     margin: 0pt 5pt;
-    text-align: left;
+    text-align: center;
     color: white;
     min-height: 60pt;
     display: flex;
     flex-direction: column;
-    font-size: 10pt;
+    font-size: 11pt;
 
-    height: 50pt;
+    height: 80pt;
     position: relative;
 }
 
-.overview .box i.more {
+.overview .box i.dmore {
     position: absolute;
     top: 32%;
     right: 10pt;
@@ -443,17 +443,18 @@ label.md-nav__title {
 }
 
 .offline {
-    border: 2pt dashed var(--primary-blue);
+    border: 0pt dashed var(--primary-blue);
     width: calc(62.5%);
     left: -1pt;
     z-index: 0;
-    border-radius: 4pt;
+    border-radius: 15pt;
+    background-color: rgba(0, 0, 0, 0.049);
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     padding: 4pt;
-    padding-left: 2pt;
+    padding-left: 3pt;
     padding-top: 9pt;
     align-items: flex-start;
     justify-content: flex-start;
@@ -491,6 +492,7 @@ label.md-nav__title {
 .overview .box:hover {
     background-color: var(--primary-blue);
     cursor: pointer;
+    color: white;
 }
 
 .overview .box p, .overview .box i {
@@ -516,7 +518,7 @@ label.md-nav__title {
 .overview .box.clear {
     background-color: white;
     color: var(--primary-blue);
-    border: 2pt solid var(--primary-blue);
+    border: 2pt solid #8993FE;
 }
 
 .overview .box.clear:hover {
@@ -679,4 +681,19 @@ ul.md-nav__list {
     background-size: 1.2em;
     padding-top: -1pt;
     margin-top: -5pt;
+}
+
+.box.secondary {
+    position: relative;
+}
+
+.box.secondary .top-connector {
+    position: absolute;
+    top: -18pt;
+    left: 50%;
+    z-index: -1;
+    width: 5pt;
+    transform: translateX(-50%);
+    height: 18pt;
+    background-color: #8993FE;
 }

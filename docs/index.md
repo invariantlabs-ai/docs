@@ -4,36 +4,34 @@ title: Invariant Agent Security
 
 # Invariant Agent Security
 
-<div class='subtitle'>A security and debugging layer for agentic AI systems.</div>
-
-Invariant is a **security layer to protect agentic AI systems**. It supports building secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
-
-For this, the _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement _guardrailing and security analysis_ during development and operation, without requiring any code changes.
-
-<div class='overview small'>
-    <div class='clear box thirdparty'>
-        Agent
-    </div>
-    ↔
-    <div class='box fill main clear'>
-        <a class='box clear' href='./gateway'>
-            <p>Invariant Gateway</p>
-            <i>Security proxy to intercept LLM and tool calls</i>
-            <i class='more'>↗ </i>
-        </a>
-    </div>
-    ↔
-    <div class='clear box thirdparty'>
-        LLM Provider
-    </div>
+<div class='subtitle'>
+Integrate Invariant's contextual guardrailing for high-precision agent security, monitoring and reliability.
 </div>
 
-## Why You Need A Security Layer for Your Agents
+Invariant is a **security layer to protect agentic AI systems**. It helps you prevent prompt injections, data leaks, steer your agent's behavior, and ensure compliance with your organization's policies.
+
+Using a **highly-expressive and self-learning guardrailing system**, Invariant offers precise dataflow and steering capabilities, ensuring that your agents are secure and reliable.
+
+You can **deploy Invariant within minutes**, using our hosted gateway, to ensure quick response to agent security incidents and to prevent prompt injections and data leaks.
+
+### How Invariant Works
+
+Invariant acts as a transparent layer between your agent system and the LLM and tool providers. It intercepts all LLM calls and tool actions, and applies guardrailing rules according to a user-specified security policy, i.e. your guardrailing rules.
+
+It does not require any invasive code changes, and can be used with any agent system, framework and LLM.
+
+<br/><br/>
+<img src="./assets/invariant-overview.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 500pt;"/>
+<br/><br/>
+
+This documentation describes how to set up Invariant and the relevant guardrailing rules for your agent systems such that you can secure your agents and prevent them from engaging in malicious behavior.
+
+## Why You Need A Security Layer for Agents
 
 Invariant helps you make sure that your agents are safe from malicious actors and prevents fatal malfunction:
 
 * It **blocks prompt injections and agent jailbreaks**.
-* It **imposes strict** rules on agent capabilities and behavior, to prevent malfunction and abuse.
+* It **imposes strict rules on agent capabilities** and behavior, to prevent malfunction and abuse.
 * It **analyzes the data flow of your agents**, to ensure that they are not leaking sensitive information.
 * It helps you **steer and control your agents**, to ensure that they are not doing anything unexpected.
 * It ensures that your agents are **in compliance with your organization's policies**.
@@ -41,7 +39,29 @@ Invariant helps you make sure that your agents are safe from malicious actors an
 
 Securing your agent is a crucial step in safely deploying AI agents to production or in your organization.
 
+
 ## Getting Started as Developer
+
+The _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement _guardrailing and security analysis_, without requiring major code changes:
+
+<br/>
+<div class='overview'>
+    <div class='clear box thirdparty'>
+        Agent
+    </div>
+    ↔
+    <div class='box fill main clear'>
+        <a class='box clear' href='./gateway'>
+            <p>Invariant Gateway <i class='more'>↗</i></p>
+            <i>Security proxy to intercept LLM and tool calls</i>
+        </a>
+    </div>
+    ↔
+    <div class='clear box thirdparty'>
+        LLM Provider
+    </div>
+</div>
+<br/>
 
 To quickly secure your agentic application with Invariant, you can rely on our hosted gateway. It automatically traces and protects your agent's LLM calls and actions by enforcing guardrailing rules:
 
@@ -99,7 +119,7 @@ BadRequest: [Invariant] The message did not pass the guardrailing check:
             'Rule 1: Do not talk about Fight Club'"
 ```
 
-With this code, your agent is automatically secured and all execution traces will be logged in a designated dataset in Explorer ([screenshot here](./explorer/)).
+With this code, your agent is automatically secured and all execution traces will be logged in a new project in Explorer ([screenshot here](./explorer/)).
 
 This integration opens up your agent system to the full Invariant family of tools, allowing you to [guardrail and secure](./guardrails/), [observe and debug](./explorer/) and [unit test](testing/) your agents.
 
@@ -144,9 +164,9 @@ You can use each tool independently, or in combination with each other. The foll
     </div>
     <div class='box fill main clear'>
         <a class='box clear' href='./gateway'>
-            <p>Invariant Gateway</p>
+            <p>Invariant Gateway <i class='more'>↗ </i></p>
             <i>Security proxy to trace and intercept LLM calls</i>
-            <i class='more'>↗ </i>
+            
         </a>
         <!-- <div class='online'>
             <div class='title'>Online Guardrails</div>
@@ -167,20 +187,19 @@ You can use each tool independently, or in combination with each other. The foll
     </div>
     <div class='offline'>
         <div class='title'>Trace Analysis</div>
-        <a class='box fill clear' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
-            <p>Guardrails</p>
+        <a class='box fill' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
+            <p>Guardrails <i class='more'>↗ </i></p>
             <i>Steer and protect your agents</i>
-            <i class='more'>↗ </i>
         </a>
-        <a class='box fill clear' href='./explorer'>
-            <p>Explorer</p>
+        <a class='box fill' href='./explorer'>
+            <p>Explorer <i class='more'>↗ </i></p>
             <i>Trace analysis and debugging</i>
-            <i class='more'>↗ </i>
+            
         </a>
         <!-- <a class='box fill clear' href='./testing'>
-            <p>Testing</p>
+            <p>Testing <i class='more'>↗ </i></p>
             <i>Agent Unit Testing</i>
-            <i class='more'>↗ </i>
+            
         </a> -->
     </div>
     <div class='clear box thirdparty hidden'>
