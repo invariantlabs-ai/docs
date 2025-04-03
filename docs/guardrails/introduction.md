@@ -81,7 +81,7 @@ To prevent this, we can write a simple flow rule, that not only checks specific 
 from invariant.detectors import prompt_injection, moderated
 
 raise "Must not send email when agent has looked at suspicious email" if:
-    (inbox: ToolOutput) ~> (call: ToolCall)
+    (inbox: ToolOutput) -> (call: ToolCall)
     inbox is tool:get_inbox
     call is tool:send_email
     prompt_injection(inbox.content)
