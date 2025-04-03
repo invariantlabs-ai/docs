@@ -33,7 +33,7 @@ Invariant’s guardrailing runtime allows you to express these constraints decla
 Let's assume a simple example agent that is capable of managing a user's email inbox. Such an agent may be configured with two tools: 
 
 * `get_inbox()` to check a user's inbox and read the emails
-* `send_email(to: str, subject: str, body: str)` to send an email to a user.
+* `send_email(recipient: str, subject: str, body: str)` to send an email to a user.
 
 <br/><br/>
 <img src="../../assets/guardrails/email-agent-example.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 290pt;"/>
