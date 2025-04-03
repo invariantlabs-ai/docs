@@ -675,7 +675,7 @@ ul.md-nav__list {
     display: inline-block;
     padding-left: 25pt;
 
-    background: url("/assets/warning.svg") no-repeat 3pt 1pt;
+    background: url("../assets/warning.svg") no-repeat 3pt 1pt;
     background-size: 1.2em;
     padding-top: -1pt;
     margin-top: -5pt;
