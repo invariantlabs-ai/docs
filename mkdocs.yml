@@ -72,7 +72,7 @@ nav:
     - Overview: guardrails/index.md
     - Guardrailing Rules: guardrails/rules.md
     - Agent Guardrails:
-      - Function Calls: guardrails/function-calls.md
+      - Tool Calls: guardrails/tool-calls.md
       - Loop Detection: guardrails/loops.md
       - Code Validation: guardrails/code-validation.md
       - Computer Use Agents: guardrails/computer-use.md
