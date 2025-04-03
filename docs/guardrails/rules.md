@@ -1,9 +1,5 @@
----
-title: Overview
----
-
-# Rule Language
+# Reference Document for Rule Writing
 
 <div class="subtitle">
-Learn how to write Guardrail rules.
+A concise reference for writing guardrailing rules with Invariant.
 </div>
