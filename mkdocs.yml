@@ -25,6 +25,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - attr_list
+  - md_in_html
 
 use_directory_urls: true
 
@@ -65,9 +67,10 @@ plugins:
         testing/writing/index.md: testing/writing/integrate.md
 
 nav:
-  - Welcome: index.md
+  - Getting Started: index.md
   - Guardrails:
     - Overview: guardrails/index.md
+    - Guardrailing Rules: guardrails/rules.md
     - Agent Guardrails:
       - Function Calls: guardrails/function-calls.md
       - Loop Detection: guardrails/loops.md
@@ -83,6 +86,7 @@ nav:
       - Regex Filters: guardrails/regex-filters.md
       - Copyrighted Content: guardrails/copyright.md
       - Secret Tokens and Credentials: guardrails/secrets.md
+    - Guardrails in Explorer: guardrails/explorer.md
     - Examples:
       - RAG: guardrails/examples/rag.md
       - Code Execution after URL: guardrails/examples/url.md

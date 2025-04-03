@@ -453,8 +453,8 @@ label.md-nav__title {
     flex-wrap: wrap;
     flex-direction: row;
     padding: 4pt;
-    padding-left: 0pt;
-    padding-top: 7pt;
+    padding-left: 2pt;
+    padding-top: 9pt;
     align-items: flex-start;
     justify-content: flex-start;
 }
@@ -532,7 +532,7 @@ label.md-nav__title {
     border: none;
     padding: 0pt;
     display: flex;
-    width: 65%;
+    width: 45%;
 }
 
 .overview .box.main:hover {
@@ -643,12 +643,40 @@ blockquote pre {
     margin-left: -10pt;
 }
 
-blockquote code {
+blockquote pre code {
     border-radius: 0pt !important;
     border-left-width: 0pt;
     border-right-width: 0pt;
 }
 
+blockquote pre {
+    width: calc(100% + 15pt);
+}
+
 ul.md-nav__list {
     font-weight: 400;
+}
+
+.md-nav__item.md-nav__item--section.md-nav__item--nested {
+    margin-top: 20pt !important;
+}
+
+.md-nav__item.md-nav__item--section.md-nav__item--nested>label {
+    color: black !important;
+}
+
+.risks blockquote {
+    background-color: rgb(254, 243, 243);
+    border: 2pt solid #ff6678 !important;
+}
+
+.risks blockquote>p>strong:first-child {
+    margin-bottom: 10pt;
+    display: inline-block;
+    padding-left: 25pt;
+
+    background: url("/assets/warning.svg") no-repeat 3pt 1pt;
+    background-size: 1.2em;
+    padding-top: -1pt;
+    margin-top: -5pt;
 }

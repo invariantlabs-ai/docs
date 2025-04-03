@@ -6,6 +6,7 @@ Guardrail the actions of computer use agents, to enable safe UI interfacing.
 
 Computer use agents are powerful general-purpose reasoners, equipped with their own computer and the ability to interact with it. However, to ensure security and correctness properties, it is important to guardrail the actions of these agents, to prevent them from performing undesired or harmful actions.
 
+<div class='risks'/>
 > **Computer Use Agent Risks**<br/>
 > Computer use agents are powerful general-purpose reasoners, equipped with their own computer and the ability to interact with it. For example, an insecure agent could:
 

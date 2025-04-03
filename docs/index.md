@@ -1,51 +1,79 @@
 ---
-title: Welcome
+title: Invariant Agent Security
 ---
 
-# Invariant Agent Security and Debugging
+# Invariant Agent Security
 
 <div class='subtitle'>A security and debugging layer for agentic AI systems.</div>
 
-Invariant offers a toolchain for building and securing agentic AI systems. It supports building secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
+Invariant is a **security layer to protect agentic AI systems**. It supports building secure agentic AI systems _from scratch_, and to _secure existing or deployed AI agents_ in an organization.
 
-For this, the _Invariant Gateway_ intercepts and traces the LLM calls of your agent. This enables security guardrailing and insights during development and operation, without requiring any code changes.
+For this, the _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement _guardrailing and security analysis_ during development and operation, without requiring any code changes.
 
 <div class='overview small'>
     <div class='clear box thirdparty'>
         Agent
     </div>
+    ↔
     <div class='box fill main clear'>
         <a class='box clear' href='./gateway'>
             <p>Invariant Gateway</p>
-            <i>Transparent LLM proxy to trace and intercept LLM calls</i>
-            <i class='more'>→</i>
+            <i>Security proxy to intercept LLM and tool calls</i>
+            <i class='more'>↗ </i>
         </a>
     </div>
+    ↔
     <div class='clear box thirdparty'>
         LLM Provider
     </div>
 </div>
 
+## Why You Need A Security Layer for Your Agents
+
+Invariant helps you make sure that your agents are safe from malicious actors and prevents fatal malfunction:
+
+* It **blocks prompt injections and agent jailbreaks**.
+* It **imposes strict** rules on agent capabilities and behavior, to prevent malfunction and abuse.
+* It **analyzes the data flow of your agents**, to ensure that they are not leaking sensitive information.
+* It helps you **steer and control your agents**, to ensure that they are not doing anything unexpected.
+* It ensures that your agents are **in compliance with your organization's policies**.
+* It helps you to **surface novel malicious behavioral patterns** in your agents, and automatically proposes guardrailing rules to prevent them.
+
+Securing your agent is a crucial step in safely deploying AI agents to production or in your organization.
+
 ## Getting Started as Developer
 
-To quickly integrate your agentic application with Invariant, it is enough to rely on our hosted gateway, to automatically trace your agent's LLM calls and to unlock the Invariant eco-system.
+To quickly secure your agentic application with Invariant, you can rely on our hosted gateway. It automatically traces and protects your agent's LLM calls and actions by enforcing guardrailing rules:
 
-```python hl_lines="5 6 7 8 9 10 11 12"
-
+**Example:** Guardrailing an agent with Invariant
+```python hl_lines='8 9 10 16 17 18 19 20 21 22 23 24'
+import os
 from swarm import Swarm, Agent
 from openai import OpenAI
-from httpx import Client
 
-# === Invariant integration ===
+# 1. Guardrailing Rules
+
+guardrails = """
+raise "Rule 1: Do not talk about Fight Club" if: 
+    (msg: Message)
+    "fight club" in msg.content
+"""
+
+
+# 2. Gateway Integration
+
 client = Swarm(
-    client=OpenAI(
-        # redirect and authenticate with the Invariant Gateway
-        http_client=Client(headers={"Invariant-Authorization": "Bearer <your-token>"}),
-        base_url="https://explorer.invariantlabs.ai/api/v1/gateway/<your-dataset-id>/openai",
+    client = OpenAI(
+        default_headers={
+            "Invariant-Authorization": "Bearer " + os.getenv("INVARIANT_API_KEY"),
+            "Invariant-Guardrails": guardrails.encode("unicode_escape"),
+        },
+        base_url="https://explorer.invariantlabs.ai/api/v1/gateway/<your-project-id>/openai",
     )
 )
 
-# === Agent Implementation ===
+
+# 3. Your Agent Implementation
 
 # define a tool
 def get_weather():
@@ -61,26 +89,29 @@ agent = Agent(
 # run the agent
 response = client.run(
     agent=agent,
-    messages=[{"role": "user", "content": "What's the weather?"}],
+    messages=[{"role": "user", "content": "Tell me more about fight club."}],
 )
-
-print(response.messages[-1]["content"])
-# Output: "It seems to be sunny."
 ```
 
-With this code, your agent is automatically tracked and all execution traces will be logged in a designated dataset in Explorer ([screenshot here](./explorer/)).
+**Output**
+```bash
+BadRequest: [Invariant] The message did not pass the guardrailing check:
+            'Rule 1: Do not talk about Fight Club'"
+```
 
-Overall, this integration opens up your agent system to the full Invariant family of tools, allowing you to [observe and debug](./explorer/), [write unit tests](testing/), and [analyze your agent's behavior for security vulnerabilities](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer).
+With this code, your agent is automatically secured and all execution traces will be logged in a designated dataset in Explorer ([screenshot here](./explorer/)).
 
-This documentation describes how to get started with Invariant eco-system and how to use the different tools, to build and secure your agentic AI systems.
+This integration opens up your agent system to the full Invariant family of tools, allowing you to [guardrail and secure](./guardrails/), [observe and debug](./explorer/) and [unit test](testing/) your agents.
+
+This documentation describes how to get started with the Invariant eco-system and how to use the different tools, to build and secure your agentic AI systems.
 
 ## Getting Started as a Security Admin
 
 Looking to observe and secure AI agents in your organization? Read our no-code quickstart guides below, for configuring different agents directly with the Invariant Gateway.
 
-This way, you can keep track of your organization's agents, without having to change their code.
+This way, you can keep track and secure your organization's agents, without having to change their code.
 
-If you are interested in deploying your own dedicated instance of the Invariant Gateway, see [self-hosting](./gateway/self-hosted.md).
+If you are interested in deploying your own dedicated instance of the Invariant Gateway, see our [self-hosting guide](./gateway/self-hosted.md).
 
 <div class='tiles'>
 
@@ -114,15 +145,15 @@ You can use each tool independently, or in combination with each other. The foll
     <div class='box fill main clear'>
         <a class='box clear' href='./gateway'>
             <p>Invariant Gateway</p>
-            <i>Transparent LLM proxy to trace and intercept LLM calls</i>
-            <i class='more'>→</i>
+            <i>Security proxy to trace and intercept LLM calls</i>
+            <i class='more'>↗ </i>
         </a>
         <!-- <div class='online'>
             <div class='title'>Online Guardrails</div>
             <div class='box fill clear' style="flex: 1;">
                 <p>Analyzer</p>
                 <i>Agent Security Scanner</i>
-                <i class='more'>→</i>
+                <i class='more'>↗ </i>
             </div>
         </div> -->
     </div>
@@ -136,21 +167,21 @@ You can use each tool independently, or in combination with each other. The foll
     </div>
     <div class='offline'>
         <div class='title'>Trace Analysis</div>
+        <a class='box fill clear' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
+            <p>Guardrails</p>
+            <i>Steer and protect your agents</i>
+            <i class='more'>↗ </i>
+        </a>
         <a class='box fill clear' href='./explorer'>
             <p>Explorer</p>
-            <i>Trace viewing</i>
-            <i class='more'>→</i>
+            <i>Trace analysis and debugging</i>
+            <i class='more'>↗ </i>
         </a>
-        <a class='box fill clear' href='./testing'>
+        <!-- <a class='box fill clear' href='./testing'>
             <p>Testing</p>
             <i>Agent Unit Testing</i>
-            <i class='more'>→</i>
-        </a>
-        <a class='box fill clear' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
-            <p>Analyzer</p>
-            <i>Agent Security Scanner</i>
-            <i class='more'>→</i>
-        </a>
+            <i class='more'>↗ </i>
+        </a> -->
     </div>
     <div class='clear box thirdparty hidden'>
         LLM Provider
