@@ -32,7 +32,7 @@ To prevent tool calling related risks, Invariant offers a wide range of options 
 
 To match a specific tool call in a guardrailing rule, you can use `call is tool:<tool_name>` expressions. This allows you to only match a specific tool call, and apply guardrailing rules to it.
 
-**Example**: Matching all `send_email` tool call
+**Example**: Matching all `send_email` tool call.
 ```python
 raise "Must not send any emails" if:
     (call: ToolCall)
@@ -45,7 +45,7 @@ This rule will trigger for all tool calls to function `send_email`, disregarding
 
 Tool calls can also be matched by their parameters. This allows you to match only tool calls with specific parameters, e.g. to block them or to restrict the tool interface exposed to the agent.
 
-**Example**: Matching a `send_email` tool call with a specific recipient
+**Example**: Matching a `send_email` tool call with a specific recipient.
 ```python
 raise "Must not send any emails to Alice" if:
     (call: ToolCall)
@@ -58,7 +58,7 @@ raise "Must not send any emails to Alice" if:
 
 Similarly, you can use regex matching to match tool calls with specific parameters. This allows you to match specific tool calls with specific parameters, and apply guardrailing rules to them.
 
-**Example**: Matching `send_email` calls with a specific recipient domain
+**Example**: Matching a `send_email` calls with a specific recipient domain.
 ```python
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
@@ -101,7 +101,7 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
 
 Similar to tool calls, you can check and validate tool outputs.
 
-**Example**: Raise an error if PII is detected in the tool output
+**Example**: Raise an error if PII is detected in the tool output.
 ```python
 raise "PII in tool output" if:
     (out: ToolOutput)
@@ -112,7 +112,7 @@ raise "PII in tool output" if:
 
 You can also check only certain tool outputs, e.g. to only check the output of a specific tool call.
 
-**Example**: Raise an error if PII is detected in the tool output
+**Example**: Raise an error if PII is detected in the tool output.
 ```python
 from invariant.detectors import moderated
 
