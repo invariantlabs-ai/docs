@@ -8,6 +8,11 @@ Guardrailing agents can be a complex undertaking, as it involves understanding t
 
 In this chapter, we will cover the fundamentals of guardrailing with Invariant, with a primary focus on how Invariant allows you to write strict and fuzzy rules that precisely constrain your agent's behavior.
 
+<div class="info"/>
+> **Get Started Directly**<br/>
+> Just looking to get started quickly? Take a look at our concise [rule writing reference](./rules.md) to jump right into code. This document serves as a more general introduction to the concepts of how to write rules with Invariant.
+
+
 ## Understanding Your Agent's Capabilities
 
 Before securing an agent, it is important to understand its capabilities. This includes understanding the tools and functions that the agent can call, as well as the parameters that can be passed to these functions, e.g. can it access private information, sensitive data, can it send emails, can it take destructive actions like deleting files or making payments, etc.

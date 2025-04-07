@@ -10,21 +10,42 @@ Integrate Invariant's contextual guardrailing for high-precision agent security,
 
 Invariant is a **security layer to protect agentic AI systems**. It helps you prevent prompt injections, data leaks, steer your agent's behavior, and ensure compliance with your organization's policies.
 
-Using a **highly-expressive and self-learning guardrailing system**, Invariant offers precise dataflow and steering capabilities, ensuring that your agents are secure and reliable.
-
-You can **deploy Invariant within minutes**, using our hosted gateway, to ensure quick response to agent security incidents and to prevent prompt injections and data leaks.
+You can **deploy Invariant within minutes using our hosted gateway**, to ensure quick response to agent security incidents and to get your agent ready for production.
 
 ### How Invariant Works
 
-Invariant acts as a transparent layer between your agent system and the LLM and tool providers. It intercepts all LLM calls and tool actions, and applies guardrailing rules according to a user-specified security policy, i.e. your guardrailing rules.
+Invariant acts as a transparent layer between your agent system and the LLM and tool providers. It intercepts all LLM calls and tool actions, and applies steering rules according to a provided guardrailing policies.
 
-It does not require any invasive code changes, and can be used with any agent system, framework and LLM.
+Policies are defined in terms of both [deterministic and fuzzy rules](./guardrails/). During operation, your agent is continuously evaluated against them, to restrict its behavior to prevent malfunction and abuse.
+
+Invariant does not require invasive code changes, and can be used with any agent, framework and LLM.
 
 <br/><br/>
 <img src="./assets/invariant-overview.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 500pt;"/>
 <br/><br/>
 
+In this setup, a simple Invariant rule for safeguarding against leakage flows in an agent looks like this:
+
+```python
+raise "agent leaks internal data" if:
+    # check all flows between tool calls
+    (output: ToolOutput) -> (call: ToolCall)
+    # detects sensitive data in the first output
+    is_sensitive(output.content)
+    # detects a potentially sensitive action like sending an email
+    call is tool:send_email
+```
+
+Many security rules like these ship out-of-the-box with Invariant, and you can easily define your own rules to suit your needs and policies.
+
 This documentation describes how to set up Invariant and the relevant guardrailing rules for your agent systems such that you can secure your agents and prevent them from engaging in malicious behavior.
+
+<div class='tiles'>
+<a href="#getting-started-as-developer" class='tile primary'>
+    <span class='tile-title'>Get Started As Developer →</span>
+    <span class='tile-description'>Deploy your first guardrailing rules with Gateway</span>
+</a>
+</div>
 
 ## Why You Need A Security Layer for Agents
 
@@ -187,7 +208,7 @@ You can use each tool independently, or in combination with each other. The foll
     </div>
     <div class='offline'>
         <div class='title'>Trace Analysis</div>
-        <a class='box fill' href='https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer'>
+        <a class='box fill' href='./guardrails'>
             <p>Guardrails <i class='more'>↗ </i></p>
             <i>Steer and protect your agents</i>
         </a>
