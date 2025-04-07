@@ -7,6 +7,7 @@ Detect and prevent infinite loops in your agentic system.
 
 Loop detection is a critical component of any agentic system, as it helps to prevent infinite loops and other undesired behavior. Guardrails provides a simple way to detect and prevent loops in your agentic system.
 
+<div class='risks'/>
 > **Looping Risks**<br/>
 > Loops are a common source of bugs and errors in agentic systems. For example, an insecure agent could:
 

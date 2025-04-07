@@ -25,6 +25,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - attr_list
+  - md_in_html
 
 use_directory_urls: true
 
@@ -65,11 +67,12 @@ plugins:
         testing/writing/index.md: testing/writing/integrate.md
 
 nav:
-  - Welcome: index.md
+  - Getting Started: index.md
   - Guardrails:
     - Overview: guardrails/index.md
+    - Introduction: guardrails/introduction.md
     - Agent Guardrails:
-      - Function Calls: guardrails/function-calls.md
+      - Tool Calls: guardrails/tool-calls.md
       - Loop Detection: guardrails/loops.md
       - Code Validation: guardrails/code-validation.md
       - Computer Use Agents: guardrails/computer-use.md
@@ -83,6 +86,9 @@ nav:
       - Regex Filters: guardrails/regex-filters.md
       - Copyrighted Content: guardrails/copyright.md
       - Secret Tokens and Credentials: guardrails/secrets.md
+    - Guardrails in Gateway: guardrails/gateway.md
+    - Guardrails in Explorer: guardrails/explorer.md
+    - Rule Writing Reference: guardrails/rules.md
     - Examples:
       - RAG: guardrails/examples/rag.md
       - Code Execution after URL: guardrails/examples/url.md
@@ -96,39 +102,39 @@ nav:
       - Syntax: guardrails/examples/syntax.md
       - Copyright: guardrails/examples/copyright.md
       - Loop Detection: guardrails/examples/loop.md
-  - Explorer:
-    - Overview: explorer/index.md
-    - Benchmarks: explorer/benchmarks.md
-    - Search: explorer/search.md
-    - Self-Host Explorer: explorer/self-hosted.md
-    - Traces and Datasets: explorer/traces-datasets.md
-    - Explorer API:
-      - Client Setup: explorer/api/client-setup.md
-      - Trace Format: explorer/api/trace-format.md
-      - Annotations: explorer/api/annotations.md
-      - SDK Installation: explorer/api/sdk-installation.md
-      - Dataset Metadata: 
-        - GetDatasetMetadata API : explorer/api/dataset-metadata/get.md
-        - UpdateDatasetMetadata API : explorer/api/dataset-metadata/update.md
-      - Uploading Traces: 
-        - File Uploads: explorer/api/uploading-traces/file-uploads.md
-        - Push API: explorer/api/uploading-traces/push-api.md
-        - Append Messages API: explorer/api/uploading-traces/append-messages.md
-  - Gateway:
-    - Overview: gateway/index.md
-    - Self-Hosted Gateway: gateway/self-hosted.md
-    - LLM Integrations:
-      - OpenAI: gateway/llm-provider-integrations/openai.md
-      - Anthropic: gateway/llm-provider-integrations/anthropic.md
-      - Gemini: gateway/llm-provider-integrations/gemini.md
-    - Agent Integrations:
-      - Microsoft AutoGen: gateway/agent-integrations/microsoft-autogen.md
-      - OpenAI Agents SDK: gateway/agent-integrations/openai-agents-sdk.md
-      - OpenAI Swarm: gateway/agent-integrations/openai-swarm.md
-      - OpenHands: gateway/agent-integrations/openhands.md
-      - SWE Agent: gateway/agent-integrations/swe-agent.md
-      - Browser Use: gateway/agent-integrations/browser-use.md
-  - Testing:
+  - Integrations:
+    - Explorer:
+      - Overview: explorer/index.md
+      - Benchmarks: explorer/benchmarks.md
+      - Search: explorer/search.md
+      - Self-Host Explorer: explorer/self-hosted.md
+      - Traces and Datasets: explorer/traces-datasets.md
+      - Explorer API:
+        - Client Setup: explorer/api/client-setup.md
+        - Trace Format: explorer/api/trace-format.md
+        - Annotations: explorer/api/annotations.md
+        - SDK Installation: explorer/api/sdk-installation.md
+        - Dataset Metadata: 
+          - GetDatasetMetadata API : explorer/api/dataset-metadata/get.md
+          - UpdateDatasetMetadata API : explorer/api/dataset-metadata/update.md
+        - Uploading Traces: 
+          - File Uploads: explorer/api/uploading-traces/file-uploads.md
+          - Push API: explorer/api/uploading-traces/push-api.md
+          - Append Messages API: explorer/api/uploading-traces/append-messages.md
+    - Gateway:
+      - Overview: gateway/index.md
+      - Self-Hosted Gateway: gateway/self-hosted.md
+      - LLM Integrations:
+        - OpenAI: gateway/llm-provider-integrations/openai.md
+        - Anthropic: gateway/llm-provider-integrations/anthropic.md
+        - Gemini: gateway/llm-provider-integrations/gemini.md
+      - Agent Integrations:
+        - Microsoft AutoGen: gateway/agent-integrations/microsoft-autogen.md
+        - OpenAI Agents SDK: gateway/agent-integrations/openai-agents-sdk.md
+        - OpenAI Swarm: gateway/agent-integrations/openai-swarm.md
+        - OpenHands: gateway/agent-integrations/openhands.md
+        - SWE Agent: gateway/agent-integrations/swe-agent.md
+        - Browser Use: gateway/agent-integrations/browser-use.md
     - Testing: 
       - Overview: testing/index.md
       - Quickstart: testing/quickstart.md

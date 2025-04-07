@@ -391,24 +391,24 @@ label.md-nav__title {
 }
 
 .overview .box {
-    border-radius: 4pt;
+    border-radius: 10pt;
     text-decoration: none;
-    background-color: var(--body-blue);
-    border: 2pt solid var(--primary-blue);
-    padding: 10pt;
+    background-color: #8993FE;
+    border: 2pt solid #8993FE;
+    padding: 20pt 10pt;
     margin: 0pt 5pt;
-    text-align: left;
+    text-align: center;
     color: white;
     min-height: 60pt;
     display: flex;
     flex-direction: column;
-    font-size: 10pt;
+    font-size: 11pt;
 
-    height: 50pt;
+    height: 80pt;
     position: relative;
 }
 
-.overview .box i.more {
+.overview .box i.dmore {
     position: absolute;
     top: 32%;
     right: 10pt;
@@ -437,18 +437,19 @@ label.md-nav__title {
 }
 
 .offline {
-    border: 2pt dashed var(--primary-blue);
+    border: 0pt dashed var(--primary-blue);
     width: calc(62.5%);
     left: -1pt;
     z-index: 0;
-    border-radius: 4pt;
+    border-radius: 15pt;
+    background-color: rgba(0, 0, 0, 0.049);
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     padding: 4pt;
-    padding-left: 0pt;
-    padding-top: 7pt;
+    padding-left: 3pt;
+    padding-top: 9pt;
     align-items: flex-start;
     justify-content: flex-start;
 }
@@ -485,6 +486,7 @@ label.md-nav__title {
 .overview .box:hover {
     background-color: var(--primary-blue);
     cursor: pointer;
+    color: white;
 }
 
 .overview .box p, .overview .box i {
@@ -510,7 +512,7 @@ label.md-nav__title {
 .overview .box.clear {
     background-color: white;
     color: var(--primary-blue);
-    border: 2pt solid var(--primary-blue);
+    border: 2pt solid #8993FE;
 }
 
 .overview .box.clear:hover {
@@ -526,7 +528,7 @@ label.md-nav__title {
     border: none;
     padding: 0pt;
     display: flex;
-    width: 65%;
+    width: 45%;
 }
 
 .overview .box.main:hover {
@@ -637,12 +639,55 @@ blockquote pre {
     margin-left: -10pt;
 }
 
-blockquote code {
+blockquote pre code {
     border-radius: 0pt !important;
     border-left-width: 0pt;
     border-right-width: 0pt;
 }
 
+blockquote pre {
+    width: calc(100% + 15pt);
+}
+
 ul.md-nav__list {
     font-weight: 400;
+}
+
+.md-nav__item.md-nav__item--section.md-nav__item--nested {
+    margin-top: 20pt !important;
+}
+
+.md-nav__item.md-nav__item--section.md-nav__item--nested>label {
+    color: black !important;
+}
+
+.risks blockquote {
+    background-color: rgb(254, 243, 243);
+    border: 2pt solid #ff6678 !important;
+}
+
+.risks blockquote>p>strong:first-child {
+    margin-bottom: 10pt;
+    display: inline-block;
+    padding-left: 25pt;
+
+    background: url("../assets/warning.svg") no-repeat 3pt 1pt;
+    background-size: 1.2em;
+    padding-top: -1pt;
+    margin-top: -5pt;
+}
+
+.box.secondary {
+    position: relative;
+}
+
+.box.secondary .top-connector {
+    position: absolute;
+    top: -18pt;
+    left: 50%;
+    z-index: -1;
+    width: 5pt;
+    transform: translateX(-50%);
+    height: 18pt;
+    background-color: #8993FE;
 }
