@@ -1,4 +1,5 @@
-BASE_URL = "http://localhost/";
+// if we are on localhost or 127.0.0.1, use the local explorer
+BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost/" : "https://explorer.invariantlabs.ai/";
 
 function encodeGuardrailURIComponent(content) {
   /**
