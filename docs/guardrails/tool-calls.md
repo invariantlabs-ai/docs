@@ -11,7 +11,7 @@ For security reasons, it is important to ensure that all tool calls an agent exe
 Guardrails provide you a powerful way to enforce such security policies, and to limit the agent's tool interface to only the tools and functions that are necessary for the task at hand.
 
 <br/><br/>
-<img src="{{ base_url }}/assets/guardrails/tool-calls.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 400pt;"/>
+<img src="site:assets/guardrails/tool-calls.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 400pt;"/>
 <br/><br/>
 
 <div class='risks'/>

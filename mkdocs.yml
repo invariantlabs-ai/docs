@@ -32,6 +32,8 @@ use_directory_urls: true
 
 plugins:
   - mkdocs-jupyter
+  - site-urls
+  - search
   # TODO(Hemang): Remove these once we change the URLs in the other places.
   - redirects:
       redirect_maps:

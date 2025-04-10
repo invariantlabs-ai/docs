@@ -31,7 +31,7 @@ Enable the `Advanced Options` toggle under settings and update the `Base URL` to
 https://explorer.invariantlabs.ai/api/v1/gateway/{add-your-dataset-name-here}/openai
 ```
 
-<img src="{{ base_url }}/assets/openhands-integration.png" style="height: 400px !important; display: block; margin: 0 auto;"/>
+<img src="site:assets/openhands-integration.png" style="height: 400px !important; display: block; margin: 0 auto;"/>
 
 > **Note:** Do not include the curly braces `{}`.
 

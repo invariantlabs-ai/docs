@@ -2,3 +2,4 @@ mkdocs
 mkdocs-jupyter
 mkdocs-material
 mkdocs-redirects
+mkdocs-site-urls
