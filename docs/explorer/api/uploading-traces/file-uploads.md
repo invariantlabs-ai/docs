@@ -8,7 +8,7 @@ Apart from API-based uploads, you can also upload datasets to Explorer using the
 
 To upload a dataset to Explorer, navigate to the [home page](https://explorer.invariantlabs.ai) and click on the `New Dataset` button. This will open the file upload dialog.
 
-![File Upload Dialog](../../assets/explorer-create-dataset.png)
+![File Upload Dialog]({{ base_url }}/assets/explorer-create-dataset.png)
 
 Click on the `Choose a File` button and select the dataset file from your local machine. Once the file is selected, click on the `Create` button to start the upload process.
 

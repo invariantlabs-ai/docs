@@ -8,7 +8,7 @@ Annotations provide additional context, facilitating collaboration and agent err
 
 <figure class='wide'>
 
-<img src="../../assets/annotated-trace.png" alt="An annotated trace" style="width: 100%;">
+<img src="{{ base_url }}/assets/annotated-trace.png" alt="An annotated trace" style="width: 100%;">
 
 <figcaption>An annotated trace in Explorer</figcaption>
 

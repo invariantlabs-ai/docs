@@ -1,4 +1,7 @@
-<script src="/assets/js/js-base64/base64.js"></script>
-<script src="/assets/js/highlight.js"></script>
-
 {% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <script src="{{ base_url }}/assets/js/js-base64/base64.js"></script>
+  <script src="{{ base_url }}/assets/js/highlight.js"></script>
+{% endblock %}

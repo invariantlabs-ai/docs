@@ -44,4 +44,4 @@ def test_check_weather_in(city: str):
 
 When pushing the parameterized test results to Explorer (`invariant test --push`), the resulting test instances will be listed separately:
 
-<img src="../../assets/parameterized_tests.png"/>
+<img src="{{ base_url }}/assets/parameterized_tests.png"/>

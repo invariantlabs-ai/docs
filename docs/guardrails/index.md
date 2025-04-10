@@ -20,7 +20,7 @@ Before securing an agent, it is important to understand its capabilities. This i
 This is important to understand, as it forms the basis for threat modeling and risk assessment. In contrast to traditional software, agentic systems are highly dynamic, meaning tools and APIs can be called in arbitrary ways, and the agent's behavior can change based on the context and the task at hand.
 
 <br/><br/>
-<img src="../../assets/guardrails/tool-calls.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 400pt;"/>
+<img src="{{ base_url }}/assets/guardrails/tool-calls.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 400pt;"/>
 <br/><br/>
 
 ## Constraining Your Agent's Capability space with Rules
@@ -30,7 +30,7 @@ Once you have a good understanding of your agent's capabilities, you can start w
 Invariant’s guardrailing runtime allows you to express these constraints declaratively, ensuring the agent only operates within predefined security boundaries—even in dynamic and open-ended environments. This makes it easier to detect policy violations, reduce risk exposure, and maintain trust in agentic systems.
 
 <br/><br/>
-<img src="../../assets/guardrails/space-overlap.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 290pt;"/>
+<img src="{{ base_url }}/assets/guardrails/space-overlap.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 290pt;"/>
 <br/><br/>
 
 ## Writing Your First Rule
@@ -41,7 +41,7 @@ Let's assume a simple example agent that is capable of managing a user's email i
 * `send_email(recipient: str, subject: str, body: str)` to send an email to a user.
 
 <br/><br/>
-<img src="../../assets/guardrails/email-agent-example.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 290pt;"/>
+<img src="{{ base_url }}/assets/guardrails/email-agent-example.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 290pt;"/>
 <br/><br/>
 
 Unconstrained, this agent can easily fail, allowing a bad actor or sheer malfunction to induce failure states such as data leaks, spamming, or even phishing attacks. 
@@ -99,7 +99,7 @@ Next, let's also consider different workflows our agent may carry out. For examp
 This behavior has the risk that the agent may be prompt injected by an untrusted email, leading to malicious behavior. A possible such scenario is illustratd in the figure below, where an attacker sends a malicious email to the agent, which then leaks sensitive information to the attacker.
 
 <figure>
-<img src="../../assets/guardrails/email-agent-flow.png" alt="Malicious email agent flow" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 450pt;"/>
+<img src="{{ base_url }}/assets/guardrails/email-agent-flow.png" alt="Malicious email agent flow" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 450pt;"/>
 <figcaption>An email agent is prompt injected in a malicious email and then leaks information to an attacker.</figcaption>
 </figure>
 
