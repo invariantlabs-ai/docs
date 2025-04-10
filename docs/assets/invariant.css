@@ -707,3 +707,38 @@ ul.md-nav__list {
     height: 18pt;
     background-color: #8993FE;
 }
+
+.language-example-trace {
+    display: none;
+}
+
+.language-guardrail {
+    position: relative;
+    margin-top: 30pt;
+}
+
+.language-guardrail .action-links {
+    display: inline-block;
+    position: absolute;
+    top: -22pt;
+    right: 0pt;
+    z-index: 10;
+    font-size: 10pt;
+    display: flex;
+    flex-direction: row;
+    gap: 10pt;
+}
+
+.action-links a.link {
+    margin-right: 5pt;
+    color: #3A3E60;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    text-decoration: none !important;
+}
+
+.action-links a.link:hover {
+    text-decoration: none;
+    color: var(--md-accent-fg-color);
+    opacity: 1.0;
+}

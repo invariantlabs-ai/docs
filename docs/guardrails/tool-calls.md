@@ -33,7 +33,7 @@ To prevent tool calling related risks, Invariant offers a wide range of options 
 To match a specific tool call in a guardrailing rule, you can use `call is tool:<tool_name>` expressions. This allows you to only match a specific tool call, and apply guardrailing rules to it.
 
 **Example**: Matching all `send_email` tool call
-```guardrail
+```python
 raise "Must not send any emails" if:
     (call: ToolCall)
     call is tool:send_email
@@ -46,7 +46,7 @@ This rule will trigger for all tool calls to function `send_email`, disregarding
 Tool calls can also be matched by their parameters. This allows you to match only tool calls with specific parameters, e.g. to block them or to restrict the tool interface exposed to the agent.
 
 **Example**: Matching a `send_email` tool call with a specific recipient
-```guardrail
+```python
 raise "Must not send any emails to Alice" if:
     (call: ToolCall)
     call is tool:send_email({
@@ -58,8 +58,8 @@ raise "Must not send any emails to Alice" if:
 
 Similarly, you can use regex matching to match tool calls with specific parameters. This allows you to match specific tool calls with specific parameters, and apply guardrailing rules to them.
 
-**Example**: Matching a `send_email` calls with a specific recipient domain
-```guardrail
+**Example**: Matching `send_email` calls with a specific recipient domain
+```python
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
     call is tool:send_email({
@@ -72,7 +72,7 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
 You can also use content matching to match tool arguments with certain properties, like whether they contain personally identifiable information (PII), or whether they are flagged as toxic or inappropriate. This allows you to match specific tool calls with specific parameters, and apply guardrailing rules to them.
 
 **Example**: Prevent `send_email` calls with phone numbers in the message body.
-```guardrail
+```python
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
     call is tool:send_email({
@@ -86,7 +86,7 @@ This type of content matching also works for other types of content, including `
 
 Alternatively, you can also directly use `invariant.detectors.pii` on the tool call arguments like so:
 
-```guardrail
+```python
 from invariant.detectors import pii
 
 raise "Must not send any emails to <anyone>@disallowed.com" if:
@@ -102,7 +102,7 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
 Similar to tool calls, you can check and validate tool outputs.
 
 **Example**: Raise an error if PII is detected in the tool output
-```guardrail
+```python
 raise "PII in tool output" if:
     (out: ToolOutput)
     len(pii(out.content)) > 0
@@ -113,7 +113,7 @@ raise "PII in tool output" if:
 You can also check only certain tool outputs, e.g. to only check the output of a specific tool call.
 
 **Example**: Raise an error if PII is detected in the tool output
-```guardrail
+```python
 from invariant.detectors import moderated
 
 raise "Moderated content in tool output" if:
@@ -130,7 +130,7 @@ Here, only if the `read_website` tool call returns moderated content, the rule w
 To limit your guardrailing rule to a list of different tools, you can also access a tool's name directly:
 
 **Example**: Raise an error if any of the banned tools is used.
-```guardrail
+```python
 raise "Banned tool used" if:
     (call: ToolCall)
     call.function.name in ["send_email", "delete_file"]

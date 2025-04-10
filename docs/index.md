@@ -142,9 +142,9 @@ BadRequest: [Invariant] The message did not pass the guardrailing check:
 
 With this code, your agent is automatically secured and all execution traces will be logged in a new project in Explorer ([screenshot here](./explorer/)).
 
-This integration opens up your agent system to the full Invariant family of tools, allowing you to [guardrail and secure](./guardrails/), [observe and debug](./explorer/) and [unit test](testing/) your agents.
+<!-- This integration opens up your agent system to the full Invariant family of tools, allowing you to [guardrail and secure](./guardrails/), [observe and debug](./explorer/) and [unit test](testing/) your agents. -->
 
-This documentation describes how to get started with the Invariant eco-system and how to use the different tools, to build and secure your agentic AI systems.
+This documentation describes how to get started with Invariant and how to use it to steer and secure your agentic system.
 
 ## Getting Started as a Security Admin
 
