@@ -18,7 +18,7 @@ The `pii` function helps prevent these issues by scanning messages for PII, thus
 ```python
 def pii(
     data: Union[str, List[str]],
-    entities: Optional[List[str]] = None
+    entities: Optional[List[str]]
 ) -> List[str]
 ```
 Detector to find personally indentifaible information in text.
@@ -27,7 +27,7 @@ Detector to find personally indentifaible information in text.
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `Union[str, List[str]]` | A single message or a list of messages to detect PII in |
+| `data`      | `Union[str, List[str]]` | A single message or a list of messages to detect PII in. |
 | `entities`  | `Optional[List[str]]`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
 
 **Returns**
@@ -40,7 +40,7 @@ Detector to find personally indentifaible information in text.
 The simplest usage of the `pii` function is to check against any message. The following example will raise an error if any message in the trace contains PII.
 
 **Example:** Detecting any PII in any message.
-``` py
+```python
 from invariant.detectors import pii
 
 raise "Found PII in message" if:
@@ -54,7 +54,7 @@ raise "Found PII in message" if:
 You can also specify specific types of PII that you would like to detect, such as phone numbers, emails, or credit card information. The example below demonstrates how to detect credit card numbers in Messages.
 
 **Example:** Detecting Credit Card Numbers.
-```guardrail
+```python
 from invariant.detectors import pii
 
 raise "Found PII in message" if:
@@ -64,7 +64,7 @@ raise "Found PII in message" if:
 <div class="code-caption"> Only messages containing credit card numbers will raise an error. </div>
 
 
-### Preventing PII leakage
+### Preventing PII Leakage
 It is also possible to use the `pii` function in combination with other filters to get more complex behaviour. The example below shows how you can detect when an agent attempts to send emails outside of your organisation. 
 
 **Example:** Detecting PII Leakage in External Communications.

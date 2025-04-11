@@ -46,3 +46,86 @@ raise "Copyrighted text in image" if:
     images := image(msg) # Extract all images in a single message
     copyright(ocr(images))
 ```
+
+
+## ocr <span class="parser-badge"/>
+```python
+def ocr(
+    data: Union[str, List[str]],
+    config: Optional[dict]
+) -> List[str]
+```
+Parser to extract text from images.
+
+**Parameters**
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `data`      | `Union[str, List[str]]` | A single base64 encoded image or a list of base64 encoded images. |
+
+**Returns**
+
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `List[str]` | A list of extracted pieces of text from `data`. |
+
+### Analyzing Text in Images
+The `ocr` function is a  <span class="parser-badge" size-mod="small"></span> so it returns the data found from parsing its content, in this case extracting text from an image. The extracted text can then be used for further detection, for example detecting a prompt injection in an image, like the example below.
+
+**Example:** Image Prompt Injection Detection.
+```python
+from invariant.detectors import prompt_injection
+from invariant.parsers import ocr
+
+raise "Found Prompt Injection in Image" if:
+    (msg: Image)
+    ocr_results := ocr(msg)
+    prompt_injection(ocr_results)
+```
+<div class="code-caption"> The text extracted from the image can be checked using, for example, detectors.</div>
+
+
+## image <span class="builtin-badge"/>
+
+```python
+def image(
+    content: Union[Content | List[Content]]
+) -> List[Image]
+```
+Given some `Content`, this <span class="builtin-badge" size-mod="small"></span> extracts all images. This is useful when messages may contain mixed content.
+
+**Parameters**
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `content`      | `Union[Content | List[Content]]` | A single instance of `Content` or a list of `Content`, possibly with mixed types. |
+
+**Returns**
+
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `List[Image]` | A list of extracted `Image`s from `content`. |
+
+
+### Extracting Images
+Some policies may wish to check images and text in specific ways. Using `image` and `text` we can create a policy that detects prompt injection attacks in user input, even when we allow users to submit images.
+
+**Example:** Prompt Injection Detection in Both Images and Text 
+```python
+from invariant.detectors import prompt_injection
+from invariant.parsers import ocr
+
+raise "Found Prompt Injection" if:
+    (msg: Message)
+
+    # Only check user messages
+    msg.role == 'user'
+    
+    # Use image function to get images
+    ocr_results := ocr(image(msg))
+
+    # Check both text and images
+    prompt_injection(text(msg))
+    prompt_injection(ocr_results)
+```
+<div class="code-caption"> Extract specific content types from mixed-content messages.</div>

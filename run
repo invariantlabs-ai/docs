@@ -9,6 +9,12 @@ import time
 import subprocess
 import webbrowser
 
+# Check the correct number of arguments
+if len(sys.argv) != 2:
+    print("Usage: ./run <build|up>")
+    sys.exit(1)
+
+# Build the image
 if sys.argv[1] == "build":
     print("Building image...")
     subprocess.run(["docker", "build", "-t", "invariant-docs", "."])

@@ -380,13 +380,13 @@ span.llm::before {
 span.llm-badge::before {
     content: "LLM-based";
     color: white;
-    font-size: 8pt;
+    font-size: 10pt;
     position: relative;
     top: -3pt;
     margin-left: 3pt;
     background-color: rgb(199, 130, 199);
     display: inline-block;
-    height: 16pt;
+    height: 18pt;
     
     padding: 2pt 4pt;
     border-radius: 4pt;
@@ -407,12 +407,79 @@ span.detector-badge::before {
     border-radius: 4pt;
 }
 
+span.parser-badge::before {
+    content: "Parser";
+    color: #eef2ff;
+    font-size: 10pt;
+    position: relative;
+    top: -3pt;
+    margin-left: 3pt;
+    background-color: #3A99FF;
+    display: inline-block;
+    height: 18pt;
+    
+    padding: 2pt 4pt;
+    border-radius: 4pt;
+}
+
+.builtin-badge::before {
+    content: "Builtin";
+    color: #eef2ff;
+    font-size: 10pt;
+    position: relative;
+    top: -3pt;
+    margin-left: 3pt;
+    background-color: #3A99FF;
+    display: inline-block;
+    height: 18pt;
+    
+    padding: 2pt 4pt;
+    border-radius: 4pt;
+}
+
+.parser-badge[size-mod="small"]::before {
+    font-size: 10pt;
+    height: 16pt;
+    padding: 0pt 3pt;
+    top: 0pt; 
+    margin-left: 0pt;
+}
+
+
+.builtin-badge[size-mod="small"]::before {
+    font-size: 10pt;
+    height: 16pt;
+    padding: 0pt 3pt;
+    top: 0pt; 
+    margin-left: 0pt;
+}
+
+
 .detector-badge {
     position: relative;
-  }
-  
-  .detector-badge:hover::after {
+ }
+
+.detector-badge:hover::after {
     content: 'DETECTOR DESCRIPTION';
+}
+
+.parser-badge {
+    position: relative;
+}
+
+.parser-badge:hover::after {
+    content: 'PARSER DESCRIPTION';
+}
+
+.builtin-badge {
+    position: relative;
+}
+
+.builtin-badge:hover::after {
+    content: 'BUILTIN DESCRIPTION';
+}
+
+.parser-badge:hover::after, .detector-badge:hover::after, .llm-badge:hover::after, .builtin-badge:hover::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -426,7 +493,7 @@ span.detector-badge::before {
     white-space: nowrap;
     z-index: 99;
     pointer-events: none;
-  }
+}
 
 .jupyter-wrapper {
     margin-top: -20pt;
@@ -773,7 +840,7 @@ ul.md-nav__list {
 /* Set minimum widths for the first two columns */
 .md-typeset__table th:nth-child(1), 
 .md-typeset__table td:nth-child(1) {
-    width: 15%;
+    width: 22%;
     min-width: 100px;
 }
 
@@ -786,7 +853,7 @@ ul.md-nav__list {
 /* Let the description column take up remaining space */
 .md-typeset__table th:nth-child(3), 
 .md-typeset__table td:nth-child(3) {
-    width: 60%;
+    width: 50%;
 }
 
 .function-type {
@@ -860,4 +927,16 @@ ul.md-nav__list {
     text-decoration: none;
     color: var(--md-accent-fg-color);
     opacity: 1.0;
+}
+
+.boolean-value-true {
+    color: var(--md-code-hl-keyword-color);
+    font-weight: 500;
+    font-family: monospace;
+}
+
+.boolean-value-false {
+    color: var(--md-code-hl-function-color);
+    font-weight: 500;
+    font-family: monospace;
 }
