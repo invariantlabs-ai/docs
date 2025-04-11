@@ -24,7 +24,7 @@ Invariant does not require invasive code changes, and can be used with any agent
 <img src="./assets/invariant-overview.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 500pt;"/>
 <br/><br/>
 
-In this setup, a simple Invariant rule for safeguarding against leakage flows in an agent looks like this:
+In this setup, an example Invariant rule for safeguarding against leakage flows looks like this:
 
 ```python
 raise "agent leaks internal data" if:
