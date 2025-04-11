@@ -87,32 +87,38 @@ raise "syntax error" if:
 ]
 ```
 
-
-### `def python_code(data: str | list | dict,  ipython_mode=False)`
-
+### **python_code** <span class="detector-badge"/>
+```python
+def python_code(
+    data: str | list | dict,
+    ipython_mode: bool = False
+) -> PythonDetectorResult
+```
 Parses provided Python code and returns a `PythonDetectorResult` object containing the following fields:
 
-**Parameters:**
+**Parameters**
 
-- `data` (str | list | dict): The Python code to be parsed. This can be a string or list of strings, or a dictionary.
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `data`      | `str | list | dict` | The Python code to be parsed. |
+| `ipython_mode` | `bool` | If set to <span class='boolean-value-true'>TRUE</span>, the code will be parsed in IPython mode. This is useful for parsing code that uses IPython-specific features or syntax. |
 
-- `ipython_mode` (bool): If set to `True`, the code will be parsed in IPython mode. This is useful for parsing code that uses IPython-specific features or syntax.
+**Returns**
 
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `PythonDetectorResult.imports` | This field contains a list of imported modules in the provided code. It is useful for identifying which libraries or modules are being used in the code. |
+| `PythonDetectorResult.builtins` | A list of built-in functions used in the provided code. |
+| `PythonDetectorResult.syntax_error` | A boolean flag indicating whether the provided code has syntax errors. |
+| `PythonDetectorResult`<br>`.syntax_error_exception` | A string containing the exception message if a syntax error occurred while parsing the provided code. |
+| `PythonDetectorResult.function_calls` | A set of function call identifier names in the provided code. |
 
-**Returns:**
-
-* `PythonDetectorResult.imports`: This field contains a list of imported modules in the provided code. It is useful for identifying which libraries or modules are being used in the code.
-
-* `PythonDetectorResult.builtins`: A list of built-in functions used in the provided code.
-
-* `PythonDetectorResult.syntax_error`: A boolean flag indicating whether the provided code has syntax errors.
-
-* `PythonDetectorResult.syntax_error_exception`: A string containing the exception message if a syntax error occurred while parsing the provided code.
-
-* `PythonDetectorResult.function_calls`: A set of function call identifier names in the provided code.
-
-### `def ipython_code(data: str | list | dict)`
-
+### **ipython_code** <span class="detector-badge"/>
+```python
+def ipython_code(
+    data: str | list | dict,
+) -> PythonDetectorResult
+```
 Same as `python_code`, but for [IPython](https://ipython.org/) code. This function is useful for parsing code that uses IPython-specific features or syntax, i.e. code that runs in Jupyter notebook.
 
 
@@ -189,9 +195,13 @@ raise "Dangerous pattern detected in about-to-be-executed bash command" if:
 ]
 ```
 
----
-
-### `def semgrep(data: str | list | dict, lang: str)`
+### **semgrep** <span class="detector-badge"/>
+```python
+def semgrep(
+  data: str | list | dict,
+  lang: str
+) -> List[CodeIssue]
+```
 
 <!-- 
 
@@ -229,12 +239,20 @@ Use Semgrep to enforce secure coding practices on any assistant-generated code _
 
 **Parameters:**
 
-- `data`: Code to scan. Can be a `str`, `list`, or `dict`.
-- `lang`: Programming language (e.g., `'python'`, `'javascript'`).
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `data`      | `str   | list | dict` | Code to scan |
+| `lang`      | `str`  | Programming language (e.g., `'python'`, `'javascript'`). |
+
 
 **Returns:**
 
-A list of `CodeIssue` objects:
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `List[CodeIssue]`  | A list of `CodeIssue`s defined below. |
+
+
+`CodeIssue` is defined as follows:
 ```python
 class CodeIssue(BaseModel):
     description: str
