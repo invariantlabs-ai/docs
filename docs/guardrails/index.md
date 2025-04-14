@@ -8,9 +8,8 @@ Guardrailing agents can be a complex undertaking, as it involves understanding t
 
 In this chapter, we will cover the fundamentals of guardrailing with Invariant, with a primary focus on how Invariant allows you to write strict and fuzzy rules that precisely constrain your agent's behavior.
 
-<div class="info"/>
-> **Get Started Directly**<br/>
-> Just looking to get started quickly? Take a look at our concise [rule writing reference](./rules.md) to jump right into code. This document serves as a more general introduction to the concepts of how to write rules with Invariant.
+!!! info "Get Started Directly"
+    Just looking to get started quickly? Take a look at our concise [rule writing reference](./rules.md) to jump right into code. This document serves as a more general introduction to the concepts of how to write rules with Invariant.
 
 
 ## Understanding Your Agent's Capabilities

@@ -104,7 +104,7 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 
 The response object from the Invariant API.
 
-> Client Example
+> **Client Example**
     ```python
     from invariant_sdk.client import Client
     from invariant_sdk.types.push_traces import PushTracesRequest
@@ -164,7 +164,7 @@ Additional keyword arguments to pass to the requests method. Default is `None`.
 
 The response object from the Invariant API.
 
-> Client Example
+> **Client Example**
     ```python
     from invariant_sdk.client import Client
 

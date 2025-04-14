@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1355px" height="411px" viewBox="0 0 1355 411" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 8</title>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8">
+            <line x1="162.5" y1="270.5" x2="1191.5" y2="270.5" id="Path-5" stroke="#979797" stroke-width="11"></line>
+            <circle id="Oval" stroke="#4050FF" stroke-width="8" fill="#8993FE" cx="379.5" cy="270.5" r="77.5"></circle>
+            <circle id="Oval-Copy-5" fill="#E2E2E2" cx="677.5" cy="270.5" r="81.5"></circle>
+            <circle id="Oval-Copy-8" fill="#E2E2E2" cx="1273.5" cy="270.5" r="81.5"></circle>
+            <circle id="Oval-Copy-7" fill="#E2E2E2" cx="81.5" cy="270.5" r="81.5"></circle>
+            <circle id="Oval-Copy-6" stroke="#4050FF" stroke-width="8" fill="#8993FE" cx="975.5" cy="270.5" r="77.5"></circle>
+            <path d="M379.49538,189 C389.189049,102.500266 490.94657,59.2503995 684.767942,59.2503995 C878.589314,59.2503995 975.5,102.500266 975.5,189" id="Path-6" stroke="#4050FF" stroke-width="8" stroke-dasharray="9"></path>
+            <text id="-&gt;" font-family="CourierNewPS-BoldMT, Courier New" font-size="28.4050633" font-weight="bold" fill="#333333">
+                <tspan x="659.954188" y="24">-&gt;</tspan>
+            </text>
+            <text id="msg:-Message" font-family="CourierNewPSMT, Courier New" font-size="28.4050633" font-weight="normal" fill="#333333">
+                <tspan x="277.725129" y="402">msg: Message</tspan>
+            </text>
+            <text id="tool:-ToolCall" font-family="CourierNewPSMT, Courier New" font-size="28.4050633" font-weight="normal" fill="#333333">
+                <tspan x="865.679317" y="402">tool: ToolCall</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

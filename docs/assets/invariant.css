@@ -13,6 +13,7 @@
 /* define primary blue */
 :root {
     --primary-blue: #3d3affac;
+    --primary-red: #ff6678;
 }
 
 
@@ -407,6 +408,21 @@ span.detector-badge::before {
     border-radius: 4pt;
 }
 
+span.high-latency::before {
+    content: "High-Latency";
+    color: #eef2ff;
+    font-size: 10pt;
+    position: relative;
+    top: -3pt;
+    margin-left: 3pt;
+    background-color: var(--primary-red);
+    display: inline-block;
+    height: 18pt;
+    
+    padding: 2pt 4pt;
+    border-radius: 4pt;
+}
+
 span.parser-badge::before {
     content: "Parser";
     color: #eef2ff;
@@ -460,7 +476,15 @@ span.parser-badge::before {
  }
 
 .detector-badge:hover::after {
-    content: 'DETECTOR DESCRIPTION';
+    content: 'Detectors allow you to detect the presence of certain patterns and types of data in an input.';
+}
+
+.high-latency {
+    position: relative;
+}
+
+.high-latency:hover::after {
+    content: 'High-Latency checks may significantly increase the time it takes to process a request. Non-blocking checks are recommended.';
 }
 
 .parser-badge {
@@ -479,7 +503,7 @@ span.parser-badge::before {
     content: 'BUILTIN DESCRIPTION';
 }
 
-.parser-badge:hover::after, .detector-badge:hover::after, .llm-badge:hover::after, .builtin-badge:hover::after {
+.parser-badge:hover::after, .detector-badge:hover::after, .llm-badge:hover::after, .builtin-badge:hover::after, .high-latency:hover::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -798,7 +822,7 @@ ul.md-nav__list {
 
 .risks blockquote {
     background-color: rgb(254, 243, 243);
-    border: 2pt solid #ff6678 !important;
+    border: 2pt solid var(--primary-red) !important;
 }
 
 .risks blockquote>p>strong:first-child {
@@ -812,20 +836,46 @@ ul.md-nav__list {
     margin-top: -5pt;
 }
 
-.info blockquote {
-    background-color: rgb(243, 245, 254);
+.admonition {
+    background-color: rgb(254, 243, 243) !important;
+    border: 2pt solid var(--primary-red) !important;
+    font-size: 12pt;
+}
+
+.admonition p {
+    font-size: 12pt !important;
+}
+
+.admonition .admonition-title {
+    background-color: transparent !important;
+    margin: 0pt;
+    margin-top: 2pt;
+    padding: 0pt;
+    padding-top: 10pt;
+    padding-left: 27.5pt !important;
+    background: url("../assets/warning.svg") no-repeat 3pt 1pt;
+    background-position: 4pt 12pt;
+    background-size: 1.2em;
+    font-size: 12pt !important;
+    font-weight: 500 !important;
+}
+
+.admonition .admonition-title:before {
+    mask: none;
+    -webkit-mask: none;
+    display: none;
+}
+
+.admonition.info {
+    background-color: rgb(243, 245, 254) !important;
     border: 2pt solid #8766ff !important;
 }
 
-.info blockquote>p>strong:first-child {
-    margin-bottom: 10pt;
-    display: inline-block;
-    padding-left: 25pt;
-
+.admonition.info .admonition-title {
+    background-color: transparent !important;
     background: url("../assets/info.svg") no-repeat 3pt 1pt;
+    background-position: 4pt 12pt;
     background-size: 1.2em;
-    padding-top: -1pt;
-    margin-top: -5pt;
 }
 
 .md-typeset__table {
@@ -901,6 +951,12 @@ ul.md-nav__list {
 .language-guardrail {
     position: relative;
     margin-top: 30pt;
+}
+
+@media (max-width: 600px) {
+    .language-guardrail {
+        margin-top: 30pt !important;
+    }
 }
 
 .language-guardrail .action-links {

@@ -1,40 +1,41 @@
 # Images
 
 <div class='subtitle'>
-Guardrail the visual perception of your agentic system.
+Secure images given to, or produced by, your agentic system.
 </div>
 
 At the core of computer vision agents is the ability to perceive their environment through images, typically by taking screenshots to assess the current state. This visual perception allows agents to understand interfaces, identify interactive elements, and make decisions based on what they "see."
 
-For security and privacy reasons, it is important to ensure that all visual information an agent processes is validated and well-scoped, to prevent exposure of sensitive information or inappropriate content.
-
-Guardrails provide you a powerful way to enforce visual security policies, and to limit the agent's perception to only the visual information that is necessary and appropriate for the task at hand.
+Additionally, some systems may allow users to submit images, posing additional risks.
 
 <div class='risks'/>
 > **Image Risks**<br/>
-> Since images are an agent's window to perceive the world, they can expose sensitive or inappropriate content. For example, an insecure vision agent could:
+> Images may be produced by, or provided to, an agentic system, presenting potential security risks. For example, an insecure agent could:
 
-> * Capture personally identifiable information **(PII) like names or addresses**
+> * Capture **personally identifiable information (PII)** like names or addresses.
 > 
-> * View credentials such as **passwords, API keys, or access tokens**
+> * View credentials such as **passwords, API keys, or access tokens**.
 > 
-> * Capture **copyrighted material** that shouldn't be processed or shared
+> * Get **prompt injected** from text in an image.
+
+
+Guardrails provide you a powerful way to enforce visual security policies, and to limit the agent's perception to only the visual information that is necessary and appropriate for the task at hand.
 
 
 ## ocr <span class="parser-badge"/>
 ```python
 def ocr(
-    data: Union[str, List[str]],
+    data: str, List[str],
     config: Optional[dict]
 ) -> List[str]
 ```
-Parser to extract text from images.
+Given an image as input, this parser extracts and returns the text in the image using [Tesseract](https://github.com/tesseract-ocr/tesseract).
 
 **Parameters**
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `Union[str, List[str]]` | A single base64 encoded image or a list of base64 encoded images. |
+| `data`      | `str, List[str]` | A single base64 encoded image or a list of base64 encoded images. |
 
 **Returns**
 
@@ -43,7 +44,7 @@ Parser to extract text from images.
 | `List[str]` | A list of extracted pieces of text from `data`. |
 
 ### Analyzing Text in Images
-The `ocr` function is a  <span class="parser-badge" size-mod="small"></span> so it returns the data found from parsing its content, in this case extracting text from an image. The extracted text can then be used for further detection, for example detecting a prompt injection in an image, like the example below.
+The `ocr` function is a  <span class="parser-badge" size-mod="small"></span> so it returns the data found from parsing its content; in this case any text present in an image will be extracted. The extracted text can then be used for further detection, for example detecting a prompt injection in an image, like the example below.
 
 **Example:** Image Prompt Injection Detection.
 ```python
@@ -62,7 +63,7 @@ raise "Found Prompt Injection in Image" if:
 
 ```python
 def image(
-    content: Union[Content | List[Content]]
+    content: Content | List[Content]
 ) -> List[Image]
 ```
 Given some `Content`, this <span class="builtin-badge" size-mod="small"></span> extracts all images. This is useful when messages may contain mixed content.
@@ -71,7 +72,7 @@ Given some `Content`, this <span class="builtin-badge" size-mod="small"></span> 
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `content`      | `Union[Content | List[Content]]` | A single instance of `Content` or a list of `Content`, possibly with mixed types. |
+| `content`      | `Content | List[Content]` | A single instance of `Content` or a list of `Content`, possibly with mixed types. |
 
 **Returns**
 

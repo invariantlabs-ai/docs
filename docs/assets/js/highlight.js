@@ -1,5 +1,9 @@
 // if we are on localhost or 127.0.0.1, use the local explorer
-BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost/" : "https://explorer.invariantlabs.ai/";
+BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost/"
+    : "https://explorer.invariantlabs.ai/";
 
 function encodeGuardrailURIComponent(content) {
   /**
@@ -41,10 +45,10 @@ function findSnippetTitle(codeElement) {
   return "New Guardrail";
 }
 
-function changeElements(codeElements, endpoint) {
+function changeElements(codeElements, endpoint, embed = false) {
   // Add a button to each pre element
   codeElements.forEach(function (codeElement) {
-    // replace the code element with an iframe
+    // augment the code element
     let textContent = codeElement.textContent || codeElement.innerText;
 
     // parse and split contents
@@ -60,28 +64,42 @@ function changeElements(codeElements, endpoint) {
         );
     }
 
-    // add links for the ${BASE_URL}/playground?policy=...&input=... (Call it Open In Playground)
-    const container = document.createElement("div");
-    container.className = "action-links";
+    if (!embed) {
+      // add links for the ${BASE_URL}/playground?policy=...&input=... (Call it Open In Playground)
+      const container = document.createElement("div");
+      container.className = "action-links";
 
-    const playgroundLink = document.createElement("a");
-    playgroundLink.className = "link open-in-playground";
-    playgroundLink.href = `${BASE_URL}${endpoint}=${encodedContent}${exampleTraceURIComponent}`;
-    playgroundLink.target = "_blank";
-    playgroundLink.innerText = "⏵ Open In Playground";
+      const playgroundLink = document.createElement("a");
+      playgroundLink.className = "link open-in-playground";
+      playgroundLink.href = `${BASE_URL}${endpoint}=${encodedContent}${exampleTraceURIComponent}`;
+      playgroundLink.target = "_blank";
+      playgroundLink.innerText = "⏵ Open In Playground";
 
-    const agentLink = document.createElement("a");
-    agentLink.className = "link add-to-agent";
-    agentLink.href = `${BASE_URL}deploy-guardrail#policy-code=${encodeURIComponent(
-      textContent
-    )}&name=${encodeURIComponent(findSnippetTitle(codeElement))}`;
-    agentLink.target = "_blank";
-    agentLink.innerText = "+ Add to Agent";
+      const agentLink = document.createElement("a");
+      agentLink.className = "link add-to-agent";
+      agentLink.href = `${BASE_URL}deploy-guardrail#policy-code=${encodeURIComponent(
+        textContent
+      )}&name=${encodeURIComponent(findSnippetTitle(codeElement))}`;
+      agentLink.target = "_blank";
+      agentLink.innerText = "+ Add to Agent";
 
-    container.appendChild(agentLink);
-    container.appendChild(playgroundLink);
+      container.appendChild(agentLink);
+      container.appendChild(playgroundLink);
 
-    codeElement.appendChild(container);
+      codeElement.appendChild(container);
+    } else {
+      const id = crypto.randomUUID().toString();
+      const iframe = document.createElement("iframe", { id: id });
+      iframe.src = `${BASE_URL}embed/${endpoint}=${encodedContent}&id=${id}`;
+      codeElement.replaceWith(iframe);
+
+      window.addEventListener("message", function (event) {
+        //check which element the message is coming from
+        if (event.data.type === "resize" && event.data.id === id) {
+          iframe.style.height = event.data.height + "px";
+        }
+      });
+    }
   });
 }
 
@@ -100,7 +118,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // currently disabled as the traceview endpoint is not yet enabled on explorer
       changeElements(
         document.querySelectorAll("div.language-trace"),
-        "traceview?trace"
+        "traceview?trace",
+        true
       );
       changeElements(
         document.querySelectorAll("div.language-guardrail"),
