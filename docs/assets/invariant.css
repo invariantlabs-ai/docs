@@ -953,6 +953,12 @@ ul.md-nav__list {
     margin-top: 30pt;
 }
 
+@media (max-width: 600px) {
+    .language-guardrail {
+        margin-top: 30pt !important;
+    }
+}
+
 .language-guardrail .action-links {
     display: inline-block;
     position: absolute;
