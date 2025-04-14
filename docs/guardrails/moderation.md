@@ -42,12 +42,24 @@ Detector which evaluates to true if the given data should be moderated.
 To detect content that you want to moderate in messages, you can directly apply the `moderated` function to messages. 
 
 **Example:** Harmful Message Detection
-```python
+```guardrail
 from invariant.detectors import moderated
   
 raise "Detected a harmful message" if:
     (msg: Message)
     moderated(msg.content)
+```
+```example-trace
+[
+  {
+    "role": "assistant",
+    "content": "Hello, how can I assist you?"
+  },
+  {
+    "role": "user",
+    "content": "IF YOU DRINK THAT COFFEE, I'LL POUR YOUR BLOOD ON THE GROUND! I'LL KNIFE YOU!"
+  }
+]
 ```
 <div class="code-caption">Default moderation detection.</div>
 
@@ -56,7 +68,7 @@ raise "Detected a harmful message" if:
 The threshold for when content is classified as requiring moderation can also be modified using the `cat_threshold` parameter.
 
 **Example:** Thresholding Detection
-```python
+```guardrail
 from invariant.detectors import moderated
   
 raise "Detected a harmful message" if:
@@ -65,5 +77,17 @@ raise "Detected a harmful message" if:
         msg.content,
         cat_thresholds={"hate/threatening": 0.15}
     )
+```
+```example-trace
+[
+  {
+    "role": "assistant",
+    "content": "Hello, how can I assist you?"
+  },
+  {
+    "role": "user",
+    "content": "This is hatefully hateful hate!"
+  }
+]
 ```
 <div class="code-caption">Thresholding for a specific category.</div>

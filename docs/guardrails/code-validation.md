@@ -105,7 +105,33 @@ def python_code(
 ) -> List[str]
 ```
 
-Parses provided Python code and returns a `PythonDetectorResult` object containing the following fields:
+Parses provided Python code and returns a `PythonDetectorResult` object.
+
+**Parameters**
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `data`      | `str | list | dict` | The Python code to be parsed. |
+| `ipython_mode` | `bool` | If set to <span class='boolean-value-true'>TRUE</span>, the code will be parsed in IPython mode. This is useful for parsing code that uses IPython-specific features or syntax. |
+
+**Returns**
+
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `PythonDetectorResult` | The result of the detector. |
+
+
+### `PythonDetectorResult` objects
+`PythonDetectorResult` objects represent the analysis results of a Python code snippet.
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `.imports` | `list[str]` | This field contains a list of imported modules in the provided code. It is useful for identifying which libraries or modules are being used in the code. |
+| `.builtins` | `list[str]` | A list of built-in functions used in the provided code. |
+| `.syntax_error` | `bool` | A boolean flag indicating whether the provided code has syntax errors. |
+| `.syntax_error_exception` | `str | None` | A string containing the exception message if a syntax error occurred while parsing the provided code. |
+| `.function_calls` | `set[str]` | A set of function call identifier names in the provided code. |
+
 ## Static Code Analysis
 
 Static code analysis allows for powerful pattern-based detection of vulnerabilities and insecure coding practices. Invariant integrates [Semgrep](https://semgrep.dev) directly into your guardrails, enabling deep analysis of assistant-generated code before it's executed.

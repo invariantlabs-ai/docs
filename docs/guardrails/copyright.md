@@ -35,11 +35,19 @@ Detects potentially copyrighted material in the given `data`.
 ### Detecting Copyrighted content
 
 **Example:** Detecting Copyrighted content
-```python
+```guardrail
 from invariant.detectors import copyright
 
 raise "found copyrighted code" if:
     (msg: Message)
     not empty(copyright(msg.content, threshold=0.75))
+```
+```example-trace
+[
+  {
+    "role": "assistant",
+    "content": "/**\n* GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007\n*/\nexport const someConst = false;"
+  }
+]
 ```
 <div class="code-caption">{little text bit}</div>
