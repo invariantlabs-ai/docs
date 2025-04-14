@@ -401,7 +401,7 @@ span.llm-badge::before {
     background-color: rgb(199, 130, 199);
     display: inline-block;
     height: 18pt;
-    
+
     padding: 2pt 4pt;
     border-radius: 4pt;
 }
@@ -416,7 +416,7 @@ span.detector-badge::before {
     background-color: var(--primary-blue);
     display: inline-block;
     height: 18pt;
-    
+
     padding: 2pt 4pt;
     border-radius: 4pt;
 }
@@ -431,7 +431,7 @@ span.high-latency::before {
     background-color: var(--primary-red);
     display: inline-block;
     height: 18pt;
-    
+
     padding: 2pt 4pt;
     border-radius: 4pt;
 }
@@ -446,7 +446,7 @@ span.parser-badge::before {
     background-color: #3A99FF;
     display: inline-block;
     height: 18pt;
-    
+
     padding: 2pt 4pt;
     border-radius: 4pt;
 }
@@ -461,7 +461,7 @@ span.parser-badge::before {
     background-color: #3A99FF;
     display: inline-block;
     height: 18pt;
-    
+
     padding: 2pt 4pt;
     border-radius: 4pt;
 }
@@ -470,7 +470,7 @@ span.parser-badge::before {
     font-size: 10pt;
     height: 16pt;
     padding: 0pt 3pt;
-    top: 0pt; 
+    top: 0pt;
     margin-left: 0pt;
 }
 
@@ -479,14 +479,14 @@ span.parser-badge::before {
     font-size: 10pt;
     height: 16pt;
     padding: 0pt 3pt;
-    top: 0pt; 
+    top: 0pt;
     margin-left: 0pt;
 }
 
 
 .detector-badge {
     position: relative;
- }
+}
 
 .detector-badge:hover::after {
     content: 'Detectors allow you to detect the presence of certain patterns and types of data in an input.';
@@ -516,7 +516,11 @@ span.parser-badge::before {
     content: 'BUILTIN DESCRIPTION';
 }
 
-.parser-badge:hover::after, .detector-badge:hover::after, .llm-badge:hover::after, .builtin-badge:hover::after, .high-latency:hover::after {
+.parser-badge:hover::after,
+.detector-badge:hover::after,
+.llm-badge:hover::after,
+.builtin-badge:hover::after,
+.high-latency:hover::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -901,20 +905,20 @@ ul.md-nav__list {
 }
 
 /* Set minimum widths for the first two columns */
-.md-typeset__table th:nth-child(1), 
+.md-typeset__table th:nth-child(1),
 .md-typeset__table td:nth-child(1) {
     width: 22%;
     min-width: 100px;
 }
 
-.md-typeset__table th:nth-child(2), 
+.md-typeset__table th:nth-child(2),
 .md-typeset__table td:nth-child(2) {
     width: 25%;
     min-width: 250px;
 }
 
 /* Let the description column take up remaining space */
-.md-typeset__table th:nth-child(3), 
+.md-typeset__table th:nth-child(3),
 .md-typeset__table td:nth-child(3) {
     width: 50%;
 }
@@ -939,9 +943,9 @@ ul.md-nav__list {
     margin-top: -0.9rem;
     padding-left: 4px;
     font-style: italic;
-  }
+}
 
-  
+
 .box.secondary {
     position: relative;
 }
@@ -1010,13 +1014,14 @@ ul.md-nav__list {
     font-family: monospace;
 }
 
-.md-typeset ul li, .md-typeset ol li {
+.md-typeset ul li,
+.md-typeset ol li {
     font-size: 14pt;
 }
 
 .md-sidebar--primary .md-sidebar__scrollwrap {
     overflow-y: visible;
-} 
+}
 
 .md-header__title {
     padding-left: 30pt;
@@ -1061,4 +1066,32 @@ ul.md-nav__list {
     padding-left: 15pt;
     font-weight: 500;
     height: 30pt;
+}
+
+.styled-figure {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800pt !important;
+    padding: 10pt;
+    background-color: rgb(238, 238, 238);
+    border-radius: 4pt;
+}
+
+.styled-figure.half {
+    max-width: 500pt !important;
+}
+
+.styled-figure img {
+    border: 1pt solid #efefef;
+    border-radius: 4pt;
+}
+
+.styled-figure figcaption {
+    margin-top: 5pt;
+    margin-bottom: -2.5pt;
+}
+
+.rounded-figure {
+    border-radius: 10pt;
 }

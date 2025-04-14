@@ -109,7 +109,7 @@ Explorer provides a comprehensive user interface to manage and configure your gu
 
 Please see the chapter on [Guardrails in Explorer](./explorer.md) for more details on how to use Explorer to manage your guardrailing rules.
 
-<figure style="display: block; margin: 0 auto; width: 100%; max-width: 800pt !important; border: 2pt solid #efefef; padding: 10pt; background-color: white;">
+<figure class="styled-figure half">
 <img src="site:/guardrails/guardrails-in-explorer-screenshot.png" alt="Screenshot showing Guardrails configuration in Explorer" class="guardrails-in-explorer-screenshot"/>
 <figcaption style="text-align: center; font-size: 0.8em; color: #666;">Screenshot showing Guardrails configuration in Explorer</figcaption>
 </figure>

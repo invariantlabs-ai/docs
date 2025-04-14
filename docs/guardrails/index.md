@@ -181,3 +181,46 @@ Invariant's Analysis models are still in early preview,  but if you are interest
 This chapter has introduced you to the fundamentals of guardrailing with Invariant. We have covered the basics of writing rules, and how to deploy and maintain them. 
 
 To learn more about the different types of rules and how to write them, please refer to the [Rule Language](./rules.md) chapter, which covers the different types of rules you can write with Invariant, and how to use them to secure your agentic systems.
+
+## Next Steps
+
+If you are interested in learning more about Guardrails, we recommend the following resources:
+
+<div class='tiles'>
+
+<a href="rules" class='tile primary'>
+    <span class='tile-title'>Rule Language Reference →</span>
+    <span class='tile-description'>Jump straight into the syntax and semantics of writing guardrailing rules.</span>
+</a>
+
+<a href="tool-calls" class='tile primary'>
+    <span class='tile-title'>Guard Tool Calls →</span>
+    <span class='tile-description'>Constrain and validate the function/tool calls your agent can make.</span>
+</a>
+
+<a href="dataflow-rules" class='tile primary'>
+    <span class='tile-title'>Constrain Agent Dataflow →</span>
+    <span class='tile-description'>Enforce security policies based on the flow of data through your agent.</span>
+</a>
+
+<a href="prompt-injections" class='tile'>
+    <span class='tile-title'>Prevent Prompt Injections →</span>
+    <span class='tile-description'>Detect and block jailbreaks and malicious prompt behaviors.</span>
+</a>
+
+<a href="moderation" class='tile'>
+    <span class='tile-title'>Filter Toxic Content →</span>
+    <span class='tile-description'>Apply moderation guardrails for unsafe or offensive outputs.</span>
+</a>
+
+<a href="./gateway/" class='tile'>
+    <span class='tile-title'>Deploy Rules with Gateway →</span>
+    <span class='tile-description'>Use Invariant Gateway to enforce rules across your deployed agents.</span>
+</a>
+
+<a href="./explorer/" class='tile'>
+    <span class='tile-title'>Use Guardrails with Explorer →</span>
+    <span class='tile-description'>Configure your guardrailing rules in Explorer, and visualize agent behavior.</span>
+</a>
+
+</div>

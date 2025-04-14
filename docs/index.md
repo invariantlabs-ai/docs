@@ -5,7 +5,7 @@ title: Invariant Agent Security
 # Invariant Agent Security
 
 <div class='subtitle'>
-Use Invariant Guardrails for high-precision agent security, monitoring and to ensure reliable and consistent behavior.
+High-precision guardrailing for agentic AI systems.
 </div>
 
 Invariant is a **security layer to protect agentic AI systems**. It helps you to prevent prompt injections, data leaks, steers your agent, and ensures strict compliance with behavioral and security policies for your AI systems.
@@ -234,33 +234,38 @@ You can click any of the boxes to learn more about the respective tool.
 <div class='tiles'>
 
 <a href="gateway/" class='tile primary'>
-    <span class='tile-title'>Gateway →</span>
-    <span class='tile-description'>Setup the Invariant Gateway to trace and intercept LLM calls</span>
+    <span class='tile-title'>Secure with Gateway →</span>
+    <span class='tile-description'>Set up Invariant Gateway to intercept and control LLM calls from your agent.</span>
 </a>
 
 <a href="explorer/" class='tile primary'>
-    <span class='tile-title'>Observe and Debug →</span>
-    <span class='tile-description'>Use Invariant Explorer to inspect and debug your AI agent traces</span>
+    <span class='tile-title'>Inspect with Explorer →</span>
+    <span class='tile-description'>Use Invariant Explorer to debug, visualize and annotate traces.</span>
 </a>
 
-<a href="explorer/benchmarks" class='tile'>
-    <span class='tile-title'>Benchmarks →</span>
-    <span class='tile-description'>Submit your AI agent to the Invariant benchmark registry for comparison</span>
+<a href="guardrails/tool-calls" class='tile primary'>
+    <span class='tile-title'>Guard Tool Calls →</span>
+    <span class='tile-description'>Restrict and validate the tools and functions your agent can access.</span>
 </a>
 
-<a href="testing/" class='tile primary'>
-    <span class='tile-title'>Testing →</span>
-    <span class='tile-description'>Use Invariant <code>testing</code> to build debuggable unit tests for your AI agents</span>
+<a href="guardrails/dataflow-rules" class='tile primary'>
+    <span class='tile-title'>Enforce Dataflow Rules →</span>
+    <span class='tile-description'>Ensure sensitive data doesn't leak through unintended channels.</span>
 </a>
 
-<a href="explorer/api/trace-format" class='tile'>
-    <span class='tile-title'>Trace Format →</span>
-    <span class='tile-description'>Learn about the Invariant trace format and how to structure your traces for ingestion</span>
+<a href="guardrails/prompt-injections" class='tile'>
+    <span class='tile-title'>Block Prompt Injections →</span>
+    <span class='tile-description'>Prevent jailbreaks and malicious prompt manipulation.</span>
+</a>
+
+<a href="guardrails/moderation" class='tile'>
+    <span class='tile-title'>Filter Toxic Content →</span>
+    <span class='tile-description'>Apply moderation filters for toxic or policy-violating output.</span>
 </a>
 
 <a href="explorer/api/uploading-traces/push-api" class='tile'>
-    <span class='tile-title'>Pushing Traces →</span>
-    <span class='tile-description'>Learn about traces, datasets and annotations on Invariant.</span>
+    <span class='tile-title'>Push Traces →</span>
+    <span class='tile-description'>Programmatically upload traces and datasets to Explorer.</span>
 </a>
 
 </div>

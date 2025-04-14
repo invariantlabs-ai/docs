@@ -12,7 +12,10 @@ Learn how to configure and manage your guardrailing rules in Explorer.
 
 It exposes a simple configuration interface, that allows you to configure, test and deploy guardrails to your agentic system, as well as inspect guardrail failures in detail.
 
-<img src="site:/guardrails/guardrails-configuration-explorer.png" alt="Explorer Landing" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>
+<figure class="styled-figure">
+  <img src="site:/guardrails/guardrails-configuration-explorer.png" alt="Explorer Landing" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>
+  <figcaption style="text-align: center; font-size: 0.8em; color: #666;">Configuring guardrails in Explorer</figcaption>
+</figure>
 
 ## How Gateway and Explorer Work Together
 
@@ -62,8 +65,10 @@ To learn more about how Gateway works, check out the [Gateway documentation](../
 
 To configure guardrails, switch to the `Guardrails` tab in the top navigation bar of your Explorer project.
 
-<br/><br/>
-<img src="site:/guardrails/guardrails-configuration-explorer.png" alt="Explorer Landing" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>
+<figure class="styled-figure">
+  <img src="site:/guardrails/guardrails-configuration-explorer.png" alt="Explorer Landing" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>
+  <figcaption style="text-align: center; font-size: 0.8em; color: #666;">Configuring guardrails in Explorer</figcaption>
+</figure>
 
 Here, you are presented with two options:
 
@@ -118,7 +123,7 @@ Lastly, to inspect guardrail failures in detail, navigate to the `Traces` tab in
 
 Newly pushed traces with Guardrail violations will be automatically annotated with Guardrail violation annotations, highlighting the exact range and location of the guardrail violation in the agent trace.
 
-<figure style="display: block; margin: 0 auto; width: 100%; max-width: 800pt !important; border: 2pt solid #efefef; padding: 10pt; background-color: white;">
+<figure class="styled-figure">
 <img src="site:/guardrails/guardrail-highlight.png" alt="New Guardrail" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>
 <figcaption style="text-align: center; font-size: 0.8em; color: #666;">Guardrails precisely highlights the location and cause for guardrail violations in the agent trace, allowing users to exactly pinpoint the cause of the violation.</figcaption>
 </figure>
