@@ -1,3 +1,8 @@
+---
+title: Images
+description: Secure images given to, or produced by, your agentic system.
+---
+
 # Images
 
 <div class='subtitle'>

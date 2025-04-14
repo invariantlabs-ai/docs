@@ -1,3 +1,8 @@
+---
+title: Visual Debugging
+description: Use Explorer to view test failures and debug your agent.
+---
+
 # Visual Debugging
 
 <div class='subtitle'>Use Explorer to view test failures and debug your agent.</div>

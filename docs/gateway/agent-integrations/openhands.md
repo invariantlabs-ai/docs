@@ -1,3 +1,8 @@
+---
+title: OpenHands Integration
+description: Use Gateway with OpenHands
+---
+
 # OpenHands Integration
 
 <div class='subtitle'>Use Gateway with OpenHands</div>
@@ -31,7 +36,7 @@ Enable the `Advanced Options` toggle under settings and update the `Base URL` to
 https://explorer.invariantlabs.ai/api/v1/gateway/{add-your-dataset-name-here}/openai
 ```
 
-<img src="site:assets/openhands-integration.png" style="height: 400px !important; display: block; margin: 0 auto;"/>
+<img src="site:gateway/assets/openhands-integration.png" style="height: 400px !important; display: block; margin: 0 auto;"/>
 
 > **Note:** Do not include the curly braces `{}`.
 

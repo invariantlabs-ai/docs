@@ -1,3 +1,7 @@
+---
+title: Copyrighted Content
+---
+
 # Copyrighted Content
 <div class='subtitle'>
 {subheading}

@@ -1,3 +1,8 @@
+---
+title: Self-Host Explorer
+description: Use the self-hosted version of Explorer for local use
+---
+
 # Self-Host Explorer
 
 <div class='subtitle'>Use the self-hosted version of Explorer for local use</div>

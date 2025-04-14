@@ -1,3 +1,8 @@
+---
+title: SWE-agent Integration
+description: Use Gateway with SWE-agent
+---
+
 # SWE-agent Integration
 
 <div class='subtitle'>Use Gateway with SWE-agent</div>

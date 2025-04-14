@@ -1,3 +1,8 @@
+---
+title: Microsoft AutoGen Integration
+description: Integrate Gateway with AutoGen
+---
+
 # Microsoft AutoGen Integration
 
 <div class='subtitle'>Integrate Gateway with AutoGen</div>

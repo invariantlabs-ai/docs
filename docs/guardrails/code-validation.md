@@ -1,3 +1,8 @@
+---
+title: Code Validation
+description: Secure the code that your agent generates and executes.
+---
+
 # Code Validation
 
 <div class='subtitle'>

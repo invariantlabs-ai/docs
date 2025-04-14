@@ -1,3 +1,8 @@
+---
+title: Annotations
+description: Learn how to annotate traces in Explorer to add context and structure
+---
+
 # Annotations
 
 <div class='subtitle'>Learn how to annotate traces in Explorer to add context and structure</div>
@@ -8,7 +13,7 @@ Annotations provide additional context, facilitating collaboration and agent err
 
 <figure class='wide'>
 
-<img src="site:assets/annotated-trace.png" alt="An annotated trace" style="width: 100%;">
+<img src="site:explorer/assets/annotated-trace.png" alt="An annotated trace" style="width: 100%;">
 
 <figcaption>An annotated trace in Explorer</figcaption>
 

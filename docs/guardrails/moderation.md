@@ -1,3 +1,7 @@
+---
+title: Moderated and Toxic Content
+---
+
 # Moderated and Toxic Content
 <div class='subtitle'>
 {subheading}

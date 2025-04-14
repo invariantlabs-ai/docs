@@ -1,3 +1,7 @@
+---
+title: Secret Tokens and Credentials
+---
+
 # Secret Tokens and Credentials
 <div class='subtitle'>
 {subheading}

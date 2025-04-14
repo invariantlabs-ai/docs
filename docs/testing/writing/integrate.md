@@ -1,3 +1,8 @@
+---
+title: Integrate Your Agent
+description: Get your agent ready for testing
+---
+
 # Integrate Your Agent
 
 <div class='subtitle'>Get your agent ready for testing</div>

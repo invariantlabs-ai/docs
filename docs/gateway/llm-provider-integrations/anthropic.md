@@ -1,3 +1,8 @@
+---
+title: Anthropic Integration
+description: Using Invariant Gateway with Anthropic
+---
+
 # Anthropic Integration
 
 <div class='subtitle'>Using Invariant Gateway with Anthropic</div>

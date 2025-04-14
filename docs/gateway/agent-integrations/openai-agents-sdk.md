@@ -1,3 +1,8 @@
+---
+title: OpenAI Agents SDK
+description: Use Gateway with the Agents SDK
+---
+
 # OpenAI Agents SDK
 
 <div class='subtitle'>Use Gateway with the Agents SDK</div>

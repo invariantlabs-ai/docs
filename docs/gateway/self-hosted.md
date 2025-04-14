@@ -76,7 +76,7 @@ Consider any of the following chapters next, to learn more about how to integrat
     <span class='tile-description'>Streamline the development and debugging of SWE-agent applications with the Gateway.</span>
 </a>
 
-<a href="agent-integrations/browser-use" class='tile'>
+<a href="../agent-integrations/browser-use" class='tile'>
     <span class='tile-title'>Browser Use Integration →</span>
     <span class='tile-description'>Optimize and troubleshoot your Browser Use applications with Invariant Gateway.</span>
 </a>

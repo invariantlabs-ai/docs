@@ -1,3 +1,8 @@
+---
+title: PII Detection
+description: Detect and manage PII in traces.
+---
+
 # PII Detection
 <div class='subtitle'>
 Detect and manage PII in traces.

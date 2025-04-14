@@ -1,3 +1,8 @@
+---
+title: Browser Use Integration
+description: Use Gateway with <code>browser-use</code>
+---
+
 # Browser Use Integration
 
 <div class='subtitle'>Use Gateway with <code>browser-use</code></div>

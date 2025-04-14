@@ -1,3 +1,8 @@
+---
+title: Dataflow Rules
+description: Secure the dataflow of your agentic system, to ensure that sensitive data never leaves the system through unintended channels.
+---
+
 # Dataflow Rules
 
 <div class='subtitle'>

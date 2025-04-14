@@ -1,3 +1,8 @@
+---
+title: Loop Detection
+description: Detect and prevent infinite loops in your agentic system.
+---
+
 
 # Loop Detection
 

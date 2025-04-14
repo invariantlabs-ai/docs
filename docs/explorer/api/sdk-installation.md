@@ -1,3 +1,8 @@
+---
+title: SDK Installation
+description: Installing the Invariant SDK for Python
+---
+
 # SDK Installation
 
 <div class='subtitle'>Installing the Invariant SDK for Python</div>

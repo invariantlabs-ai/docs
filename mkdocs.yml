@@ -29,6 +29,7 @@ markdown_extensions:
   - pymdownx.superfences
   - attr_list
   - md_in_html
+  - meta
 
 use_directory_urls: true
 
@@ -92,19 +93,19 @@ nav:
     - Guardrails in Gateway: guardrails/gateway.md
     - Guardrails in Explorer: guardrails/explorer.md
     - Rule Writing Reference: guardrails/rules.md
-    - Examples:
-      - RAG: guardrails/examples/rag.md
-      - Code Execution after URL: guardrails/examples/url.md
-      - Unsafe Code: guardrails/examples/url.md
-      - GitHub Issues: guardrails/examples/github_pip.md
-      - Prevent Information Leak: guardrails/examples/leak.md
-      - PII Leak: guardrails/examples/pii.md
-      - Secrets: guardrails/examples/secrets.md
-      - GitHub Token Leak: guardrails/examples/github_token.md
-      - Email Address: guardrails/examples/email.md
-      - Syntax: guardrails/examples/syntax.md
-      - Copyright: guardrails/examples/copyright.md
-      - Loop Detection: guardrails/examples/loop.md
+    # - Examples:
+    #   - RAG: guardrails/examples/rag.md
+    #   - Code Execution after URL: guardrails/examples/url.md
+    #   - Unsafe Code: guardrails/examples/url.md
+    #   - GitHub Issues: guardrails/examples/github_pip.md
+    #   - Prevent Information Leak: guardrails/examples/leak.md
+    #   - PII Leak: guardrails/examples/pii.md
+    #   - Secrets: guardrails/examples/secrets.md
+    #   - GitHub Token Leak: guardrails/examples/github_token.md
+    #   - Email Address: guardrails/examples/email.md
+    #   - Syntax: guardrails/examples/syntax.md
+    #   - Copyright: guardrails/examples/copyright.md
+    #   - Loop Detection: guardrails/examples/loop.md
   - Integrations:
     - Explorer:
       - Overview: explorer/index.md

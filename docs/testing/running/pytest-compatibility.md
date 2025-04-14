@@ -1,3 +1,8 @@
+---
+title: `pytest` Compatibility
+description: Use 'testing' as part of your existing pytest test suite.
+---
+
 # `pytest` Compatibility
 
 <div class='subtitle'>Use <code>testing</code> as part of your existing <code>pytest</code> test suite.</div>

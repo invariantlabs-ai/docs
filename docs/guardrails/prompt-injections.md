@@ -1,3 +1,7 @@
+---
+title: Jailbreaks and Prompt Injections
+---
+
 # Jailbreaks and Prompt Injections
 <div class='subtitle'>
 {subheading}

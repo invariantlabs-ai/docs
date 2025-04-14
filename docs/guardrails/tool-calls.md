@@ -1,3 +1,8 @@
+---
+title: Tool Calls
+description: Guardrail the function and tool calls of your agentic system.
+---
+
 # Tool Calls
 
 <div class='subtitle'>

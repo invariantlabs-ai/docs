@@ -1,3 +1,8 @@
+---
+title: Computer Use Agents
+description: Guardrail the actions of computer use agents, to enable safe UI interfacing.
+---
+
 # Computer Use Agents
 
 <div class='subtitle'>

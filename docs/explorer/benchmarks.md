@@ -1,3 +1,8 @@
+---
+title: Benchmarks
+description: Submit your own AI agent to be included in a benchmark comparison
+---
+
 # Benchmarks
 
 <div class='subtitle'>Submit your own AI agent to be included in a benchmark comparison</div>
@@ -10,7 +15,7 @@ This document outlines the datasets and benchmarks that are currently available,
 
 A benchmark is a collection of tasks and environment of a particular domain, that can be used to evaluate the performance of an AI agent system. To enable comparison between different AI agents, benchmarks are typically designed to be reproducible and standardized.
 
-To facilitate the comparison of AI agents, Invariant hosts a number of popular benchmarks and respective AI agent results on the <img class='inline-invariant' src="/assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai).
+To facilitate the comparison of AI agents, Invariant hosts a number of popular benchmarks and respective AI agent results on the <img class='inline-invariant' src="site:/assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai).
 
 <figure>
 

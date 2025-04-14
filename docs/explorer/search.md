@@ -1,3 +1,8 @@
+---
+title: Search
+description: Use Explorer Search to quickly find and filter traces
+---
+
 # Search
 
 <div class='subtitle'>Use Explorer Search to quickly find and filter traces</div>

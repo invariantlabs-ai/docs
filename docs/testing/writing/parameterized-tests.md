@@ -1,3 +1,8 @@
+---
+title: Parameterized Tests
+description: Use parameterized tests to test multiple scenarios
+---
+
 # Parameterized Tests
 
 <div class='subtitle'>Use parameterized tests to test multiple scenarios</div>
@@ -44,4 +49,4 @@ def test_check_weather_in(city: str):
 
 When pushing the parameterized test results to Explorer (`invariant test --push`), the resulting test instances will be listed separately:
 
-<img src="site:assets/parameterized_tests.png"/>
+<img src="site:testing/assets/parameterized_tests.png"/>

@@ -1,3 +1,8 @@
+---
+title: OpenAI Swarm Integration
+description: Use Gateway with OpenAI Swarm
+---
+
 # OpenAI Swarm Integration
 
 <div class='subtitle'>Use Gateway with OpenAI Swarm</div>

@@ -1,3 +1,8 @@
+---
+title: OpenAI Integration
+description: Using Invariant Gateway with OpenAI
+---
+
 # OpenAI Integration
 
 <div class='subtitle'>Using Invariant Gateway with OpenAI</div>
