@@ -116,7 +116,7 @@ It also enables quick experimentation with new guardrails, without having to wor
 
 Lastly, to inspect guardrail failures in detail, navigate to the `Traces` tab in your Explorer project.
 
-Newly pushed traces with Guardrail violations will be automatically annoated with Guardrail violation annotations, highlighting the exact range and location of the guardrail violation in the agent trace.
+Newly pushed traces with Guardrail violations will be automatically annotated with Guardrail violation annotations, highlighting the exact range and location of the guardrail violation in the agent trace.
 
 <figure style="display: block; margin: 0 auto; width: 100%; max-width: 800pt !important; border: 2pt solid #efefef; padding: 10pt; background-color: white;">
 <img src="site:/guardrails/guardrail-highlight.png" alt="New Guardrail" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>

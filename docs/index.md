@@ -5,12 +5,12 @@ title: Invariant Agent Security
 # Invariant Agent Security
 
 <div class='subtitle'>
-Integrate Invariant's contextual guardrailing for high-precision agent security, monitoring and reliability.
+Use Invariant Guardrails for high-precision agent security, monitoring and to ensure reliable and consistent behavior.
 </div>
 
-Invariant is a **security layer to protect agentic AI systems**. It helps you prevent prompt injections, data leaks, steer your agent's behavior, and ensure compliance with your organization's policies.
+Invariant is a **security layer to protect agentic AI systems**. It helps you to prevent prompt injections, data leaks, steers your agent, and ensures strict compliance with behavioral and security policies for your AI systems.
 
-You can **deploy Invariant within minutes using our hosted gateway**, to ensure quick response to agent security incidents and to get your agent ready for production.
+You can **deploy Invariant within minutes using our hosted LLM-level gateway**, to ensure quick response to agent security incidents and to get your agent ready for production.
 
 ### How Invariant Works
 
@@ -18,7 +18,7 @@ Invariant acts as a transparent layer between your agent system and the LLM and 
 
 Policies are defined in terms of both [deterministic and fuzzy rules](./guardrails/). During operation, your agent is continuously evaluated against them, to restrict its behavior to prevent malfunction and abuse.
 
-Invariant does not require invasive code changes, and can be used with any agent, framework and LLM.
+Invariant does not require invasive code changes, and can be used with any model, agent, framework and tooling. It is designed to be easy to use and integrate into your existing stack, right from the beginning or when _you_ are ready to ship.
 
 <br/><br/>
 <img src="./assets/invariant-overview.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 500pt;"/>
@@ -51,19 +51,18 @@ This documentation describes how to set up Invariant and the relevant guardraili
 
 Invariant helps you make sure that your agents are safe from malicious actors and prevents fatal malfunction:
 
-* It **blocks prompt injections and agent jailbreaks**.
-* It **imposes strict rules on agent capabilities** and behavior, to prevent malfunction and abuse.
-* It **analyzes the data flow of your agents**, to ensure that they are not leaking sensitive information.
-* It helps you **steer and control your agents**, to ensure that they are not doing anything unexpected.
-* It ensures that your agents are **in compliance with your organization's policies**.
-* It helps you to **surface novel malicious behavioral patterns** in your agents, and automatically proposes guardrailing rules to prevent them.
+* It **blocks [prompt injections and agent jailbreaks](./guardrails/prompt-injections.md)**.
+* It **imposes [strict rules on agent capabilities](./guardrails/index.md)** and behavior, to prevent malfunction and abuse.
+* It constantly **analyzes the [data flow of your agents](./guardrails/dataflow-rules.md)**, to ensure that they are not leaking sensitive information or engaging in off-policy behavior.
+* It ensures that your agents are **in [compliance with your organization's policies](./guardrails/tool-calls.md)**.
+* It helps you to **[surface novel malicious behavioral patterns](./guardrails/explorer.md)** in your agents, and automatically proposes guardrailing rules to prevent them.
 
-Securing your agent is a crucial step in safely deploying AI agents to production or in your organization.
+Securing your agent is a crucial step in safely deploying AI agents to production for public or internal use, and ensuring that they behave as expected.
 
 
 ## Getting Started as Developer
 
-The _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement _guardrailing and security analysis_, without requiring major code changes:
+The _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement _steering and guardrailing_on, without requiring major code changes:
 
 <br/>
 <div class='overview'>
@@ -84,7 +83,7 @@ The _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement
 </div>
 <br/>
 
-To quickly secure your agentic application with Invariant, you can rely on our hosted gateway. It automatically traces and protects your agent's LLM calls and actions by enforcing guardrailing rules:
+To quickly secure your agentic application with Invariant, you can rely on our hosted LLM-level gateway. It automatically traces and protects your agent's LLM calls and actions by enforcing guardrailing rules:
 
 **Example:** Guardrailing an agent with Invariant
 ```python hl_lines='8 9 10 16 17 18 19 20 21 22 23 24'
