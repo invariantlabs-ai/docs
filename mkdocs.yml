@@ -79,7 +79,7 @@ nav:
       - Loop Detection: guardrails/loops.md
       - Dataflow Rules: guardrails/dataflow-rules.md
       - Code Validation: guardrails/code-validation.md
-      - Computer Use Agents: guardrails/computer-use.md
+      # - Computer Use Agents: guardrails/computer-use.md
     - Content Guardrails:
       - PII: guardrails/pii.md
       - Jailbreaks and Prompt Injections: guardrails/prompt-injections.md
