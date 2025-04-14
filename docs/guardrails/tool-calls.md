@@ -14,17 +14,16 @@ Guardrails provide you a powerful way to enforce such security policies, and to 
 <img src="site:assets/guardrails/tool-calls.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 400pt;"/>
 <br/><br/>
 
-<div class='risks'/>
-> **Tool Calling Risks**<br/>
-> Since tools are an agent's interface to interact with the world, they can also be used to perform actions that are harmful or undesired. For example, an insecure agent could:
+!!! danger "Tool Calling Risk"
+    Since tools are an agent's interface to interact with the world, they can also be used to perform actions that are harmful or undesired. For example, an insecure agent could:
 
-> * Leak sensitive information, e.g. via a `send_email` function
+    * Leak sensitive information, e.g. via a `send_email` function
 
-> * Delete an important file, via a `delete_file` or a `bash` command
+    * Delete an important file, via a `delete_file` or a `bash` command
 
-> * Make a payment to an attacker
+    * Make a payment to an attacker
 
-> * Send a message to a user with sensitive information
+    * Send a message to a user with sensitive information
 
 To prevent tool calling related risks, Invariant offers a wide range of options to limit, constrain, validate and block tool calls. This chapter describes the different options available to you, and how to use them.
 

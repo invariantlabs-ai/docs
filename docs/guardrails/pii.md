@@ -21,7 +21,7 @@ def pii(
     entities: Optional[List[str]]
 ) -> List[str]
 ```
-Detector to find personally indentifaible information in text.
+Detector to find personally-identifiable information in text.
 
 **Parameters**
 
