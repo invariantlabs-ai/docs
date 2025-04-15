@@ -1,5 +1,6 @@
 ---
 title: Invariant Agent Security
+icon: bootstrap/arrow-up-right-circle
 ---
 
 # Invariant Agent Security

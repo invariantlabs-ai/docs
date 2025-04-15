@@ -1,3 +1,7 @@
+title: Reference for Rule Writing
+description: A concise reference for writing guardrailing rules with Invariant.
+icon: bootstrap/book
+
 # Reference for Rule Writing
 
 <div class="subtitle">

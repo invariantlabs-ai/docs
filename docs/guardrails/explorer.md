@@ -1,5 +1,7 @@
 ---
-title: Overview
+title: Guardrails in Explorer
+description: Learn how to configure and manage your guardrailing rules in Explorer.
+icon: bootstrap/database
 ---
 
 # Guardrails in Explorer

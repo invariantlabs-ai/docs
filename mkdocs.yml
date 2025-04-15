@@ -13,9 +13,19 @@ theme:
   features:
     - content.code.copy
     - navigation.sections
+    - content.tooltips
 extra_css:
   - assets/invariant.css
 use_directory_urls: false
+
+extra:
+  # extra navigation icons for navigation groups that do not have their own pages
+  # for pages, just specify icon in the frontmatter
+  nav_item_icons:
+    - name: Agent Guardrails
+      icon: bootstrap/robot
+    - name: Content Guardrails
+      icon: bootstrap/file-earmark-check
 
 markdown_extensions:
   - admonition

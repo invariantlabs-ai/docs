@@ -1,3 +1,9 @@
+---
+title: Guardrails in Gateway
+description: Learn how Invariant guardrailing rules are enforced and deployed.
+icon: bootstrap/hdd-network
+---
+
 # Guardrails in Gateway
 
 <div class="subtitle">

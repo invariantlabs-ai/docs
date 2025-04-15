@@ -1,3 +1,8 @@
+---
+title: Securing Agents with Rules
+description: Learn the fundamentals about guardrailing with Invariant.
+icon: bootstrap/link
+---
 # Securing Agents with Rules
 
 <div class="subtitle">
