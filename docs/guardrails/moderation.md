@@ -4,17 +4,24 @@ title: Moderated and Toxic Content
 
 # Moderated and Toxic Content
 <div class='subtitle'>
-{subheading}
+Defining and Enforcing Content Moderation in Agentic Systems
 </div>
 
-{introduction}
+It is important to ensure the safe generation of content from agentic systems to protect users from exposure to toxic or harmful material and to ensure that system behavior aligns with intended values. Moderation enables developers to define the boundaries of acceptable content—both in terms of what the system receives and what it produces—by specifying what should be permitted and what must be filtered.
+
+By implementing moderation guardrails, you can shape the behavior of agentic systems in a way that is predictable, value-aligned, and resilient to misuse.
 <div class='risks'/> 
 > **Moderated and Toxic Content Risks**<br/> 
 > Without safeguards, agents may: 
 
-> * {reasons}
+> * Generate or amplify **hate speech, harassment, or explicit content**.
 
-{bridge}
+> * Act on inappropriate user inputs causing **unintended behavoiour**.
+
+> * **Spread misinformation** or reinforce harmful stereotypes.
+
+
+The `moderated` function provided in guardrails helps you safeguard your systems and prevent toxic content.
 
 ## moderated <span class="detector-badge"></span> <span class="llm-badge"/></span>
 ```python
@@ -31,7 +38,7 @@ Detector which evaluates to true if the given data should be moderated.
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `Union[str, List[str]]` | A single message or a list of messages to detect prompt injections in. |
+| `data`      | `Union[str, List[str]]` | A single message or a list of messages. |
 | `model`     | `Union[str, List[str]]` |  The model to use for moderation detection. |
 | `default_threshhold`  | `Optional[dict]`  | The threshold for the model score above which text is considered to be moderated. |
 | `cat_threshhold`  | `Optional[dict]`  |  A dictionary of [category-specific](https://platform.openai.com/docs/guides/moderation#quickstart) thresholds. |
@@ -61,7 +68,7 @@ raise "Detected a harmful message" if:
   },
   {
     "role": "user",
-    "content": "IF YOU DRINK THAT COFFEE, I'LL POUR YOUR BLOOD ON THE GROUND! I'LL KNIFE YOU!"
+    "content": "This is hatefully hateful hate!"
   }
 ]
 ```
@@ -69,7 +76,7 @@ raise "Detected a harmful message" if:
 
 
 ### Thresholding
-The threshold for when content is classified as requiring moderation can also be modified using the `cat_threshold` parameter.
+The threshold for when content is classified as requiring moderation can also be modified using the `cat_threshold` parameter. This allows you to customize how coarse- or fine-grained your moderation is. The default is `0.5`.
 
 **Example:** Thresholding Detection
 ```guardrail

@@ -8,7 +8,7 @@ description: Detect and manage PII in traces.
 Detect and manage PII in traces.
 </div>
 
-Personally Identifiable Information (PII) refers to sensitive information — like names, emails, or credit card numbers — that AI systems and agents need to handle carefully. When these systems work with user data, it is important to establish clear rules about how personal information can be handled, to ensure the sytem functions safely.
+Personally Identifiable Information (PII) refers to sensitive information — like names, emails, or credit card numbers — that AI systems and agents need to handle carefully. When these systems work with user data, it is important to establish clear rules about how personal information can be handled, to ensure the system functions safely.
 
 <div class='risks'/> 
 > **PII Risks**<br/> 
@@ -16,7 +16,7 @@ Personally Identifiable Information (PII) refers to sensitive information — li
 
 > * **Log PII** in traces or internal tools 
 >
-> * **Expose PII** to in unintentional or dangerous ways
+> * **Expose PII** in unintentional or dangerous ways
 >
 > * **Share PII** in responses or external tool calls
 
@@ -29,13 +29,13 @@ def pii(
     entities: Optional[List[str]]
 ) -> List[str]
 ```
-Detector to find personally-identifiable information in text.
+Detector to find personally identifiable information in text.
 
 **Parameters**
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `Union[str, List[str]]` | A single message or a list of messages to detect PII in. |
+| `data`      | `Union[str, List[str]]` | A single message or a list of messages. |
 | `entities`  | `Optional[List[str]]`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
 
 **Returns**
@@ -172,7 +172,7 @@ raise "Found Credit Card information in message" if:
 
 
 ### Preventing PII Leakage
-It is also possible to use the `pii` function in combination with other filters to get more complex behaviour. The example below shows how you can detect when an agent attempts to send emails outside of your organisation. 
+It is also possible to use the `pii` function in combination with other filters to get more complex behavior. The example below shows how you can detect when an agent attempts to send emails outside of your organisation. 
 
 **Example:** Detecting PII Leakage in External Communications.
 ```guardrail
