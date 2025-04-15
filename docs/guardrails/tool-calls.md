@@ -37,10 +37,34 @@ To prevent tool calling related risks, Invariant offers a wide range of options 
 To match a specific tool call in a guardrailing rule, you can use `call is tool:<tool_name>` expressions. This allows you to only match a specific tool call, and apply guardrailing rules to it.
 
 **Example**: Matching all `send_email` tool call.
-```python
+```guardrail
 raise "Must not send any emails" if:
     (call: ToolCall)
     call is tool:send_email
+```
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send an email to alice@mail.com"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "alice@mail.com"
+                    }
+                }
+            }
+        ]
+    }
+]
 ```
 
 This rule will trigger for all tool calls to function `send_email`, disregarding its parameterization.
@@ -50,12 +74,36 @@ This rule will trigger for all tool calls to function `send_email`, disregarding
 Tool calls can also be matched by their parameters. This allows you to match only tool calls with specific parameters, e.g. to block them or to restrict the tool interface exposed to the agent.
 
 **Example**: Matching a `send_email` tool call with a specific recipient.
-```python
+```guardrail
 raise "Must not send any emails to Alice" if:
     (call: ToolCall)
     call is tool:send_email({
         to: "alice@mail.com"
     })
+```
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send an email to alice@mail.com"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "alice@mail.com"
+                    }
+                }
+            }
+        ]
+    }
+]
 ```
 
 ### Regex Matching
@@ -63,25 +111,83 @@ raise "Must not send any emails to Alice" if:
 Similarly, you can use regex matching to match tool calls with specific parameters. This allows you to match specific tool calls with specific parameters, and apply guardrailing rules to them.
 
 **Example**: Matching a `send_email` calls with a specific recipient domain.
-```python
+```guardrail
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
     call is tool:send_email({
         to: r".*@disallowed.com"
     })
 ```
-
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send two emails, one to alice@disallowed.com and one to bob@allowed.com"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "alice@disallowed.com"
+                    }
+                }
+            },
+            {
+                "type": "function",
+                "id": "2",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "bob@allowed.com"
+                    }
+                }
+            }
+        ]
+    }
+]
+```
 ### Content Matching
 
 You can also use content matching to match tool arguments with certain properties, like whether they contain personally identifiable information (PII), or whether they are flagged as toxic or inappropriate. This allows you to match specific tool calls with specific parameters, and apply guardrailing rules to them.
 
 **Example**: Prevent `send_email` calls with phone numbers in the message body.
-```python
+```guardrail
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
     call is tool:send_email({
         body: <LOCATION>
     })
+```
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "alice@mail.com",
+                        "body": "Let's meet at Rennweg 107, Zurich"
+                    }
+                }
+            }
+        ]
+    }
+]
 ```
 
 This type of content matching also works for other types of content, including `EMAIL_ADDRESS`, `LOCATION`, `PHONE_NUMBER`, `PERSON`, [`MODERATED`](./moderation.md).
@@ -90,7 +196,7 @@ This type of content matching also works for other types of content, including `
 
 Alternatively, you can also directly use `invariant.detectors.pii` on the tool call arguments like so:
 
-```python
+```guardrail
 from invariant.detectors import pii
 
 raise "Must not send any emails to <anyone>@disallowed.com" if:
@@ -100,16 +206,69 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
     # filter for content
     "LOCATION" in pii(call.function.arguments.body)
 ```
-
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "alice@mail.com",
+                        "body": "Let's meet at Rennweg 107, Zurich"
+                    }
+                }
+            }
+        ]
+    }
+]
+```
 ## Checking Tool Outputs
 
 Similar to tool calls, you can check and validate tool outputs.
 
 **Example**: Raise an error if PII is detected in the tool output.
-```python
+```guardrail
+from invariant.detectors import pii
+
 raise "PII in tool output" if:
     (out: ToolOutput)
     len(pii(out.content)) > 0
+
+```
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "get_inbox",
+                    "arguments": {}
+                }
+            }
+        ]
+    },
+    {
+        "role": "tool",
+        "content": "Here is your inbox:\n - From Bob: 'Let's meet at Rennweg 107, Zurich at 10am and also invite Bob Müller'"
+    }
+]
 ```
 
 ### Checking only certain tool outputs
@@ -117,15 +276,41 @@ raise "PII in tool output" if:
 You can also check only certain tool outputs, e.g. to only check the output of a specific tool call.
 
 **Example**: Raise an error if PII is detected in the tool output.
-```python
+```guardrail
 from invariant.detectors import moderated
 
 raise "Moderated content in tool output" if:
     (out: ToolOutput)
     out is tool:read_website
-    moderated(out.content)
+    moderated(out.content, cat_thresholds={"hate/threatening": 0.1})
 ```
-
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Read the website https://www.disallowed.com"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "read_website",
+                    "arguments": {}
+                }
+            }
+        ]
+    },
+    {
+        "role": "tool",
+        "tool_call_id": "1",
+        "content": "I will attack you"
+    }
+]
+```
 Here, only if the `read_website` tool call returns moderated content, the rule will trigger. This allows you to only check certain tool outputs, and not all of them.
 
 
@@ -134,10 +319,52 @@ Here, only if the `read_website` tool call returns moderated content, the rule w
 To limit your guardrailing rule to a list of different tools, you can also access a tool's name directly:
 
 **Example**: Raise an error if any of the banned tools is used.
-```python
+```guardrail
 raise "Banned tool used" if:
     (call: ToolCall)
     call.function.name in ["send_email", "delete_file"]
 ```
-
+```example-trace
+[
+    {
+        "role": "user",
+        "content": "Send an email to alice@mail.com, then read the current directory and delete the file 'important.txt'"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm on it.",
+        "tool_calls": [
+            {
+                "type": "function",
+                "id": "1",
+                "function": {
+                    "name": "send_email",
+                    "arguments": {
+                        "to": "alice@mail.com",
+                        "body": "Let's meet at Rennweg 107, Zurich at 10am and also invite Bob Müller"
+                    }
+                }
+            },
+            {
+                "type": "function",
+                "id": "2",
+                "function": {
+                    "name": "read_directory",
+                    "arguments": {}
+                }
+            },
+            {
+                "type": "function",
+                "id": "3",
+                "function": {
+                    "name": "delete_file",
+                    "arguments": {
+                        "path": "important.txt"
+                    }
+                }
+            }
+        ]
+    }
+]
+```
 This allows you to limit your guardrailing rule to a list of different tools (e.g. all sensitive tools).
