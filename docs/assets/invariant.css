@@ -1095,3 +1095,7 @@ ul.md-nav__list {
 .rounded-figure {
     border-radius: 10pt;
 }
+
+strong .twemoji {
+    margin-right: 3pt;
+}

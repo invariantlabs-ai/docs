@@ -40,6 +40,12 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - meta
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/overrides/.icons
 
 use_directory_urls: true
 

@@ -84,9 +84,21 @@ The _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement
 </div>
 <br/>
 
-To quickly secure your agentic application with Invariant, you can rely on our hosted LLM-level gateway. It automatically traces and protects your agent's LLM calls and actions by enforcing guardrailing rules:
+To quickly secure your agentic application with Invariant, you can rely on our hosted LLM-level gateway. It automatically traces and protects your agent's LLM calls and actions by enforcing guardrailing rules.
 
-**Example:** Guardrailing an agent with Invariant
+---
+
+**:bootstrap-1-circle: Sign Up for Invariant**
+
+Go to <img class='inline-invariant' src="site:assets/logo.svg"/> [Invariant Explorer](https://explorer.invariantlabs.ai), sign up for an account and create a new API key:
+   
+`<Your User>` (top right) -> `Account` -> `API Keys`
+
+---
+
+**:bootstrap-2-circle: Integrate Gateway**
+
+**Example:** Connect to Gateway by updating the base URL of your LLM.
 ```python hl_lines='8 9 10 16 17 18 19 20 21 22 23 24'
 import os
 from swarm import Swarm, Agent
@@ -134,7 +146,12 @@ response = client.run(
 )
 ```
 
-**Output**
+---
+
+**:bootstrap-3-circle: Run Your Agent**
+
+Run your agent and see the guardrailing in action:
+
 ```bash
 BadRequest: [Invariant] The message did not pass the guardrailing check:
             'Rule 1: Do not talk about Fight Club'"
