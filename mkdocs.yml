@@ -91,6 +91,7 @@ nav:
   - Getting Started: index.md
   - Guardrails:
     - Introduction: guardrails/index.md
+    - Agents and Traces: guardrails/basics.md
     - Agent Guardrails:
       - Tool Calls: guardrails/tool-calls.md
       - Loop Detection: guardrails/loops.md

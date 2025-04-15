@@ -130,3 +130,19 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("There was a problem with the fetch operation:", error);
     });
 });
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-highlight-id]').forEach(el => {
+    const id = el.getAttribute('data-highlight-id');
+    el.addEventListener('mouseenter', () => {
+      console.log('mouseenter', id);
+      document.querySelectorAll(`.highlight[data-highlight-id="${id}"]`)
+        .forEach(highlight => highlight.classList.add('active'));
+    });
+    el.addEventListener('mouseleave', () => {
+      document.querySelectorAll(`.highlight`)
+        .forEach(highlight => highlight.classList.remove('active'));
+    });
+  });
+});

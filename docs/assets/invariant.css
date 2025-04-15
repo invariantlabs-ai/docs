@@ -895,6 +895,20 @@ ul.md-nav__list {
     background-size: 1.2em;
 }
 
+.admonition.note {
+    background-color: rgb(239, 239, 239) !important;
+    border: 0pt solid #e1e1e1 !important;
+    box-shadow: none !important;
+}
+
+.admonition.note .admonition-title {
+    background-color: transparent !important;
+    background: url("../assets/code-slash.svg") no-repeat 3pt 1pt;
+    background-position: 4pt 12pt;
+    background-size: 1.2em;
+    font-size: 12pt !important;
+}
+
 .md-typeset__table {
     width: 100%;
 }
@@ -1098,4 +1112,123 @@ ul.md-nav__list {
 
 strong .twemoji {
     margin-right: 3pt;
+}
+
+.format-explainer .off {
+    font-weight: 500;
+}
+
+.format-explainer b {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    text-align: center !important;
+    display: block;
+    margin-bottom: 10pt;
+    font-size: 12pt !important;
+}
+
+.format-explainer code {
+    border-radius: 4pt;
+    border-width: 0pt;
+    background-color: rgba(255, 255, 255, 0.402) !important;
+}
+
+.format-explainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20pt;
+    margin-top: 40pt;
+    padding: 10pt;
+    background-color: #f0f0f0;
+    border-radius: 10pt;
+    padding-bottom: 20pt;
+    position: relative;
+}
+
+.format-explainer figcaption {
+    position: absolute;
+    bottom: 0pt;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10pt;
+    color: #666;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+}
+
+.format-explainer img {
+    height: 300pt;
+    margin-left: 20pt;
+}
+
+.format-explainer .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.format-explainer .graph .node {
+    background-color: #e4e4e4;
+    border-radius: 15pt;
+    min-width: 180pt;
+    max-width: 50%;
+    width: 220pt;
+    text-align: center;
+    padding: 5pt;
+    cursor: pointer;
+}
+
+.format-explainer .graph .node:hover,
+.format-explainer .graph .node.active {
+    background-color: #406dff3d;
+}
+
+.format-explainer .graph .edge {
+    width: 2pt;
+    height: 20pt;
+    background-color: grey;
+}
+
+.format-explainer .graph .node .node {
+    width: auto;
+    margin: 0pt;
+    max-width: auto;
+    min-width: 150pt;
+    width: calc(100% - 10pt);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5pt;
+    border-radius: 12.5pt;
+    background-color: rgba(0, 0, 0, 0.116);
+}
+
+.format-explainer .graph .node .node:hover {
+    background-color: #406dff3d;
+}
+
+
+.format-explainer .examples {
+    width: 50%;
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
+    font-size: 10pt;
+
+    /* hide scrollbar */
+    scrollbar-width: none;
+    -webkit-scrollbar-width: none;
+}
+
+.format-explainer .examples .highlight.active {
+    background-color: #406dff3d;
+    border-radius: 4pt;
+}
+
+.format-explainer .examples .edge-spacer {
+    height: 12pt;
+    width: 2pt;
+}
+
+.format-explainer .examples pre {
+    overflow-x: auto;
 }
