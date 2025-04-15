@@ -50,4 +50,4 @@ raise "found copyrighted code" if:
   }
 ]
 ```
-<div class="code-caption">{little text bit}</div>
+<div class="code-caption">Simple example of detecting copyright in text.</div>
