@@ -6,7 +6,7 @@ description: Secure images given to, or produced by, your agentic system.
 # Images
 
 <div class='subtitle'>
-Secure images given to, or produced by, your agentic system.
+Secure images given to, or produced by your agentic system.
 </div>
 
 At the core of computer vision agents is the ability to perceive their environment through images, typically by taking screenshots to assess the current state. This visual perception allows agents to understand interfaces, identify interactive elements, and make decisions based on what they "see."
@@ -49,7 +49,7 @@ Given an image as input, this parser extracts and returns the text in the image 
 | `List[str]` | A list of extracted pieces of text from `data`. |
 
 ### Analyzing Text in Images
-The `ocr` function is a  <span class="parser-badge" size-mod="small"></span> so it returns the data found from parsing its content; in this case any text present in an image will be extracted. The extracted text can then be used for further detection, for example detecting a prompt injection in an image, like the example below.
+The `ocr` function is a  <span class="parser-badge" size-mod="small"></span> so it returns the data found from parsing its content; in this case, any text present in an image will be extracted. The extracted text can then be used for further detection, for example detecting a prompt injection in an image, like the example below.
 
 **Example:** Image Prompt Injection Detection.
 ```python
@@ -100,7 +100,7 @@ raise "Found Prompt Injection" if:
     # Only check user messages
     msg.role == 'user'
     
-    # Use image function to get images
+    # Use the image function to get images
     ocr_results := ocr(image(msg))
 
     # Check both text and images
