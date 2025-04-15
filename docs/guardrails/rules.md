@@ -8,6 +8,8 @@ icon: bootstrap/book
 A concise reference for writing guardrailing rules with Invariant.
 </div>
 
+This page contains a concise reference for writing guardrailing rules with Invariant. For a more guided introduction, please refer to the [introduction chapter](./index.md).
+
 ## Setting Up Your LLM Client
 
 To get started with guardrailing, you have to setup your LLM client to use [Invariant Gateway](../gateway/index.md):
@@ -46,6 +48,8 @@ client.chat.completions.create(
 Before you run, make sure you export the relevant environment variables including an `INVARIANT_API_KEY` [(get one here)](https://explorer.invariantlabs.ai/settings), which you'll need to access Gateway and our low-latency Guardrailing API.
 
 ## Message-Level Guardrails
+
+See also [Ban Topics and Substrings](../guardrails/ban-words.md).
 
 **Example:** Checking for the presence of specific keywords in the message content.
 ```guardrail
@@ -87,8 +91,9 @@ raise "Prompt Injection Detected" if:
 
 See also [Jailbreaks and Prompt Injections](../guardrails/prompt-injections.md) and [Moderated Content](../guardrails/moderation.md).
 
-
 ## Tool Call Guardrails
+
+See also [Tool Calls](../guardrails/tool-calls.md) for more details on tool call guardrailing.
 
 **Example**: Matching a `send_email` tool call with a specific recipient.
 ```guardrail
@@ -204,6 +209,8 @@ raise "PII in tool output" if:
 
 ## Code Guardrails
 
+See also [Code Validation](../guardrails/code-validation.md) for more details on code validation guardrailing.
+
 **Example:** Validating the function calls in a code snippet.
 ```guardrail
 from invariant.detectors.code import python_code
@@ -256,6 +263,8 @@ raise "Dangerous pattern detected in about-to-be-executed bash command" if:
 ```
 
 ## Content Guardrails (PII, Copyright, etc.)
+
+See also [PII Detection](../guardrails/pii.md) and [Content Moderation](../guardrails/moderation.md) for more details on content guardrailing.
 
 **Example:** Detecting any PII in any message.
 ```guardrail
@@ -451,6 +460,8 @@ raise "found copyrighted code" if:
 
 ## Data Flow Guardrails
 
+See also [Data Flow Rules](../guardrails/dataflow-rules.md) for more details on data flow guardrailing.
+
 **Example:** Preventing a simple flow
 ```guardrail
 raise "Must not call tool after user uses keyword" if:
@@ -596,6 +607,8 @@ raise "Must not call tool after user uses keyword" if:
 
 ## Loop Detection
 
+See also [Loop Detection](../guardrails/loops.md) for more details on loop detection guardrailing.
+
 **Example:** Limiting the number of calls to a certain tool.
 ```guardrail
 from invariant import count
@@ -655,6 +668,78 @@ raise "Allocated too many virtual machines" if:
   {
     "role": "tool",
     "content": "Virtual machine allocated successfully"
+  }
+]
+```
+
+**Example:** Detecting a retry loop with quantifiers
+
+```guardrail
+from invariant import count
+
+raise "Repetition of length in [2,10]" if:
+    # start with any check_status tool call
+    (call1: ToolCall)
+    call1 is tool:check_status
+    
+    # there need to be between 2 and 10 other
+    # calls to the same tool, after 'call1'
+    count(min=2, max=10):
+        call1 -> (other_call: ToolCall)
+        other_call is tool:check_status
+```
+
+```example-trace
+[
+  {
+    "role": "user",
+    "content": "Reply to Peter's message"
+  },
+  {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+      {
+        "id": "1",
+        "type": "function",
+        "function": {
+          "name": "check_status",
+          "arguments": {}
+        }
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "There seems to be an issue with the server. I will check the status and get back to you."
+  },
+  {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+      {
+        "id": "1",
+        "type": "function",
+        "function": {
+          "name": "check_status",
+          "arguments": {}
+        }
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+      {
+        "id": "1",
+        "type": "function",
+        "function": {
+          "name": "check_status",
+          "arguments": {}
+        }
+      }
+    ]
   }
 ]
 ```
