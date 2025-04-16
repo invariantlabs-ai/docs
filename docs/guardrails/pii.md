@@ -12,13 +12,15 @@ Personally Identifiable Information (PII) refers to sensitive information — li
 
 <div class='risks'/> 
 > **PII Risks**<br/> 
-> Without safeguards, agents may: 
+> Without PII safeguards an insecure agent may: 
 
-> * **Log PII** in traces or internal tools 
+> * **Log PII** in traces or internal tools, leading to data compliance violations.
 >
-> * **Expose PII** in unintentional or dangerous ways
+> * **Expose PII** in unintentional or dangerous way (e.g. when sending an internal or external email).
 >
-> * **Share PII** in responses or external tool calls
+> * **Store PII** in databases or other storage systems, that may not be qualified for storing sensitive information. 
+> 
+> * Generally, **violate local and international laws and regulations (e.g. GDPR, CCPA, etc.)** with respect to data protection and governance.
 
 The `pii` function helps prevent these issues by scanning messages for PII, thus acting as a safeguard that lets you detect and block sensitive data before it’s stored, surfaced, or shared.
 
@@ -36,7 +38,7 @@ Detector to find personally identifiable information in text.
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
 | `data`      | `Union[str, List[str]]` | A single message or a list of messages. |
-| `entities`  | `Optional[List[str]]`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
+| `entities`  | `Optional[List[str]]`   | A list of [PII entity types of the Presidio library](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
 
 **Returns**
 

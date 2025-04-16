@@ -39,7 +39,7 @@ Detector which evaluates to true if the given data should be moderated.
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
 | `data`      | `Union[str, List[str]]` | A single message or a list of messages. |
-| `model`     | `Union[str, List[str]]` |  The model to use for moderation detection. |
+| `model`     | `Union[str, List[str]]` |  The model to use for moderation detection (`KoalaAI/Text-Moderation` or `openai` for the OpenAI [Moderations API](https://platform.openai.com/docs/guides/moderation)). |
 | `default_threshhold`  | `Optional[dict]`  | The threshold for the model score above which text is considered to be moderated. |
 | `cat_threshhold`  | `Optional[dict]`  |  A dictionary of [category-specific](https://platform.openai.com/docs/guides/moderation#quickstart) thresholds. |
 
