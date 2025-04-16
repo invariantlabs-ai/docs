@@ -99,11 +99,11 @@ nav:
       - Code Validation: guardrails/code-validation.md
       # - Computer Use Agents: guardrails/computer-use.md
     - Content Guardrails:
-      - PII: guardrails/pii.md
+      - Personally Identifiable Information (PII): guardrails/pii.md
       - Jailbreaks and Prompt Injections: guardrails/prompt-injections.md
       - Images: guardrails/images.md
       - Moderated and Toxic Content: guardrails/moderation.md
-      - Ban Topics and Substrings: guardrails/ban-words.md
+      # - Ban Topics and Substrings: guardrails/ban-words.md
       - Regex Filters: guardrails/regex-filters.md
       - Copyrighted Content: guardrails/copyright.md
       - Secret Tokens and Credentials: guardrails/secrets.md

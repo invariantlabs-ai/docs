@@ -12,7 +12,7 @@ It is important to ensure the safe generation of content from agentic systems to
 By implementing moderation guardrails, you can shape the behavior of agentic systems in a way that is predictable, value-aligned, and resilient to misuse.
 <div class='risks'/> 
 > **Moderated and Toxic Content Risks**<br/> 
-> Without safeguards, agents may: 
+> Without moderation safeguards, agents may: 
 
 > * Generate or amplify **hate speech, harassment, or explicit content**.
 

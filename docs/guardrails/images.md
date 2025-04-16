@@ -19,9 +19,11 @@ Additionally, some systems may allow users to submit images, posing additional r
 
 > * Capture **personally identifiable information (PII)** like names or addresses.
 > 
-> * View credentials such as **passwords, API keys, or access tokens**.
+> * View credentials such as **passwords, API keys, or access tokens** like present in passport images or other documents.
 > 
-> * Get **prompt injected** from text in an image.
+> * Get **prompt injected or jailbroken** from text in an image.
+> 
+> * Generate images with **explicit or harmful content**.
 
 
 Guardrails provide you a powerful way to enforce visual security policies, and to limit the agent's perception to only the visual information that is necessary and appropriate for the task at hand.
