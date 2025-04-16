@@ -4,7 +4,7 @@ hooks:
 # custom transform hooks for guardrails and traces
 - mkdocs_config.py
 
-site_url: https://explorer.invariantlabs.ai/docs-guardrails
+site_url: https://explorer.invariantlabs.ai/docs
 
 theme:
   name: material

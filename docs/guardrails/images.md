@@ -73,7 +73,7 @@ def image(
     content: Content | list[Content]
 ) -> list[ImageContent]
 ```
-Given some [`Content`](/docs-guardrails/guardrails/basics/#message), this <span class="builtin-badge" size-mod="small"></span> extracts all [`ImageContent`](/docs-guardrails/guardrails/basics/#message). This is useful when messages may contain mixed content.
+Given some [`Content`](/docs/guardrails/basics/#message), this <span class="builtin-badge" size-mod="small"></span> extracts all [`ImageContent`](/docs/guardrails/basics/#message). This is useful when messages may contain mixed content.
 
 **Parameters**
 
