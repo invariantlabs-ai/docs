@@ -80,7 +80,7 @@ raise "Found pattern" if:
     # actual rule logic
 ```
 
-The rule logic above, will be applied to every `Message`, `ToolCall`, and `ToolOutput` object encountered during operation, enabling you to easily check your agents for bad behaviors. 
+The rule logic above will be applied to every `Message`, `ToolCall`, and `ToolOutput` object encountered during operation, enabling you to easily check your agents for bad behaviors. 
 
 ## Data Model
 
@@ -111,7 +111,7 @@ class ImageContent(Content):
 
 ##### `role` <span class='type'>string</span> <span class='required'/>
 
-The role of the event, e.g., `user`, `assistant`, `system` or something else.
+The role of the event, e.g., `user`, `assistant`, `system`, or something else.
 
 ##### `content` <span class='type'>string | list[Content]</span> <span class='optional'/>
 
@@ -126,11 +126,11 @@ A list of tool calls made by the agent as part of this message.
 !!! note "Examples"
     Simple message
     
-    ```
+    ```json
     { "role": "user", "content": "Hello, how are you?" }
     ```
     
-    Message with tool call
+    A message with a tool call
     
     ```json
     { 

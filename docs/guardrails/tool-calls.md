@@ -9,11 +9,11 @@ description: Guardrail the function and tool calls of your agentic system.
 Guardrail the function and tool calls of your agentic system.
 </div>
 
-At the core of any agentic systems are function and tool calls, i.e. the ability for the agent to interact with the environment via desiganted functions and tools. 
+At the core of any agentic system are function and tool calls, i.e. the ability for the agent to interact with the environment via designated functions and tools. 
 
 For security reasons, it is important to ensure that all tool calls an agent executes are validated and well-scoped, to prevent undesired or harmful actions. 
 
-Guardrails provide you a powerful way to enforce such security policies, and to limit the agent's tool interface to only the tools and functions that are necessary for the task at hand.
+Guardrails provide you with a powerful way to enforce such security policies and to limit the agent's tool interface to only the tools and functions that are necessary for the task at hand.
 
 <br/><br/>
 <img src="site:assets/guardrails/tool-calls.svg" alt="Invariant Architecture" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 400pt;"/>
@@ -22,21 +22,21 @@ Guardrails provide you a powerful way to enforce such security policies, and to 
 !!! danger "Tool Calling Risk"
     Since tools are an agent's interface to interact with the world, they can also be used to perform actions that are harmful or undesired. For example, an insecure agent could:
 
-    * Leak sensitive information, e.g. via a `send_email` function
+    * Leak sensitive information, e.g. via a `send_email` function.
 
-    * Delete an important file, via a `delete_file` or a `bash` command
+    * Delete an important file, via a `delete_file` or a `bash` command.
 
-    * Make a payment to an attacker
+    * Make a payment to an attacker.
 
-    * Send a message to a user with sensitive information
+    * Send a message to a user with sensitive information.
 
-To prevent tool calling related risks, Invariant offers a wide range of options to limit, constrain, validate and block tool calls. This chapter describes the different options available to you, and how to use them.
+To prevent tool-call-related risks, Invariant offers a wide range of options to limit, constrain, validate, and block tool calls. This chapter describes the different options available to you, and how to use them.
 
 ## Preventing Tool Calls
 
 To match a specific tool call in a guardrailing rule, you can use `call is tool:<tool_name>` expressions. This allows you to only match a specific tool call, and apply guardrailing rules to it.
 
-**Example**: Matching all `send_email` tool call.
+**Example**: Matching all `send_email` tool calls.
 ```guardrail
 raise "Must not send any emails" if:
     (call: ToolCall)
@@ -67,7 +67,7 @@ raise "Must not send any emails" if:
 ]
 ```
 
-This rule will trigger for all tool calls to function `send_email`, disregarding its parameterization.
+This rule will trigger for all tool calls to the function `send_email`, disregarding its parameterization.
 
 ## Preventing Specific Tool Call Parameterizations
 
@@ -156,9 +156,9 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
 
 You can also use content matching to match tool arguments with certain properties, like whether they contain personally identifiable information (PII), or whether they are flagged as toxic or inappropriate. This allows you to match specific tool calls with specific parameters, and apply guardrailing rules to them.
 
-**Example**: Prevent `send_email` calls with phone numbers in the message body.
+**Example**: Prevent `send_email` calls with locations in the message body.
 ```guardrail
-raise "Must not send any emails to <anyone>@disallowed.com" if:
+raise "Must not send any emails with locations" if:
     (call: ToolCall)
     call is tool:send_email({
         body: <LOCATION>
@@ -168,7 +168,7 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
 [
     {
         "role": "user",
-        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+        "content": "Send an email to alice@mail.com, and tell her to meet at Rennweg 107, Zurich"
     },
     {
         "role": "assistant",
@@ -192,7 +192,7 @@ raise "Must not send any emails to <anyone>@disallowed.com" if:
 
 This type of content matching also works for other types of content, including `EMAIL_ADDRESS`, `LOCATION`, `PHONE_NUMBER`, `PERSON`, [`MODERATED`](./moderation.md).
 
-**Tool Patterns** In the expression `call is tool:send_email({body: <LOCATION>})`, only the `body` argument is checked, whereas the other arguments are not required to match. This allows you to only check certain arguments of a tool call, and not all of them.
+**Tool Patterns** In the expression `call is tool:send_email({body: <LOCATION>})`, only the `body` argument is checked, whereas the other arguments are not required to match. This allows you to check only certain arguments of a tool call and not all of them.
 
 Alternatively, you can also directly use `invariant.detectors.pii` on the tool call arguments like so:
 
@@ -201,16 +201,16 @@ from invariant.detectors import pii
 
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
-    # filter for right tool
+    # filter for the right tool
     call is tool:send_email
-    # filter for content
+    # filter content
     "LOCATION" in pii(call.function.arguments.body)
 ```
 ```example-trace
 [
     {
         "role": "user",
-        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+        "content": "Send an email to alice@mail.com, and tell her to meet at Rennweg 107, Zurich"
     },
     {
         "role": "assistant",
@@ -248,7 +248,7 @@ raise "PII in tool output" if:
 [
     {
         "role": "user",
-        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+        "content": "Send an email to alice@mail.com, and tell her to meet at Rennweg 107, Zurich"
     },
     {
         "role": "assistant",
@@ -273,9 +273,9 @@ raise "PII in tool output" if:
 
 ### Checking only certain tool outputs
 
-You can also check only certain tool outputs, e.g. to only check the output of a specific tool call.
+You can also choose to check only specific tool outputs. For example, you may wish to check only a specific subset of the `ToolOutput` types.
 
-**Example**: Raise an error if PII is detected in the tool output.
+**Example**: Raise an error if PII is detected in the tool output of the `read_website` tool.
 ```guardrail
 from invariant.detectors import moderated
 
@@ -311,14 +311,15 @@ raise "Moderated content in tool output" if:
     }
 ]
 ```
-Here, only if the `read_website` tool call returns moderated content, the rule will trigger. This allows you to only check certain tool outputs, and not all of them.
+
+This rule will trigger only if the `read_website` tool is specifically called *and* its output contains content that warrants moderation.
 
 
 ## Checking classes of tool calls
 
-To limit your guardrailing rule to a list of different tools, you can also access a tool's name directly:
+To limit your guardrailing rule to a list of different tools, you can also access a tool's name directly.
 
-**Example**: Raise an error if any of the banned tools is used.
+**Example**: Raise an error if any of the banned tools are used.
 ```guardrail
 raise "Banned tool used" if:
     (call: ToolCall)
@@ -367,4 +368,5 @@ raise "Banned tool used" if:
     }
 ]
 ```
+
 This allows you to limit your guardrailing rule to a list of different tools (e.g. all sensitive tools).

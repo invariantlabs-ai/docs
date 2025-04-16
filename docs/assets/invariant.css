@@ -516,6 +516,11 @@ span.parser-badge::before {
     content: 'Built-in functions are pre-defined functions that are available for use in your code without requiring any additional imports.';
 }
 
+.no-border-top_header {
+    border-top: none !important;
+    padding-top: 0pt !important;
+}
+
 eb279c8597c001a60e752
 .parser-badge:hover::after,
 .detector-badge:hover::after,

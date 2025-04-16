@@ -16,11 +16,11 @@ Loop detection is a critical component of any agentic system, as it helps to pre
 > **Looping Risks**<br/>
 > Loops are a common source of bugs and errors in agentic systems. For example, an agent can:
 
-> * Get stuck in an infinite loop, **consuming resources and causing the system to crash**
+> * Get stuck in an infinite loop, **consuming resources and causing the system to crash**.
 
-> * Get stuck in a loop that causes it to **perform an irreversible action**, such as sending a message many times
+> * Get stuck in a loop that causes it to **perform an irreversible action**, such as sending a message many times.
 
-> * Get stuck in a loop, requiring **many expensive LLM calls**, causing the system to run out of tokens or money
+> * Get stuck in a loop, requiring **many expensive LLM calls**, causing the system to run out of tokens or money.
 
 To prevent looping in agents, Guardrails offers multi-turn pattern detection in its rule engine. This allows you to detect and prevent loops in your agentic system, and to take action when a loop is detected.
 
@@ -45,7 +45,7 @@ raise "Allocated too many virtual machines" if:
 [
   {
     "role": "user",
-    "content": "Let's setup a new environment"
+    "content": "Let's set up a new environment"
   },
   {
     "role": "assistant",
@@ -98,9 +98,9 @@ raise "Allocated too many virtual machines" if:
 
 One example of looping behavior is when an agent retries a tool call multiple times without any change in the input or output. 
 
-To detect this, you can write multi-turn guardrailing rules, that match the repetition of a tool call:
+To detect this, you can write multi-turn guardrailing rules, that match the repetition of a tool call.
 
-**Example**: Detecting a retry loop for `check_status`:
+**Example**: Detecting a retry loop for `check_status`.
 
 ```guardrail
 raise "3 retries of check_status" if:
@@ -108,7 +108,7 @@ raise "3 retries of check_status" if:
     (call1: ToolCall) -> (call2: ToolCall)
     call2 -> (call3: ToolCall)
     
-    # ensures all are to the same tool
+    # ensures all calls are to the same tool
     call1 is tool:check_status
     call2 is tool:check_status
     call3 is tool:check_status
@@ -183,7 +183,7 @@ raise "Repetition of length in [2,10]" if:
     (call1: ToolCall)
     call1 is tool:check_status
     
-    # there need to be between 2 and 10 other
+    # there needs to be between 2 and 10 other
     # calls to the same tool, after 'call1'
     count(min=2, max=10):
         call1 -> (other_call: ToolCall)
