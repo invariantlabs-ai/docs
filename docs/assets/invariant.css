@@ -14,6 +14,8 @@
 :root {
     --primary-blue: #3d3affac;
     --primary-red: #ff6678;
+    --primary-sand: #f5e9d7;
+    --primary-teal: #00b4a2;
 }
 
 
@@ -443,13 +445,14 @@ span.parser-badge::before {
     position: relative;
     top: -3pt;
     margin-left: 3pt;
-    background-color: #3A99FF;
+    background-color: var(--primary-teal);
     display: inline-block;
     height: 18pt;
 
     padding: 2pt 4pt;
     border-radius: 4pt;
 }
+
 
 .builtin-badge::before {
     content: "Builtin";
@@ -492,13 +495,6 @@ span.parser-badge::before {
     content: 'Detectors allow you to detect the presence of certain patterns and types of data in an input.';
 }
 
-.high-latency {
-    position: relative;
-}
-
-.high-latency:hover::after {
-    content: 'High-Latency checks may significantly increase the time it takes to process a request. Non-blocking checks are recommended.';
-}
 
 .parser-badge {
     position: relative;
@@ -506,6 +502,14 @@ span.parser-badge::before {
 
 .parser-badge:hover::after {
     content: 'Parsers allow you to extract specific types of data from an input.';
+}
+
+.high-latency {
+    position: relative;
+}
+
+.high-latency:hover::after {
+    content: 'High-Latency checks may significantly increase the time it takes to process a request. Non-blocking checks are recommended.';
 }
 
 .builtin-badge {
@@ -521,7 +525,6 @@ span.parser-badge::before {
     padding-top: 0pt !important;
 }
 
-eb279c8597c001a60e752
 .parser-badge:hover::after,
 .detector-badge:hover::after,
 .llm-badge:hover::after,

@@ -4,11 +4,11 @@
 
 One simple, yet effective method to constrain your agent is to apply regular expressions to match undesired content and substrings.
 
-This is a powerful tool, specifically to fight plain text risks, e.g. to prevent certain URLs, names or other patterns from being included in the agent's context.
+This is a powerful tool, specifically to fight plain text risks, e.g. to prevent certain URLs, names, or other patterns from being included in the agent's context.
 
 
 !!! danger "Plain Text Content Risks"
-    Agents that operate on plain text content are suceptible to generating harmful, or misleading content, which you as the operator may be liable for. An insecure agent could:
+    Agents that operate on plain text content are susceptible to generating harmful, or misleading content, which you as the operator may be liable for. An insecure agent could:
 
     - Generate phishing URLs that are advertised under your brand authority
     - Reference competitors or their websites in responses and internal reasoning
@@ -25,7 +25,7 @@ def match(
     content: str
 ) -> bool
 ```
-Detector to match a regular expression pattern in a message.
+Builtin function to match a regular expression pattern in a message.
 
 **Parameters**
 
@@ -36,13 +36,15 @@ Detector to match a regular expression pattern in a message.
 
 **Returns**
 
-Returns `True` if the pattern matches the content, `False` otherwise.
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `bool`  | Returns <span class='boolean-value-true'>TRUE</span> if the pattern matches the content, <span class='boolean-value-false'>FALSE</span> otherwise. |
 
 Wraps `re.match` from Python's standard library. 
 
-By default only matches content at the beginning of the string. To match anywhere in the string, use `.*` at the beginning of the pattern.
+By default this will only match the content at the beginning of a string. To match anywhere in a string, use `.*` at the beginning of the pattern.
 
-### Examples
+### Example Usage
 
 **Example:** Checking if a message contains a URL.
 
@@ -79,7 +81,7 @@ raise "Must not mention competitor" if:
   },
   {
     "role": "assistant",
-    "content": "I dont' know what you are talking about"
+    "content": "I don't know what you are talking about"
   }
 ]
 ```
@@ -90,10 +92,10 @@ raise "Must not mention competitor" if:
 def find(
     pattern: str, 
     content: str
-) -> List[str]
+) -> list[str]
 ```
 
-Detector to find all occurrences of a regular expression pattern in a message.
+Builtin function to find all occurrences of a regular expression pattern in a message.
 
 **Parameters**
 
@@ -104,9 +106,11 @@ Detector to find all occurrences of a regular expression pattern in a message.
 
 **Returns**
 
-The list of all occurrences of the pattern in the content.
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `list[str]`  | The list of all occurrences of the pattern in the content. |
 
-### Examples
+### Example Usage
 
 **Example:** Iterating over all capitalized words and checking if they are in a list of names.
 
@@ -141,4 +145,4 @@ raise "Must not link to example.com" if:
 ]
 ```
 
-Here, we quantify over all matches returned by `find`. This means, if any of the matches satisfies the extra condition, the guardrail will raise. 
+Here, we quantify over all matches returned by `find`. This means that if any of the matches satisfies the extra condition, the guardrail will raise. 

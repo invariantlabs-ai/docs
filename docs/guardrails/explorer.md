@@ -12,7 +12,7 @@ Learn how to configure and manage your guardrailing rules in Explorer.
 
 [Explorer](../explorer/index.md) is Invariant's configuration and observability tool. It allows you to configure guardrails, inspect and debug your agent traces and analyze your agentic system for novel failure modes.
 
-It exposes a simple configuration interface, that allows you to configure, test and deploy guardrails to your agentic system, as well as inspect guardrail failures in detail.
+It exposes a simple configuration interface that allows you to configure, test, and deploy guardrails to your agentic system, as well as inspect guardrail failures in detail.
 
 <figure class="styled-figure">
   <img src="site:/guardrails/guardrails-configuration-explorer.png" alt="Explorer Landing" class="invariant-architecture" style="display: block; margin: 0 auto; width: 100%; max-width: 650pt;"/>
@@ -41,7 +41,6 @@ import os
 from openai import OpenAI
 
 # 1. Explorer+Gateway Integration
-
 client = OpenAI(
     default_headers={
         "Invariant-Authorization": "Bearer " + os.getenv("INVARIANT_API_KEY")
@@ -94,8 +93,8 @@ Here, you can configure the following parameters:
 | Action        | Description                            |
 |---------------|----------------------------------------|
 | Block       | Blocks the request outright, returning an HTTP error to the client. |
-| Log         | Let's the request pass, but logs the violation in Explorer via designated Guardrail violation annotations in the resulting agent traces. This is useful to monitor your agent's violation patterns, without disrupting the agentic process. |
-| Paused      | Pauses the enforcement of the guardrail, allowing all request to pass through without evaluating it. This is useful to temporarily disable a guardrail. |
+| Log         | Lets the request pass, but logs the violation in Explorer via designated Guardrail violation annotations in the resulting agent traces. This is useful to monitor your agent's violation patterns, without disrupting the agentic process. |
+| Paused      | Pauses the enforcement of the guardrail, allowing all requests to pass through without evaluating it. This is useful to temporarily disable a guardrail. |
 
 
 **Guardrailing Rule**: The guardrailing rules that need to be matched for the overall guardrail to be triggered. This is an editor of the Guardrails rule language, providing Invariant's full expressive power as described in this documentation.
@@ -105,7 +104,7 @@ Here, you can configure the following parameters:
 
 To use a pre-defined guardrail, navigate to the bottom part of the Guardrails configuration page.
 
-Here, you will see a list of pre-defined guardrails, along with a short description of the guardrail. These preconfigured rules, are meant to be a starting point for your guardrail configuration. 
+Here, you will see a list of pre-defined guardrails, along with a short description of the guardrail. These preconfigured rules are meant to be a starting point for your guardrail configuration. 
 
 Click on the `Details` button to review and modify any preconfigured rule before deploying it to your project. Each guardrail suggestion comes with comments explaining its functionality. 
 
@@ -115,9 +114,9 @@ Click on the `Details` button to review and modify any preconfigured rule before
 
 All changes made in Explorer are automatically deployed to your Gateway instance, enabling you to deploy new guardrails and security policies within seconds. 
 
-This means, even though your agentic system may be running in a slow-to-update production environment, you can quickly respond to new security threats and update your guardrails to your liking, without having to manually update your agent system or re-deploy.
+This means, that even though your agentic system may be running in a slow-to-update production environment, you can quickly respond to new security threats and update your guardrails to your liking, without having to manually update your agent system or re-deploy.
 
-It also enables quick experimentation with new guardrails, without having to worry about the underlying infrastructure. Gateway will automatically pull the latest guardrail configuration from Explorer once a new version is deployed, updating your agent's behavior in real-time.
+It also enables quick experimentation with new guardrails, without having to worry about the underlying infrastructure. Gateway will automatically pull the latest guardrail configuration from Explorer once a new version is deployed, updating your agent's behavior in real time.
 
 ## Inspecting Guardrail Failures
 

@@ -16,7 +16,7 @@ Personally Identifiable Information (PII) refers to sensitive information — li
 
 > * **Log PII** in traces or internal tools, leading to data compliance violations.
 >
-> * **Expose PII** in unintentional or dangerous way (e.g. when sending an internal or external email).
+> * **Expose PII** in unintentional or dangerous ways (e.g. when sending an internal or external email).
 >
 > * **Store PII** in databases or other storage systems, that may not be qualified for storing sensitive information. 
 > 
@@ -37,14 +37,14 @@ Detector to find personally identifiable information in text.
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `Union[str, List[str]]` | A single message or a list of messages. |
-| `entities`  | `Optional[List[str]]`   | A list of [PII entity types of the Presidio library](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
+| `data`      | `str | list[str]` | A single message or a list of messages. |
+| `entities`  | `list[str]`   | A list of [PII entity types of the Presidio library](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
 
 **Returns**
 
 | Type   | Description                            |
 |--------|----------------------------------------|
-| `List[str]` | A list of all the detected PII in `data` |
+| `list[str]` | A list of all the detected PII in `data`. |
 
 ### Detecting PII
 The simplest usage of the `pii` function is to check against any message. The following example will raise an error if any message in the trace contains PII.
@@ -112,7 +112,7 @@ raise "Found PII in message" if:
 ### Detecting Specific PII Types
 You can also specify specific types of PII that you would like to detect, such as phone numbers, emails, or credit card information. The example below demonstrates how to detect credit card numbers in Messages.
 
-**Example:** Detecting Credit Card Numbers.
+**Example:** Detecting credit card numbers.
 ```guardrail
 from invariant.detectors import pii
 
@@ -174,9 +174,9 @@ raise "Found Credit Card information in message" if:
 
 
 ### Preventing PII Leakage
-It is also possible to use the `pii` function in combination with other filters to get more complex behavior. The example below shows how you can detect when an agent attempts to send emails outside of your organisation. 
+It is also possible to use the `pii` function in combination with other filters to get more complex behavior. The example below shows how you can detect when an agent attempts to send emails outside of your organization. 
 
-**Example:** Detecting PII Leakage in External Communications.
+**Example:** Detecting PII leakage in external communications.
 ```guardrail
 from invariant.detectors import pii
 

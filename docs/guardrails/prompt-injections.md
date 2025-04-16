@@ -26,8 +26,8 @@ Guardrails provides the functions `prompt_injection` and `unicode` to detect and
 ## prompt_injection <span class="detector-badge"/>
 ```python
 def prompt_injection(
-    data: str | List[str],
-    config: Optional[dict] = None
+    data: str | list[str],
+    config: dict | None = None
 ) -> bool
 ```
 Detects if a given piece of text contains a prompt injection attempt.
@@ -36,8 +36,8 @@ Detects if a given piece of text contains a prompt injection attempt.
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `str | List[str]` | A single message or a list of messages to detect prompt injections in. |
-| `entities`  | `Optional[dict]`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
+| `data`      | `str | list[str]` | A single message or a list of messages to detect prompt injections in. |
+| `entities`  | `dict | None`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
 
 **Returns**
 
@@ -65,35 +65,35 @@ raise "detected an indirect prompt injection before send_email" if:
 ## unicode <span class="detector-badge"/>
 ```python
 def unicode(
-    data: Union[str, List[str]],
-    categories: Optional[list] = None
+    data: str | list[str],
+    categories: list[str] | None = None
 ) -> bool
 ```
-Detector to find specific types of unicode characters in text.
+Detector to find specific types of Unicode characters in text.
 
 **Parameters**
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `data`      | `str | List[str]` | A single message or a list of messages to detect prompt injections in. |
-| `categories`  | `Optional[List[str]]`   | A list of [unicode categories](https://en.wikipedia.org/wiki/Unicode_character_property#General_Category) to detect. Defaults to detecting all. |
+| `data`      | `str | list[str]` | A single message or a list of messages to detect prompt injections in. |
+| `categories`  | `list[str] | None`   | A list of [unicode categories](https://en.wikipedia.org/wiki/Unicode_character_property#General_Category) to detect. Defaults to detecting all. |
 
 **Returns**
 
 | Type   | Description                            |
 |--------|----------------------------------------|
-| `List[str]` | The list of detected classes, for example `["Sm", "Ll", ...]` |
+| `list[str]` | The list of [detected classes](https://en.wikipedia.org/wiki/Unicode_character_property#General_Category), for example `["Sm", "Ll", ...]` |
 
 ### Detecting Specific Unicode Characters
-Using the `unicode` function you can detect a specific type of unicode characters in message content. For example, if someone is trying to use your agentic system for their math homework, you may wish to detect and prevent this. 
+Using the `unicode` function you can detect a specific type of unicode characters in the message content. For example, you may wish to detect invisible or private use control characters that can be used to [attack your system](https://www.promptfoo.dev/blog/invisible-unicode-threats/).
 
 **Example:** Detecting invisible unicode messages.
 ```guardrail
 from invariant.detectors import unicode
 
-raise "Found Math Symbols in message" if:
+raise "Found private use control character" if:
     (msg: ToolOutput)
-    any(unicode(msg, ["Co"])) # detects private us control characters
+    any(unicode(msg, ["Co"])) # detects private use control characters
 ```
 ```example-trace
 [
