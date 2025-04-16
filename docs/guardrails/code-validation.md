@@ -14,20 +14,59 @@ Code validation is a critical component of any code-generating LLM system, as it
 !!! danger "Code Validation Risks"
     Code validation is a critical component of any code-generating LLM system. An insecure agent could:
 
-    - Generate code that contains **security vulnerabilities**, such as SQL injection or cross-site scripting  
-    - Generate code that **contains bugs or errors**, causing the system to crash or behave unexpectedly  
-    - Produce code that escapes a **sandboxed execution environment**  
-    - Generate code that is **not well-formed or does not follow best practices**, causing the system to be difficult to maintain or understand
+    - Generate code that contains **security vulnerabilities**, such as SQL injection or cross-site scripting.
+    - Generate code that **contains bugs or errors**, causing the system to crash or behave unexpectedly. 
+    - Produce code that escapes a **sandboxed execution environment**.  
+    - Generate code that is **not well-formed or does not follow best practices**, causing the system to be difficult to maintain or understand.
 
-To validate code as part of Guardrails, Invariant allows you to invoke external code checking tools as part of the guardrailing process. That means with Invariant you can build code validation right into your LLM layer, without worrying about it on the agent side.
+To validate code as part of Guardrails, Invariant allows you to invoke external code-checking tools as part of the guardrailing process. That means with Invariant you can build code validation right into your LLM layer, without worrying about it on the agent side.
 
 For this, two main components are supported: (1) code parsing and (2) semgrep integration.
 
-## Code Parsing
+## Code Parsing 
 
 The code parsing feature allows you to parse generated code, and access its abstract syntax tree, to implement custom validation rules. 
 
-This is useful for checking the structure and syntax of the code, as well as for identifying potential security vulnerabilities.
+This is useful for checking the structure and syntax of the code and identifying potential security vulnerabilities. Invariant provides the `python_code` function for this.
+
+## python_code <span class="detector-badge"/> {: .no-border-top_header }
+```python
+def python_code(
+    data: Union[str, List[str]],
+    ipython_mode: bool = False
+) -> List[str]
+```
+
+Parses the provided Python code and returns a `PythonDetectorResult` object.
+
+**Parameters**
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `data`      | `str | list | dict` | The Python code to be parsed. |
+| `ipython_mode` | `bool` | If set to <span class='boolean-value-true'>TRUE</span>, the code will be parsed in IPython mode. This is useful for parsing code that uses IPython-specific features or syntax. |
+
+**Returns**
+
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `PythonDetectorResult` | The result of the detector. |
+
+
+### `PythonDetectorResult` objects
+`PythonDetectorResult` objects represent the analysis results of a Python code snippet.
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `.imports` | `list[str]` | This field contains a list of imported modules in the provided code. It is useful for identifying which libraries or modules are being used in the code. |
+| `.builtins` | `list[str]` | A list of built-in functions used in the provided code. |
+| `.syntax_error` | `bool` | A boolean flag indicating whether the provided code has syntax errors. |
+| `.syntax_error_exception` | `str | None` | A string containing the exception message if a syntax error occurred while parsing the provided code. |
+| `.function_calls` | `set[str]` | A set of function call identifier names in the provided code. |
+
+### Example Usage
+
+The `eval` function in Python presents several potential security vulnerabilities, so you may want to prevent it from being present in generated code.
 
 **Example:** Validating the function calls in a code snippet.
 ```guardrail
@@ -56,12 +95,12 @@ Similarly, you can check for syntactic errors in the code, or check for the pres
 
 **Example:** Validating the imports in a code snippet.
 ```guardrail
-from invariant.detectors.code import ipython_code
+from invariant.detectors.code import python_code
 
 raise "syntax error" if:
     (call: ToolCall)
     call.function.name == "ipython"
-    ipython_code(call.function.arguments.code).syntax_error
+    python_code(call.function.arguments.code).syntax_error
 ```
 ```example-trace
 [
@@ -88,55 +127,6 @@ raise "syntax error" if:
 ]
 ```
 
-<!-- template  -->
-<!-- **Parameters**
-
-| Name        | Type   | Description                            |
-|-------------|--------|----------------------------------------|
-| `data`      | `Union[str, List[str]]` | A single message or a list of messages to detect PII in. |
-| `entities`  | `Optional[List[str]]`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
-
-**Returns**
-
-| Type   | Description                            |
-|--------|----------------------------------------|
-| `List[str]` | A list of all the detected PII in `data` | -->
-
-## python_code <span class="detector-badge"/>
-```python
-def python_code(
-    data: Union[str, List[str]],
-    ipython_mode: bool = False
-) -> List[str]
-```
-
-Parses provided Python code and returns a `PythonDetectorResult` object.
-
-**Parameters**
-
-| Name        | Type   | Description                            |
-|-------------|--------|----------------------------------------|
-| `data`      | `str | list | dict` | The Python code to be parsed. |
-| `ipython_mode` | `bool` | If set to <span class='boolean-value-true'>TRUE</span>, the code will be parsed in IPython mode. This is useful for parsing code that uses IPython-specific features or syntax. |
-
-**Returns**
-
-| Type   | Description                            |
-|--------|----------------------------------------|
-| `PythonDetectorResult` | The result of the detector. |
-
-
-### `PythonDetectorResult` objects
-`PythonDetectorResult` objects represent the analysis results of a Python code snippet.
-
-| Name        | Type   | Description                            |
-|-------------|--------|----------------------------------------|
-| `.imports` | `list[str]` | This field contains a list of imported modules in the provided code. It is useful for identifying which libraries or modules are being used in the code. |
-| `.builtins` | `list[str]` | A list of built-in functions used in the provided code. |
-| `.syntax_error` | `bool` | A boolean flag indicating whether the provided code has syntax errors. |
-| `.syntax_error_exception` | `str | None` | A string containing the exception message if a syntax error occurred while parsing the provided code. |
-| `.function_calls` | `set[str]` | A set of function call identifier names in the provided code. |
-
 ## Static Code Analysis
 
 Static code analysis allows for powerful pattern-based detection of vulnerabilities and insecure coding practices. Invariant integrates [Semgrep](https://semgrep.dev) directly into your guardrails, enabling deep analysis of assistant-generated code before it's executed.
@@ -151,7 +141,7 @@ Static code analysis allows for powerful pattern-based detection of vulnerabilit
 
 You can use `semgrep` within a guardrail to scan code in Python, Bash, and other supported languages.
 
-## semgrep <span class="detector-badge"></span> <span class="high-latency"></span>
+## semgrep <span class="detector-badge"></span> <span class="high-latency"></span> {: .no-border-top_header }
 ```python
 def semgrep(
   data: str | list | dict, 
@@ -165,7 +155,7 @@ Scans the given code using [Semgrep](http://semgrep.dev) and returns a list of `
 
 | Name    | Type                  | Description                                           |
 |---------|-----------------------|-------------------------------------------------------|
-| `data`  | `str | list | dict` | The code to scan. Can be a single string or list.     |
+| `data`  | `str | list | dict` | The code to scan. This can be a single string or list.     |
 | `lang`  | `str`                 | Programming language (`"python"`, `"bash"`, etc).     |
 
 **Returns**
@@ -188,13 +178,11 @@ class CodeSeverity(str, Enum)
 | `.description` | `str`         | Description of the issue.                        |
 | `.severity`    | `CodeSeverity` | Severity of the issue (e.g., "HIGH", "MEDIUM").  |
 
----
-
 ### Example Usage
 
-Use semgrep to perform deep static analysis and identify potential vulnerabilities, bad practices, or policy violations in code. It complements python_code by enabling more powerful pattern-based detection.
+Use semgrep to perform deep static analysis and identify potential vulnerabilities, bad practices, or policy violations in code. It complements `python_code` by enabling more powerful pattern-based detection.
 
-**Example:** Detecting Dangerous Patterns in Python Code
+**Example:** Detecting dangerous patterns in Python code.
 ```guardrail
 from invariant.detectors import semgrep
 

@@ -19,28 +19,28 @@ For instance, your agent may access an internal source of information like a dat
 
 Invariant allows you to detect such contextually sensitive dataflow, and prevent it from happening.
 
-This chapter discusses how Invariant Guardrails can be used to secure agentic dataflow, and make sure that sensitive data never leaves the system through unintended channels.
+This chapter discusses how Invariant Guardrails can be used to secure agentic dataflow and make sure that sensitive data never leaves the system through unintended channels.
 
 <div class='risks'/>
 > **Dataflow Risks**<br/>
 
 > Due to their dynamic nature, agentic systems often mix and combine data from different sources, and can easily leak sensitive information. For example, an insecure agent could:
 
-> * Leak sensitive information, such as **API keys or passwords**, to an external service
+> * Leak sensitive information, such as **API keys or passwords**, to an external service.
 
-> * Send sensitive information, such as **user data or PII**, to an external service
+> * Send sensitive information, such as **user data or PII**, to an external service.
 
-> * Be prompt-injected by an external service via indirect channels, to **perform malicious actions** as injected by an potential attacker
+> * Be prompt-injected by an external service via indirect channels, to **perform malicious actions** as injected by a potential attacker.
 
 ## The Flow Operator `->`
 
 <img src="site:/guardrails/flow.svg" alt="Flow Operator" class="flow-operator" style="display: block; margin: 40pt auto; width: 100%; max-width: 400pt;"/>
 
-At the center of Invariant's data flow checking is the flow operator `->`. This operator enables you to precisely detect flows and ordering of operations in an agent trace.
+At the center of Invariant's data flow checking is the flow operator `->`. This operator enables you to precisely detect flows and the ordering of operations in an agent trace.
 
-For example, to prevent a user message with the content `"send"` from triggering a `send_email` tool call, you can use the following rule:
+For example, to prevent a user message with the content `"send"` from triggering a `send_email` tool call, you can use the following rule.
 
-**Example:** Preventing a simple flow
+**Example:** Preventing a simple flow.
 ```guardrail
 raise "Must not call tool after user uses keyword" if:
     (msg: Message) -> (tool: ToolCall)
@@ -66,11 +66,12 @@ raise "Must not call tool after user uses keyword" if:
   }
 ]
 ```
-Evaluating this rule will highlight both, the relevant part of the user message, as well as the subsequent `send_email` call:
+
+Evaluating this rule will highlight both the relevant part of the user message and the subsequent `send_email` call:
 
 <img src="site:/guardrails/flow.png" alt="Flow Operator" class="flow-operator" style="display: block; margin: 0 auto; width: 100%; max-width: 500pt;"/>
 
-This rule will raise an error on the given trace, because a user message with the content `"send"` is followed by a `send_email` tool call, and thus makes it impossible to send an email after the user uses the keyword `"send"`.
+This rule will raise an error on the given trace because a user message with the content `"send"` is followed by a `send_email` tool call, and thus makes it impossible to send an email after the user uses the keyword `"send"`.
 
 Here, the line `(msg: Message) -> (tool: ToolCall)` specifies that the rule only applies, when a `Message` is followed by a `ToolCall`, where `msg` and `tool` are further constrained by the extra conditions in the following lines.
 
@@ -119,9 +120,9 @@ raise "Must not call tool after user uses keyword" if:
 ]
 ```
 
-Note that for this you have to use the  `->` operator twice, in separate lines, to express the transitive connection between `msg`, `tool` and `tool2`.
+Note that for this you have to use the  `->` operator twice, in separate lines, to express the transitive connection between `msg`, `tool`, and `tool2`.
 
-## Direct Succession Flows with `~>`
+## Direct Succession Flows `~>`
 
 <img src="site:/guardrails/direct-flow.svg" alt="Flow Operator" class="flow-operator" style="display: block; margin: 40pt auto; width: 100%; max-width: 400pt;"/>
 
@@ -195,8 +196,6 @@ In a trace, this looks like this:
 ```
 
 Here, the `ToolOutput` is a direct successor of the `ToolCall`, and thus the rule will match.
-
----
 
 ## Combining Content Guardrails with Dataflow Rules
 

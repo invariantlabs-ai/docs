@@ -12,9 +12,9 @@ This page contains a concise reference for writing guardrailing rules with Invar
 
 ## Setting Up Your LLM Client
 
-To get started with guardrailing, you have to setup your LLM client to use [Invariant Gateway](../gateway/index.md):
+To get started with guardrailing, you have to set up your LLM client to use [Invariant Gateway](../gateway/index.md):
 
-**Example:** Setting Up Your OpenAI client to use Guardrails
+**Example:** Setting up your OpenAI client to use Guardrails.
 ```python hl_lines='8 9 10 16 17 18 19 20 21 22 23 24'
 import os
 from openai import OpenAI
@@ -51,7 +51,7 @@ Before you run, make sure you export the relevant environment variables includin
 
 See also [Ban Topics and Substrings](../guardrails/ban-words.md).
 
-**Example:** Checking for the presence of specific keywords in the message content.
+**Example:** Checking for specific keywords in the message content.
 ```guardrail
 raise "The one who must not be named" if: 
     (msg: Message)
@@ -76,7 +76,7 @@ See also [Ban Topics and Substrings](../guardrails/ban-words.md).
 ```guardrail
 from invariant.detectors import prompt_injection
 
-raise "Prompt Injection Detected" if: 
+raise "Prompt injection detected" if: 
     (msg: Message)
     prompt_injection(msg.content)
 ```
@@ -128,7 +128,7 @@ raise "Must not send any emails to Alice" if:
 ]
 ```
 
-**Example**: Matching a `send_email` calls with a specific recipient domain.
+**Example**: Matching a `send_email` tool call with a specific recipient domain.
 ```guardrail
 raise "Must not send any emails to <anyone>@disallowed.com" if:
     (call: ToolCall)
@@ -184,7 +184,7 @@ raise "PII in tool output" if:
 [
     {
         "role": "user",
-        "content": "Send an email to alice@mail.com, and tell her to meet at at Rennweg 107, Zurich"
+        "content": "Send an email to alice@mail.com, and tell her to meet at Rennweg 107, Zurich"
     },
     {
         "role": "assistant",
@@ -324,11 +324,11 @@ raise "Found PII in message" if:
 ]
 ```
 
-**Example:** Detecting Credit Card Numbers.
+**Example:** Detecting credit card numbers.
 ```guardrail
 from invariant.detectors import pii
 
-raise "Found Credit Card information in message" if:
+raise "Found credit card information in message" if:
     (msg: ToolOutput)
     any(pii(msg, ["CREDIT_CARD"]))
 ```
@@ -382,7 +382,7 @@ raise "Found Credit Card information in message" if:
 ]
 ```
 
-**Example:** Detecting PII Leakage in External Communications.
+**Example:** Detecting PII leakage in external communications.
 ```guardrail
 from invariant.detectors import pii
 
@@ -441,7 +441,7 @@ raise "Attempted to send PII in an email" if:
 ]
 ```
 
-**Example:** Detecting Copyrighted content
+**Example:** Detecting copyrighted content.
 ```guardrail
 from invariant.detectors import copyright
 
@@ -462,7 +462,7 @@ raise "found copyrighted code" if:
 
 See also [Data Flow Rules](../guardrails/dataflow-rules.md) for more details on data flow guardrailing.
 
-**Example:** Preventing a simple flow
+**Example:** Preventing a simple flow.
 ```guardrail
 raise "Must not call tool after user uses keyword" if:
     (msg: Message) -> (tool: ToolCall)
@@ -489,7 +489,7 @@ raise "Must not call tool after user uses keyword" if:
 ]
 ```
 
-**Example:** Preventing a multi-turn flow
+**Example:** Preventing a multi-turn flow.
 ```guardrail
 raise "Must not call tool after user uses keyword" if:
     (msg: Message) -> (tool: ToolCall)
@@ -528,7 +528,7 @@ raise "Must not call tool after user uses keyword" if:
 ]
 ```
 
-**Example:** Preventing a tool call output of a specific type
+**Example:** Preventing a tool call output of a specific type.
 ```guardrail
 raise "Must not call tool after user uses keyword" if:
     # directly succeeding (ToolCall, ToolOutput) pair
@@ -623,7 +623,7 @@ raise "Allocated too many virtual machines" if:
 [
   {
     "role": "user",
-    "content": "Let's setup a new environment"
+    "content": "Let's set up a new environment"
   },
   {
     "role": "assistant",
@@ -672,7 +672,7 @@ raise "Allocated too many virtual machines" if:
 ]
 ```
 
-**Example:** Detecting a retry loop with quantifiers
+**Example:** Detecting a retry loop with quantifiers.
 
 ```guardrail
 from invariant import count
