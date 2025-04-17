@@ -1,11 +1,11 @@
 ---
-title: LLM
-description: Call an LLM on a given prompt.
+title: LLM-as-Guardrail
+description: Invoke an model to validate an action.
 ---
 
-# LLM
+# LLM-as-Guardrail
 <div class='subtitle'>
-Call LLM on a given prompt.
+Invoke an model to validate a response or action.
 </div>
 
 During policy execution, you can call an LLM with custom prompts allowing for more flexible rules. LLMs are very powerful, especially in contexts where it is hard to state strict and deterministic rules or when some rudimentary thinking is needed.
@@ -41,9 +41,9 @@ Function to run an LLM in the policy execution.
 | `str` | The LLM response. |
 
 ### Prompt Injection Detector 
-The `llm` function can be used instead of the `prompt-injection` function as a prompt injection detector. This is generally not recommended due to higher latency, but, in some contexts, it can be valuable to adjust the prompt to steer the behavior of the detector.
+For instance, the `llm` function can be used instead of [`prompt_injection`](./prompt-injections.md), to serve as a prompt injection detector. This is generally not recommended due to higher latency, but, in some contexts, it can be valuable to adjust the prompt to steer the behavior of the detector.
 
-**Example:** Prompt Injection.
+**Example:** Detect a prompt injection in a tool's output.
 ```guardrail
 from invariant import llm
 
@@ -102,4 +102,4 @@ raise "Found prompt injection in tool output" if:
   }
 ]
 ```
-<div class="code-caption"> Detect prompt injection. </div>
+<div class="code-caption"> Detects a prompt injection hidden in a tool's output. </div>

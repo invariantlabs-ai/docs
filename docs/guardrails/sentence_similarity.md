@@ -8,7 +8,9 @@ description: Detect semantically similar sentences.
 Detect semantically similar sentences.
 </div>
 
-Keywords are a simple way to flag potentially sensitive content in text, but they don’t always capture the full meaning. In cases where you need a deeper understanding of the content, semantic similarity is more effective. is_similar provides fuzzy matching between strings using sentence embedding models to detect whether two pieces of text are semantically alike.
+Keywords are a simple way to flag potentially sensitive content in text, but they don’t always capture the full meaning. In cases where you need a deeper understanding of the content, semantic similarity is more effective. 
+
+`is_similar` provides fuzzy matching between strings using sentence embedding models to detect whether two pieces of text are semantically alike.
 
 
 ## is_similar
