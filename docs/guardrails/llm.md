@@ -1,18 +1,18 @@
 ---
 title: LLM
-description: Call LLM on given prompt.
+description: Call an LLM on a given prompt.
 ---
 
 # LLM
 <div class='subtitle'>
-Call LLM on given prompt.
+Call LLM on a given prompt.
 </div>
 
-You can call an LLM as part of the policy execution. LLMs are very powerful, especially in contexts where it is hard to state strict and deterministic rules, or some rudimentary thinking is needed.
+During policy execution, you can call an LLM with custom prompts allowing for more flexible rules. LLMs are very powerful, especially in contexts where it is hard to state strict and deterministic rules or when some rudimentary thinking is needed.
 
-A policy which includes an LLM call, will have higher latency. If speed is crucial, consider looking into [sentence similarity](./sentence_similarity.md).
+Note that a policy that includes an LLM call will naturally have high latency. If performance is a primary concern, consider looking into [sentence similarity](./sentence_similarity.md) instead.
 
-## llm
+## llm <span class="llm-badge"/> <span class="high-latency"/>
 ```python
 def llm(
     prompt: str,
@@ -28,22 +28,22 @@ Function to run an LLM in the policy execution.
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
-| `prompt`      | `str` | LLM prompt. |
-| `system_prompt`  | `str`   | System prompt for the LLM. Default is `You are a helpful assistant.` |
-| `model`      | `str` | LLM model to use. Supported models are `openai/gpt-4o`, `openai/gpt-4o-mini`. Default is `openai/gpt-4o` |
-| `temperature`  | `float`   | What sampling temperature to use, between 0 and 2. Higher values like `0.8` will make the output more random, while lower values like 0.2 will make it more focused and deterministic. Default is `0.2`  |
-| `max_tokens`      | `int` | The maximum number of tokens that can be generated. Default is `500` |
+| `prompt`      | `str` | The LLM prompt. |
+| `system_prompt`  | `str`   | The system prompt for the LLM. The default is `"You are a helpful assistant."`. |
+| `model`      | `str` | The LLM model to use. The supported models are `openai/gpt-4o` and `openai/gpt-4o-mini`. The default is `openai/gpt-4o`. |
+| `temperature`  | `float`   | The sampling temperature to use. The value has to be between `0` and `2`. Higher values like `0.8` will make the output more random, while lower values like `0.2` will make it more focused and deterministic. The default is `0.2`.  |
+| `max_tokens`      | `int` | The maximum number of tokens that can be generated. The default is `500`. |
 
 **Returns**
 
 | Type   | Description                            |
 |--------|----------------------------------------|
-| `str` | LLM response |
+| `str` | The LLM response. |
 
 ### Prompt Injection Detector 
-`llm` can be used instead of `prompt-injection` as a prompt injection detector. This is generally not recommended due to higher latency, but, in some context, it can be valuable to adjust the prompt to steer the behavior of the detector.
+The `llm` function can be used instead of the `prompt-injection` function as a prompt injection detector. This is generally not recommended due to higher latency, but, in some contexts, it can be valuable to adjust the prompt to steer the behavior of the detector.
 
-**Example:** Prompt Injection
+**Example:** Prompt Injection.
 ```guardrail
 from invariant import llm
 
