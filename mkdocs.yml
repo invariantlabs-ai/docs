@@ -29,6 +29,8 @@ extra:
 
 markdown_extensions:
   - admonition
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true

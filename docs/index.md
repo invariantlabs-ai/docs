@@ -98,53 +98,82 @@ Go to <img class='inline-invariant' src="site:assets/logo.svg"/> [Invariant Expl
 
 **:bootstrap-2-circle: Integrate Gateway**
 
-**Example:** Connect to Gateway by updating the base URL of your LLM.
-```python hl_lines='8 9 10 16 17 18 19 20 21 22 23 24'
-import os
-from swarm import Swarm, Agent
-from openai import OpenAI
+Next, you need to integrate Gateway into your LLM or MCP client setup.
 
-# 1. Guardrailing Rules
+=== "LLM Integration"
 
-guardrails = """
-raise "Rule 1: Do not talk about Fight Club" if: 
-    (msg: Message)
-    "fight club" in msg.content
-"""
+    **Example:** Connect to Gateway by updating the base URL of your LLM.
+    ```python hl_lines='8 9 10 16 17 18 19 20 21 22 23 24'
+    import os
+    from swarm import Swarm, Agent
+    from openai import OpenAI
+
+    # 1. Guardrailing Rules
+
+    guardrails = """
+    raise "Rule 1: Do not talk about Fight Club" if: 
+        (msg: Message)
+        "fight club" in msg.content
+    """
 
 
-# 2. Gateway Integration
+    # 2. Gateway Integration
 
-client = Swarm(
-    client = OpenAI(
-        default_headers={
-            "Invariant-Authorization": "Bearer " + os.getenv("INVARIANT_API_KEY"),
-            "Invariant-Guardrails": guardrails.encode("unicode_escape"),
-        },
-        base_url="https://explorer.invariantlabs.ai/api/v1/gateway/<your-project-id>/openai",
+    client = Swarm(
+        client = OpenAI(
+            default_headers={
+                "Invariant-Authorization": "Bearer " + os.getenv("INVARIANT_API_KEY"),
+                "Invariant-Guardrails": guardrails.encode("unicode_escape"),
+            },
+            base_url="https://explorer.invariantlabs.ai/api/v1/gateway/<your-project-id>/openai",
+        )
     )
-)
 
 
-# 3. Your Agent Implementation
+    # 3. Your Agent Implementation
 
-# define a tool
-def get_weather():
-    return "It's sunny."
+    # define a tool
+    def get_weather():
+        return "It's sunny."
 
-# define an agent
-agent = Agent(
-    name="Agent A",
-    instructions="You are a helpful agent.",
-    functions=[get_weather],
-)
+    # define an agent
+    agent = Agent(
+        name="Agent A",
+        instructions="You are a helpful agent.",
+        functions=[get_weather],
+    )
 
-# run the agent
-response = client.run(
-    agent=agent,
-    messages=[{"role": "user", "content": "Tell me more about fight club."}],
-)
-```
+    # run the agent
+    response = client.run(
+        agent=agent,
+        messages=[{"role": "user", "content": "Tell me more about fight club."}],
+    )
+    ```
+
+=== "MCP Integration"
+
+    **Example:** Connect to Gateway by inserting Gateway's MCP middleware
+    ```python hl_lines='5 6 7 8 9 10 14'
+    {
+        "you-mcp-server": {
+            "command": "uvx",
+            "args": [
+                "invariant-gateway@latest",
+                "mcp",
+                "--project-name",
+                "<your-project-name>",
+                "--push-explorer",
+                "--exec",
+                "...(MCP server command via npx or uvx)..."
+            ],
+            "env": {
+                "INVARIANT_API_KEY": "<INVARIANT_API_KEY>"
+            }
+        }
+    }
+    ```
+
+    Note that for MCP, you need to configure your guardrailing rules in the corresponding [Explorer project](https://explorer.invariantlabs.ai/projects) instead of in the code.
 
 ---
 

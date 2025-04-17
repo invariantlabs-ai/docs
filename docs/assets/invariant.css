@@ -1246,3 +1246,7 @@ strong .twemoji {
 .format-explainer .examples pre {
     overflow-x: auto;
 }
+
+.tabbed-labels a {
+    text-decoration: none;
+}
