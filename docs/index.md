@@ -63,7 +63,7 @@ Securing your agent is a crucial step in safely deploying AI agents to productio
 
 ## Getting Started as Developer
 
-The _Invariant Gateway_ **intercepts the LLM calls of your agent**, to implement _steering and guardrailing_on, without requiring major code changes:
+The _Invariant_ **intercepts the LLM and MCP calls of your agent**, to implement _steering and guardrailing_, without requiring major code changes:
 
 <br/>
 <div class='overview'>
