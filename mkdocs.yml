@@ -107,6 +107,8 @@ nav:
       - Regex Filters: guardrails/regex-filters.md
       - Copyrighted Content: guardrails/copyright.md
       - Secret Tokens and Credentials: guardrails/secrets.md
+      - Sentence Similarity: guardrails/sentence_similarity.md
+      - LLM Calls: guardrails/llm.md
     - Guardrails in Gateway: guardrails/gateway.md
     - Guardrails in Explorer: guardrails/explorer.md
     - Rule Writing Reference: guardrails/rules.md
