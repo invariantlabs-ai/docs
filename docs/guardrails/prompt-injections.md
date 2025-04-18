@@ -26,18 +26,22 @@ Guardrails provides the functions `prompt_injection` and `unicode` to detect and
 ## prompt_injection <span class="detector-badge"/>
 ```python
 def prompt_injection(
-    data: str | list[str],
-    config: dict | None = None
+    data: str | list[str]
 ) -> bool
 ```
-Detects if a given piece of text contains a prompt injection attempt.
+Attempts to detect whether a given piece of text contains a prompt injection attempt, using a [classifier model](https://huggingface.co/protectai/deberta-v3-base-prompt-injection-v2).
+
+!!! danger "Important Disclaimer on Prompt Injection Detectors"
+  
+    Classifier-based prompt injection detection is only a heuristic, and relying solely on the classifier is not sufficient to prevent the security vulnerabilities in your agent system. 
+    
+    Instead, please consider applying [data flow controls](./dataflow-rules.md) and precise [tool call scoping](./tool-calls.md), to secure your agent, even in the presence of potentially adversarial inputs. Classifier-based detectors can never be trusted to be 100% accurate, and should only be used as a first line of defense.
 
 **Parameters**
 
 | Name        | Type   | Description                            |
 |-------------|--------|----------------------------------------|
 | `data`      | `str | list[str]` | A single message or a list of messages to detect prompt injections in. |
-| `entities`  | `dict | None`   | A list of [PII entity types](https://microsoft.github.io/presidio/supported_entities/) to detect. Defaults to detecting all types. |
 
 **Returns**
 
