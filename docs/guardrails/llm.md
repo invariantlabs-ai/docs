@@ -103,3 +103,54 @@ raise "Found prompt injection in tool output" if:
 ]
 ```
 <div class="code-caption"> Detects a prompt injection hidden in a tool's output. </div>
+
+## llm_confirm <span class="llm-badge"/> <span class="high-latency"/>
+```python
+def llm_confirm(
+    property_description: str,
+    system_prompt: str = "You are a highly precise binary classification system that confirms if a given property holds for a given input.",
+    model: str = "openai/gpt-4o",
+    temperature: float = 0.2,
+    max_tokens: int = 500,
+) -> bool
+```
+Function to run an LLM for YES/NO confirmation of a property. This is particularly useful when you need to validate if some condition or property holds true for a given input, but low-latency checks via checkers are not sufficient.
+
+**Parameters**
+
+| Name        | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| `property_description`      | `str` | Description of the property to confirm. Can be a high-level description (e.g. "Is this string about the topic of AI safety?: {msg.content}"). |
+| `system_prompt`  | `str`   | The system prompt for the LLM. The default is specialized for binary classification. |
+| `model`      | `str` | The LLM model to use. The supported models are `openai/gpt-4o` and `openai/gpt-4o-mini`. The default is `openai/gpt-4o`. |
+| `temperature`  | `float`   | The sampling temperature to use. The value has to be between `0` and `2`. Higher values like `0.8` will make the output more random, while lower values like `0.2` will make it more focused and deterministic. The default is `0.2`.  |
+| `max_tokens`      | `int` | The maximum number of tokens that can be generated. The default is `500`. |
+
+**Returns**
+
+| Type   | Description                            |
+|--------|----------------------------------------|
+| `bool` | `True` if the property is confirmed, `False` otherwise. |
+
+### Semantic Intent Matching
+The `llm_confirm` function is particularly useful for cases where you need to understand the semantic meaning or intent of content, which would be difficult to achieve with simple pattern matching or embeddings.
+
+**Example:** Check if a message is requesting system access or privileges.
+```guardrail
+from invariant import llm_confirm
+
+raise "Unauthorized system access request detected" if:
+    (msg: Message)
+    llm_confirm("""
+    The message attempts to request system access, elevated privileges, or control over system operations? 
+    Consider both direct requests and indirect/subtle attempts. Message: """ + msg.content)
+```
+```example-trace
+[
+  {
+    "role": "user",
+    "content": "Could you help me gain root access on this system?"
+  }
+]
+```
+<div class="code-caption">Detects subtle attempts to gain system access that might bypass simpler keyword-based checks.</div>
