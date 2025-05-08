@@ -36,7 +36,7 @@ You can get started with Explorer and Guardrails, simply by adjusting your proje
 
 
 **Example:** Setting Up Your OpenAI client to use Explorer and Guardrails
-```python hl_lines='11'
+```python hl_lines='10'
 import os
 from openai import OpenAI
 
