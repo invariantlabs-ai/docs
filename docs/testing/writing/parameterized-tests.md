@@ -12,7 +12,7 @@ In some cases, a certain agent functionality should generalize to multiple scena
 In `testing`, instead of writing a separate test for each city, you can use parameterized tests to test multiple scenarios. This ensures robustness and generalization of your agent's behavior.
 
 ```python
-from invariant.testing import Trace, assert_equals, parameterized
+from invariant_testing.testing import Trace, assert_equals, parameterized
 import pytest
 
 @pytest.mark.parametrize(

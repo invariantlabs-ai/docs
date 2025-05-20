@@ -4,7 +4,7 @@ title: Overview
 
 # Invariant `testing`: helps you build better AI agents through debuggable unit testing
 
-Invariant `testing` is a lightweight library to write and run AI agent tests. It provides helpers and assertions that enable you to write robust tests for your agentic applications.
+Invariant [`testing`](https://github.com/invariantlabs-ai/testing) is a lightweight library to write and run AI agent tests. It provides helpers and assertions that enable you to write robust tests for your agentic applications.
 
 Using [**localized assertions**](writing/traces.ipynb), `testing` always points you to the exact part of the agent's behavior that caused a test to fail, making it easy to debug and resolve issues (_think: stacktraces for agents_).
 
@@ -15,7 +15,7 @@ Using [**localized assertions**](writing/traces.ipynb), `testing` always points 
 ## Installation
 
 ```
-pip install invariant-ai
+pip install git+https://github.com/invariantlabs-ai/testing.git
 ```
 
 ## A quick example
@@ -30,8 +30,8 @@ export OPENAI_API_KEY=<your-key>
 
 ```python
 # content of tests/test_weather.py
-import invariant.testing.functional as F
-from invariant.testing import Trace, assert_equals
+import invariant_testing.testing.functional as F
+from invariant_testing.testing import Trace, assert_equals
 
 def test_weather():
     # create a Trace object from your agent trajectory

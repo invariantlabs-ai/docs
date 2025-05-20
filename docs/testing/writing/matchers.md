@@ -13,18 +13,18 @@ To accommodate this, `testing` includes several different `Matcher` implementati
 
 Beyond that, `Matcher` is also a simple base class that allows you to write your own custom matchers, if the provided ones are not sufficient for your needs (e.g. custom properties).
 
-## [`IsSimilar`](https://github.com/invariantlabs-ai/invariant/blob/main/testing/invariant/custom_types/matchers.py#L53)
+## [`IsSimilar`](https://github.com/invariantlabs-ai/testing/blob/main/invariant_testing/testing/custom_types/matchers.py#L53)
 
 Checks if a string is similar to an expected string by checking if the similary score reaches a given threshold.
 
-## [`LambdaMatcher`](https://github.com/invariantlabs-ai/invariant/blob/main/testing/invariant/custom_types/matchers.py#L18)
+## [`LambdaMatcher`](https://github.com/invariantlabs-ai/testing/blob/main/invariant_testing/testing/custom_types/matchers.py#L18)
 
 Matcher for checking if a lambda function returns True on the underlying value. This can be useful to check for custom properties of outputs, while maintaining [addresses to localize failing](./tests.md) assertions.
 
-## [`IsFactuallyEqual`](https://github.com/invariantlabs-ai/invariant/blob/main/testing/invariant/custom_types/matchers.py#L86)
+## [`IsFactuallyEqual`](https://github.com/invariantlabs-ai/testing/blob/main/invariant_testing/testing/custom_types/matchers.py#L86)
 
 Checks for factual equality / entailment of two sentences or words. This can be used to check if two sentences are factually equivalent, or subset/superset of each other.
 
-## [`ContainsImage`](https://github.com/invariantlabs-ai/invariant/blob/main/testing/invariant/custom_types/matchers.py#L153)
+## [`ContainsImage`](https://github.com/invariantlabs-ai/testing/blob/main/invariant_testing/testing/custom_types/matchers.py#L155)
 
 Checks if the input contains an image in base64 encoding.

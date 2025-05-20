@@ -19,11 +19,11 @@ To get started quickly with testing your Swarm agent, you can use the following 
 from swarm import Agent, Swarm
 
 # for assertions
-from invariant.testing import assert_true
-from invariant.testing import functional as F
+from invariant_testing.testing import assert_true
+from invariant_testing.testing import functional as F
 
 # for swarm testing support
-from invariant.testing.wrappers.swarm_wrapper import SwarmWrapper
+from invariant_testing.testing.wrappers.swarm_wrapper import SwarmWrapper
 
 
 def get_capital(country_name: str) -> str:
@@ -88,7 +88,7 @@ pip install openai-swarm
 
 ## Agent code
 
-You can view the full code example of the example agent [here](https://github.com/invariantlabs-ai/invariant/blob/main/invariant/testing/sample_tests/swarm/capital_finder_agent/capital_finder_agent.py)
+You can view the full code example of the example agent [here](https://github.com/invariantlabs-ai/testing/blob/main/invariant_testing/testing/sample_tests/swarm/capital_finder_agent/capital_finder_agent.py)
 
 The agent can be invoked as follows.
 

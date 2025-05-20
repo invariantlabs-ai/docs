@@ -19,7 +19,7 @@ pip install langgraph
 
 ## Agent code
 
-You can view the agent code [here](https://github.com/invariantlabs-ai/invariant/blob/main/testing/sample_tests/langgraph/weather_agent/weather_agent.py).
+You can view the agent code [here](https://github.com/invariantlabs-ai/testing/blob/main/invariant_testing/testing/sample_tests/langgraph/weather_agent/weather_agent.py).
 
 This can be invoked as:
 
