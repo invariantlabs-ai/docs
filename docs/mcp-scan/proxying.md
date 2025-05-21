@@ -62,7 +62,26 @@ As shown here, both MCP calls and responses are logged, together with relevant m
 ### Command Line Options
 
 ```
---pretty [oneline|compact|full]  Pretty print the output. (default: "oneline")
+> mcp-scan proxy [CONFIGURATION_FILE]
+
+[CONFIGURATION_FILE]                Optional path of the configuration file to rewrite 
+                                    for proxying. If not provided, all system-wide MCP 
+                                    configurations are rewritten.
+
+--pretty [oneline|compact|full]     Pretty print the output. (default: "oneline")
 ```
 
 `--pretty` controls the output format of the logs. The default is `compact`, which is a human-readable format that is easy to read. The `oneline` format is a single line per log entry, and the `full` format is a more verbose format that includes fully formatted tool calls and outputs.
+
+### Examples
+
+```
+# proxies all MCP client system-wide (supported clients only)
+mcp-scan proxy
+
+# proxies a specific client configuration file (customary MCP configuration format assumed)
+mcp-scan proxy path/to/client/json
+
+# use single-line trace logging format
+mcp-scan proxy --pretty oneline 
+```
