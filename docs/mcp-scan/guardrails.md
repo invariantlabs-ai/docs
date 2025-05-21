@@ -14,10 +14,27 @@ The `mcp-scan proxy` command supports dynamic guardrailing for MCP servers, lett
 
 This guide covers how to structure guardrail configs, write custom rules, and apply enforcement at the client, server, and tool levels.
 
-<img src="../assets/proxy.svg" alt="proxying-overview-diagram" class="textwidth" style="max-width: 420pt; margin: 40pt auto; display: block;" />
-
 !!! note
     By default, the configuration file is located at `~/.mcp-scan/guardrails-config.yml`.
+
+!!! info "Get Started Directly"
+    Just looking to get started quickly? The following example provides a quick way to get started with writing your very own config file. Just copy
+    it into your config file and replace the client and server names.
+    ```yaml
+    <client-name>:  # Replace with a client name (e.g., cursor)
+      <server-name>:  # Replace with a server name (e.g., whatsapp)
+        guardrails:
+          secrets: block
+
+          custom_guardrails:
+            - name: "Filter Errors Guardrail"
+              id: "error_filter_guardrail"
+              action: block
+              content: |
+                raise "An error was found." if:
+                  (msg: Message)
+                  "error" in msg.content
+    ```
 
 ## File structure
 
