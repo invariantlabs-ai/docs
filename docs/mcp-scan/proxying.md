@@ -7,10 +7,10 @@ icon: bootstrap/hdd-network
 # Proxying with `mcp-scan proxy`
 
 <div class='subtitle'>
-Monitors, logs and safeguards all MCP traffic on your machine.
+Monitors, logs, and safeguards all MCP traffic on your machine.
 </div>
 
-The `mcp-scan proxy` command temporarily intercepts the MCP traffic on your machine, using [Gateway](../guardrails/gateway.md), to safeguard and audit MCP calls on your machine. This allows you to inspect the runtime behavior of agents and tools, and to prevent attacks from e.g. untrusted sources (like websites or emails) that may try to exploit or hijack your agents.
+The `mcp-scan proxy` command temporarily intercepts the MCP traffic on your machine, using [Gateway](../guardrails/gateway.md), to safeguard and audit MCP calls on your machine. This allows you to inspect the runtime behavior of agents and tools, and to prevent attacks from e.g., untrusted sources (like websites or emails) that may try to exploit or hijack your agents.
 
 `mcp-scan proxy` is a dynamic security layer that runs as long as the CLI process is running, and continuously monitors all MCP traffic on your machine.
 
@@ -30,7 +30,7 @@ This transparently proxies all MCP calls on your machine, and logs them to the c
 
 !!! note
 
-    Some MCP clients require a restart or a re-initialization of the proxied MCP server, for proxying to take effect.
+    Some MCP clients require a restart or a re-initialization of the proxied MCP server for proxying to take effect.
 
 **Output** (compact mode):
 ```

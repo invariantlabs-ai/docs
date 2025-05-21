@@ -45,13 +45,13 @@ MCP-Scan searches through your configuration files to find MCP server configurat
 It then scans tool descriptions, both with local checks and by invoking Invariant Guardrailing via an API. For this, tool names and descriptions are shared with invariantlabs.ai. By using MCP-Scan, you agree to the invariantlabs.ai [terms of use](https://explorer.invariantlabs.ai/terms) and [privacy policy](https://invariantlabs.ai/privacy-policy).
 
 Invariant Labs is collecting data for security research purposes (only about tool descriptions and how they change over time, not your user data). Don't use MCP-scan if you don't want to share your tools.
-You can run MCP-scan locally by using the `--local-only` flag. This will only run local checks and will not invoke the Invariant Guardrailing API, however it will not provide as accurate results as it just runs a local LLM-based policy check. This option requires an `OPENAI_API_KEY` environment variable to be set.
+You can run MCP-scan locally by using the `--local-only` flag. This will only run local checks and will not invoke the Invariant Guardrailing API, however, it will not provide as accurate results as it just runs a local LLM-based policy check. This option requires an `OPENAI_API_KEY` environment variable to be set.
 
-MCP-scan does not store or log any usage data, i.e. the contents and results of your MCP tool calls.
+MCP-scan does not store or log any usage data, i.e., the contents and results of your MCP tool calls.
 
 ### Command Line Options
 
-Next to the main `mcp-scan scan` command, MCP-scan supports a number of command line options. For more information use the `--help` flag, or see the [project README](http://github.com/invariantlabs-ai/mcp-scan).
+Next to the main `mcp-scan scan` command, MCP-scan supports a number of command line options. For more information, use the `--help` flag, or see the [project README](http://github.com/invariantlabs-ai/mcp-scan).
 
 ### Examples
 
