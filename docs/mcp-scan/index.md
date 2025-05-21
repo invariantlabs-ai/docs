@@ -10,7 +10,7 @@ icon: bootstrap/shield-check
 Use MCP-scan to safeguard your MCP integrations.
 </div>
 
-[MCP-scan](https://github.com/invariantlabs-ai/mcp-scan) is a security scanning tool, that uses Invariant's security stack, to ensure the MCP integrations you are using in MCP clients such as Cursor, Claude and Windsurf are safe.
+[MCP-scan](https://github.com/invariantlabs-ai/mcp-scan) is a security scanning tool that uses Invariant's security stack to ensure the MCP integrations you are using in MCP clients, such as Cursor, Claude, and Windsurf are safe.
 
 <img src="./assets/proxy.svg" alt="mcp-scan-overview-diagram" class="textwidth" style="max-width: 480pt; margin: 40pt auto; display: block;" />
 
@@ -19,7 +19,7 @@ Use MCP-scan to safeguard your MCP integrations.
 - Scanning of Claude, Cursor, Windsurf, and other file-based MCP client configurations
 - Scanning for prompt injection attacks in tool descriptions and [tool poisoning attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) using [Guardrails](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer)
 - Live runtime monitoring of MCP traffic using `mcp-scan proxy`
-- _MCP guardrailing_ of tool calls and responses, including PII detection, secrets detection, tool restrictions and [custom guardrailing policies](./guardrails)
+- _MCP guardrailing_ of tool calls and responses, including PII detection, secrets detection, tool restrictions, and [custom guardrailing policies](./guardrails)
 - Detection of cross-origin escalation attacks ([tool shadowing](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks))
 - _Tool Pinning_ to detect and prevent [MCP rug pull attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks), i.e. detects changes to MCP tools via hashing
 
@@ -45,7 +45,7 @@ Recognizing these serious security threats, we developed **MCP-Scan** to help us
 
 ## Using MCP-Scan
 
-MCP-scan offers two primary modes of operations, allowing you to identify security vulnerabilities in your MCP integrations and continously monitor your MCP traffic.
+MCP-scan offers two primary modes of operations, allowing you to identify security vulnerabilities in your MCP integrations and continuously monitor your MCP traffic.
 
 
 <!-- * [_Server Scanning_](./scanning.md) with **`mcp-scan scan`** -->
@@ -64,7 +64,7 @@ Learn more about the scanning mode in the [MCP Server Scanning](./scanning.md) c
 
 ### Active Proxying with **`mcp-scan proxy`**
     
-Using `mcp-scan proxy`, you can monitor, log and safeguard all MCP traffic on your machine. This allows you to inspect the runtime behavior of agents and tools, and prevent attacks from e.g. untrusted sources (like websites or emails) that may try to exploit your agents. `mcp-scan proxy` is a dynamic security layer that runs in the background, and continuously monitors your MCP traffic.
+Using `mcp-scan proxy`, you can monitor, log, and safeguard all MCP traffic on your machine. This allows you to inspect the runtime behavior of agents and tools, and prevent attacks from e.g., untrusted sources (like websites or emails) that may try to exploit your agents. `mcp-scan proxy` is a dynamic security layer that runs in the background, and continuously monitors your MCP traffic.
 
 <br/>
 
@@ -78,7 +78,7 @@ Learn more about the proxying mode in the [MCP Proxying with mcp-scan](./proxyin
 ## Including MCP-scan results in your own project / registry
 
 If you want to include MCP-scan results in your own project or registry, please reach out to the team via `mcpscan@invariantlabs.ai`, and we can help you with that.
-For automated scanning we recommend using the `--json` flag and parsing the output.
+For automated scanning, we recommend using the `--json` flag and parsing the output.
 
 ## Further Reading
 - [Introducing MCP-Scan](https://invariantlabs.ai/blog/introducing-mcp-scan)
@@ -100,7 +100,7 @@ If you are interested in learning more about securing MCP and agents more genera
 
 <a href="./proxying" class='tile primary'>
     <span class='tile-title'>MCP Proxying with mcp-scan</span>
-    <span class='tile-description'>Monitors, logs and safeguards all MCP traffic on your machine.</span>
+    <span class='tile-description'>Monitors, logs, and safeguards all MCP traffic on your machine.</span>
 </a>
 
 <a href="../guardrails/" class='tile'>
