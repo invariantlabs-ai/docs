@@ -12,7 +12,7 @@ Safeguard and restrict your MCP tool calls and responses.
 
 The `mcp-scan proxy` command supports dynamic guardrailing for MCP servers, letting you enforce safety rules during tool use. It comes with a set of default guardrails and allows you to define custom behavior through a configuration file.
 
-This guide covers how to structure guardrail configs, write custom rules, and apply enforcement at the client, server, and tool levels.
+This chapter covers how to structure guardrail configuration files, write custom rules, and apply enforcement at the client, server, and tool levels.
 
 <img src="../assets/guardrails.svg" alt="proxying-overview-diagram" class="textwidth" style="max-width: 420pt; margin: 40pt auto; display: block;" />
 
