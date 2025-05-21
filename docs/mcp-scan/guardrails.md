@@ -19,6 +19,26 @@ This guide covers how to structure guardrail configs, write custom rules, and ap
 !!! note
     By default, the configuration file is located at `~/.mcp-scan/guardrails-config.yml`.
 
+!!! info "Get Started Directly"
+    Just looking to get started quickly? The following example provides a quick way to get started with writing your very own config file. Just copy
+    it into your config file and replace the client and server names.
+    ```yaml
+    <client-name>:  # your client's shorthand (e.g., cursor, claude, windsurf)
+      <server-name>:  # your server's name according to the mcp config (e.g., whatsapp-mcp)
+        guardrails:
+          secrets: block # block calls/results with secrets
+
+          custom_guardrails:
+            # define a rule using Invariant Guardrails, https://explorer.invariantlabs.ai/docs/guardrails/
+            - name: "Filter tool results with 'error'"
+              id: "error_filter_guardrail"
+              action: block # or 'log'
+              content: |
+                raise "An error was found." if:
+                  (msg: ToolOutput)
+                  "error" in msg.content
+    ```
+
 ## File structure
 
 The configuration file defines guardrailing behavior hierarchically, scoped by **client**, **server**, and **tool**. Below is a structured overview of the YAML format:
