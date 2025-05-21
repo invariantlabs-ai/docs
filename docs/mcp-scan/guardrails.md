@@ -14,7 +14,7 @@ The `mcp-scan proxy` command supports dynamic guardrailing for MCP servers, lett
 
 This guide covers how to structure guardrail configs, write custom rules, and apply enforcement at the client, server, and tool levels.
 
-<img src="../assets/proxy.svg" alt="proxying-overview-diagram" class="textwidth" style="max-width: 420pt; margin: 40pt auto; display: block;" />
+<img src="../assets/guardrails.svg" alt="proxying-overview-diagram" class="textwidth" style="max-width: 420pt; margin: 40pt auto; display: block;" />
 
 !!! note
     By default, the configuration file is located at `~/.mcp-scan/guardrails-config.yml`.
