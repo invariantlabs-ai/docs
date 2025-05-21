@@ -127,6 +127,11 @@ nav:
     #   - Syntax: guardrails/examples/syntax.md
     #   - Copyright: guardrails/examples/copyright.md
     #   - Loop Detection: guardrails/examples/loop.md
+  - MCP-Scan:
+    - Overview: mcp-scan/index.md
+    - Scanning: mcp-scan/scanning.md
+    - Proxying: mcp-scan/proxying.md
+    - Guardrails: mcp-scan/guardrails.md
   - Integrations:
     - Explorer:
       - Overview: explorer/index.md
