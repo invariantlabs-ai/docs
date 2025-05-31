@@ -45,12 +45,15 @@ The configuration file defines guardrailing behavior hierarchically, scoped by *
 
 ```yaml
 <client-name>:
+  custom_guardrails:
+    ...
+
   <server-name>:
     guardrails:
       <default-guardrail-name>: <guardrail-action>
         ...
 
-      custom_guardrails:
+      custom_guardrails: 
         - name: <guardrail-name>
           id: <guardrail-id>
           action: <guardrail-action>
@@ -109,6 +112,9 @@ cursor:
 Custom guardrails allow you to define rules tailored to specific workflows, data patterns, or business logic. These guardrails offer flexible semantics and can detect complex or domain-specific behaviors that aren't covered by the built-in defaults.
 
 To get started writing custom rules, refer to the [rule writing reference](./rules.md) to get started quickly with writing guardrails, or explore the rest of this documentation to learn about the concepts in depth, perhaps [starting with this introduction](./index.md).
+
+!!! note
+    You can add `custom_guardrails` on either a per-client or a per-server level. If you add it at the client level, the guardrail will be enforced on all servers used by that client.
 
 ### Schema
 A custom guardrail is defined using the following fields:
