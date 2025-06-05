@@ -30,12 +30,6 @@ To run a simple system-level scan with MCP-Scan, use the following command:
 uvx mcp-scan@latest
 ```
 
-or
-
-```
-npx mcp-scan@latest
-```
-
 To learn more about the scan, see the [chapter on scanning](./scanning.md).
 
 ## Why MCP-Scan?
