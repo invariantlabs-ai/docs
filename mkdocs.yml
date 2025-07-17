@@ -132,6 +132,7 @@ nav:
     - Scanning: mcp-scan/scanning.md
     - Proxying: mcp-scan/proxying.md
     - Guardrails: mcp-scan/guardrails.md
+    - Issue Codes: mcp-scan/issue-code-reference.md
   - Integrations:
     - Explorer:
       - Overview: explorer/index.md
