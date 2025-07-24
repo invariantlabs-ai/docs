@@ -28,23 +28,27 @@ A toxic flow is a threat that arises when multiple tools (that are benign indivi
 <h3 id="TF001">TF001: Data Leak Toxic Flow.</h3>
 A Data Leak Toxic Flow allows the attacker to leak private data from the agent. For this to work, three components are required:
 
-* An **untrusted output** tool: A tool whose output could be malicious, such as fetching information from a webpage set up by someone else. 
+* An **untrusted content** tool: A tool whose output could be malicious, such as fetching information from a webpage set up by someone else. 
 * A **private data** tool: A tool that exposes private data to the Agent, by reading a file from the user's machine, for example.
 * A **public sink** tool: A tool that the Agent can use to send information back to the attacker. This could mean sending a private message to an arbitrary phone number, or simply making some information public on the internet. Examples include writing to a public repo or sending a message on WhatsApp.
 
-The attack triggers when the agent uses the **untrusted output** tool for any unrelated user task. The output of the tool contains a prompt injection, or a set of malicious instructions that compromise the agent. Once compromised, the agent can use the **private data** tool to fetch the user's private data. Finally, the compromised agent can leak such data using the **public sink** tool.
+The attack triggers when the agent uses the **untrusted content** tool for any unrelated user task. The output of the tool contains a prompt injection, or a set of malicious instructions that compromise the agent. Once compromised, the agent can use the **private data** tool to fetch the user's private data. Finally, the compromised agent can leak such data using the **public sink** tool.
 
 !!! note 
 
-    A single tool may act as **untrusted output**, **private data**, and **public sink** simultaneously.
+    A single tool may act as **untrusted content**, **private data**, and **public sink** simultaneously.
 
 <h3 id="TF002">TF002: Destructive Toxic Flow.</h3>
 A Destructive Toxic Flow allows the attacker to cause permanent damage. For it to work, it needs two components:
 
-* An **untrusted output** tool: A tool whose output could be malicious, such as fetching information from a webpage set up by someone else.
+* An **untrusted content** tool: A tool whose output could be malicious, such as fetching information from a webpage set up by someone else.
 * A **destructive** tool: An irreversible tool that can be used in a destructive way, like deleting a file on the user's machine, or sending money.
 
-The attack triggers when the agent uses the **untrusted output** tool for any unrelated user task. The output of the tool contains a prompt injection, or a set of malicious instructions that compromise the agent. Once compromised, the agent can use the **destructive** tool to irreversibly damage the environment.
+The attack triggers when the agent uses the **untrusted content** tool for any unrelated user task. The output of the tool contains a prompt injection, or a set of malicious instructions that compromise the agent. Once compromised, the agent can use the **destructive** tool to irreversibly damage the environment.
+
+!!! note 
+
+    A single tool may act as **untrusted content**, **destructive** simultaneously.
 
 ## Analysis Errors
 An Analysis Error implies that something went wrong during the scan, and that the MCP servers are not being scanned as expected.
