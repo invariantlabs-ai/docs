@@ -24,19 +24,20 @@ This chapter covers how to structure guardrail configuration files, write custom
     it into your config file and replace the client and server names.
     ```yaml
     <client-name>:  # your client's shorthand (e.g., cursor, claude, windsurf)
-      <server-name>:  # your server's name according to the mcp config (e.g., whatsapp-mcp)
-        guardrails:
-          secrets: block # block calls/results with secrets
+      servers:
+        <server-name>:  # your server's name according to the mcp config (e.g., whatsapp-mcp)
+          guardrails:
+            secrets: block # block calls/results with secrets
 
-          custom_guardrails:
-            # define a rule using Invariant Guardrails, https://explorer.invariantlabs.ai/docs/guardrails/
-            - name: "Filter tool results with 'error'"
-              id: "error_filter_guardrail"
-              action: block # or 'log'
-              content: |
-                raise "An error was found." if:
-                  (msg: ToolOutput)
-                  "error" in msg.content
+            custom_guardrails:
+              # define a rule using Invariant Guardrails, https://explorer.invariantlabs.ai/docs/guardrails/
+              - name: "Filter tool results with 'error'"
+                id: "error_filter_guardrail"
+                action: block # or 'log'
+                content: |
+                  raise "An error was found." if:
+                    (msg: ToolOutput)
+                    "error" in msg.content
     ```
 
 ## File structure
@@ -47,26 +48,26 @@ The configuration file defines guardrailing behavior hierarchically, scoped by *
 <client-name>:
   custom_guardrails:
     ...
-
-  <server-name>:
-    guardrails:
-      <default-guardrail-name>: <guardrail-action>
-        ...
-
-      custom_guardrails: 
-        - name: <guardrail-name>
-          id: <guardrail-id>
-          action: <guardrail-action>
-          content: |
-            <guardrail-content>
-            ...
-        
-    tools:
-      <tool-name>:
+  servers:
+    <server-name>:
+      guardrails:
         <default-guardrail-name>: <guardrail-action>
-        ...
-        enabled: <boolean>
-    ...
+          ...
+
+        custom_guardrails: 
+          - name: <guardrail-name>
+            id: <guardrail-id>
+            action: <guardrail-action>
+            content: |
+              <guardrail-content>
+              ...
+          
+      tools:
+        <tool-name>:
+          <default-guardrail-name>: <guardrail-action>
+          ...
+          enabled: <boolean>
+      ...
 ...
 ```
 
@@ -102,10 +103,11 @@ Default guardrails are pre-configured and run by default with the `log` action. 
 **Example:** Overriding a default guardrail.
 ```yaml
 cursor:
-  email-mcp-server:
-    guardrails:
-      pii: block
-      secrets: paused
+  servers:
+    email-mcp-server:
+      guardrails:
+        pii: block
+        secrets: paused
 ```
 
 ## Custom guardrails
@@ -210,14 +212,15 @@ To see how this hierarchy of precedence works, consider the following example co
 
 ```yaml
 client:
-  server:
-    guardrails:
-      pii: block
-      secrets: paused
-        
-    tools:
-      tool:
-        secrets: block
+  servers:
+    server:
+      guardrails:
+        pii: block
+        secrets: paused
+          
+      tools:
+        tool:
+          secrets: block
 ```
 
 The resulting behavior of this configuration is:
@@ -239,57 +242,58 @@ It demonstrates how to define default and custom guardrails for specific clients
 
 ```yaml
 cursor:
-  email-mcp-server:
+  servers:
+    email-mcp-server:
 
-    # Customize the guardrailing for this specific server
-    guardrails:
-      pii: block
-      moderated: paused
+      # Customize the guardrailing for this specific server
+      guardrails:
+        pii: block
+        moderated: paused
 
-      # Define multiple custom guardrails
-      custom_guardrails:
-        - name: "Trusted Recipient Email"
-          id: "untrustsed_email_gr_1"
-          action: block
+        # Define multiple custom guardrails
+        custom_guardrails:
+          - name: "Trusted Recipient Email"
+            id: "untrustsed_email_gr_1"
+            action: block
 
-          # Guardrail to ensure that we know all recipients
-          content: |
-            raise "Untrusted email recipient" if:
-                (call: ToolCall)
-                call is tool:send_email
-                not match(".*@company.com", call.function.arguments.recipient)
+            # Guardrail to ensure that we know all recipients
+            content: |
+              raise "Untrusted email recipient" if:
+                  (call: ToolCall)
+                  call is tool:send_email
+                  not match(".*@company.com", call.function.arguments.recipient)
 
 
-          # Guardrail to ensure an email is not sent after 
-          # a prompt injection is detected in the inbox
-        - name: "PII Email"
-          id: "untrustsed_email_gr_2"
-          action: log
-          content: |
-            from invariant.detectors import prompt_injection
+            # Guardrail to ensure an email is not sent after 
+            # a prompt injection is detected in the inbox
+          - name: "PII Email"
+            id: "untrustsed_email_gr_2"
+            action: log
+            content: |
+              from invariant.detectors import prompt_injection
 
-            raise "Suspicious email before send" if:
-                (inbox: ToolOutput) -> (call: ToolCall)
-                inbox is tool:get_inbox
-                call is tool:send_email
-                prompt_injection(inbox.content)
+              raise "Suspicious email before send" if:
+                  (inbox: ToolOutput) -> (call: ToolCall)
+                  inbox is tool:get_inbox
+                  call is tool:send_email
+                  prompt_injection(inbox.content)
 
-    # Specify the behavior of individual tools
-    tools:
-      send_message:
-        enabled: false
+      # Specify the behavior of individual tools
+      tools:
+        send_message:
+          enabled: false
 
-      read_messages:
-        secrets: block
+        read_messages:
+          secrets: block
 
-  weather:
-    guardrails:
-      moderated: paused
+    weather:
+      guardrails:
+        moderated: paused
 
-# Separate configurations on a per client/server basis
-claude:
-  git-mcp-server:
-    tools:
-      commit-tool:
-        links: paused
+  # Separate configurations on a per client/server basis
+  claude:
+    git-mcp-server:
+      tools:
+        commit-tool:
+          links: paused
 ```
