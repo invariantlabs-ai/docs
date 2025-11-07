@@ -21,7 +21,7 @@ The `mcp-scan proxy` command temporarily intercepts the MCP traffic on your mach
 To get started, run the following command in your terminal:
 
 ```
-uvx mcp-scan@latest proxy
+uvx --with "mcp-scan[proxy]" mcp-scan@latest proxy
 ```
 
 As visible from the output, this temporarily rewrites all MCP server configurations across your machine, to route calls via [Gateway](../guardrails/gateway.md), allowing you to inspect and guardrail MCP calls.
