@@ -14,7 +14,7 @@ The `mcp-scan proxy` command supports dynamic guardrailing for MCP servers, lett
 
 This chapter covers how to structure guardrail configuration files, write custom rules, and apply enforcement at the client, server, and tool levels.
 
-<img src="../assets/guardrails.svg" alt="proxying-overview-diagram" class="textwidth" style="max-width: 420pt; margin: 40pt auto; display: block;" />
+<img src="../assets/guardrails.svg" alt="guardrails-overview-diagram" class="textwidth" style="max-width: 420pt; margin: 40pt auto; display: block;" />
 
 !!! note
     By default, the configuration file is located at `~/.mcp-scan/guardrails-config.yml`.
@@ -30,7 +30,7 @@ This chapter covers how to structure guardrail configuration files, write custom
             secrets: block # block calls/results with secrets
 
             custom_guardrails:
-              # define a rule using Invariant Guardrails, https://explorer.invariantlabs.ai/docs/guardrails/
+              # define a rule using Invariant Guardrails, https://github.com/invariantlabs-ai/invariant
               - name: "Filter tool results with 'error'"
                 id: "error_filter_guardrail"
                 action: block # or 'log'
@@ -113,7 +113,7 @@ cursor:
 ## Custom guardrails
 Custom guardrails allow you to define rules tailored to specific workflows, data patterns, or business logic. These guardrails offer flexible semantics and can detect complex or domain-specific behaviors that aren't covered by the built-in defaults.
 
-To get started writing custom rules, refer to the [rule writing reference](./rules.md) to get started quickly with writing guardrails, or explore the rest of this documentation to learn about the concepts in depth, perhaps [starting with this introduction](./index.md).
+To get started writing custom rules, refer to the [Advanced Guardrails](./guardrails-reference.md) documentation for a complete reference on rule syntax and available detectors.
 
 !!! note
     You can add `custom_guardrails` on either a per-client or a per-server level. If you add it at the client level, the guardrail will be enforced on all servers used by that client.

@@ -1,4 +1,4 @@
-site_name: Invariant Documentation
+site_name: MCP-Scan Documentation
 
 hooks:
 # custom transform hooks for guardrails and traces
@@ -21,11 +21,7 @@ use_directory_urls: false
 extra:
   # extra navigation icons for navigation groups that do not have their own pages
   # for pages, just specify icon in the frontmatter
-  nav_item_icons:
-    - name: Agent Guardrails
-      icon: bootstrap/robot
-    - name: Content Guardrails
-      icon: bootstrap/file-earmark-check
+  nav_item_icons: []
 
 markdown_extensions:
   - admonition
@@ -43,8 +39,8 @@ markdown_extensions:
   - md_in_html
   - meta
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
       options:
         custom_icons:
           - docs/overrides/.icons
@@ -52,134 +48,12 @@ markdown_extensions:
 use_directory_urls: true
 
 plugins:
-  - mkdocs-jupyter
-  - site-urls
   - search
-  # TODO(Hemang): Remove these once we change the URLs in the other places.
-  - redirects:
-      redirect_maps:
-        explorer/search_and_filter.md: explorer/search.md
-        explorer/traces_datasets.md: explorer/traces-datasets.md
-        explorer/Explorer_API/2_traces.md: explorer/api/trace-format.md
-        explorer/Explorer_API/1_client_setup.md: explorer/api/client-setup.md
-        explorer/Explorer_API/3_annotations.md: explorer/api/annotations.md
-        explorer/Explorer_API/installation.md: explorer/api/sdk-installation.md
-        explorer/Explorer_API/Dataset_Metadata/get_dataset_metadata_api.md: explorer/api/dataset-metadata/get.md
-        explorer/Explorer_API/Dataset_Metadata/update_dataset_metadata_api.md: explorer/api/dataset-metadata/update.md
-        explorer/Explorer_API/Uploading_Traces/file_uploads.md: explorer/api/uploading-traces/file-uploads.md
-        explorer/Explorer_API/Uploading_Traces/push_api.md: explorer/api/uploading-traces/push-api.md
-        testing/Examples/computer-use.md: testing/examples/computer-use.md
-        testing/Examples/langgraph.md: testing/examples/langgraph.md
-        testing/Examples/openai-python-agent.md: testing/examples/openai-python-agent.md
-        testing/Examples/swarm.md: testing/examples/swarm.md
-        testing/Running_Tests/PyTest_Compatibility.md: testing/running/pytest-compatibility.md
-        testing/Running_Tests/Visual_Debugger.md: testing/running/visual-debugging.md
-        testing/Writing_Tests/Integrate_Your_Agent.md: testing/writing/integrate.md
-        testing/Writing_Tests/Matchers.md: testing/writing/matchers.md
-        testing/Writing_Tests/parameterized-tests.md: testing/writing/parameterized-tests.md
-        testing/Writing_Tests/tests.md: testing/writing/tests.md
-        testing/Writing_Tests/traces.md: testing/writing/traces.ipynb
-        # Redirects so that we avoid showing directory listing.
-        explorer/api/index.md: explorer/api/client-setup.md
-        explorer/api/dataset-metadata/index.md: explorer/api/dataset-metadata/get.md
-        explorer/api/uploading-traces/index.md: explorer/api/uploading-traces/file-uploads.md
-        gateway/llm-provider-integrations/index.md: gateway/llm-provider-integrations/openai.md
-        gateway/agent-integrations/index.md: gateway/agent-integrations/microsoft-autogen.md
-        testing/examples/index.md: testing/examples/computer-use.md
-        testing/running/index.md: testing/running/pytest-compatibility.md
-        testing/writing/index.md: testing/writing/integrate.md
 
 nav:
-  - Getting Started: index.md
-  - Guardrails:
-    - Introduction: guardrails/index.md
-    - Agents and Traces: guardrails/basics.md
-    - Agent Guardrails:
-      - Tool Calls: guardrails/tool-calls.md
-      - Loop Detection: guardrails/loops.md
-      - Dataflow Rules: guardrails/dataflow-rules.md
-      - Code Validation: guardrails/code-validation.md
-      # - Computer Use Agents: guardrails/computer-use.md
-    - Content Guardrails:
-      - Personally Identifiable Information (PII): guardrails/pii.md
-      - Jailbreaks and Prompt Injections: guardrails/prompt-injections.md
-      - Images: guardrails/images.md
-      - Moderated and Toxic Content: guardrails/moderation.md
-      # - Ban Topics and Substrings: guardrails/ban-words.md
-      - Regex Filters: guardrails/regex-filters.md
-      - Copyrighted Content: guardrails/copyright.md
-      - Secret Tokens and Credentials: guardrails/secrets.md
-      - Sentence Similarity: guardrails/sentence_similarity.md
-      - LLM-as-Guardrail: guardrails/llm.md
-    - Guardrails in Gateway: guardrails/gateway.md
-    - Guardrails in Explorer: guardrails/explorer.md
-    - Rule Writing Reference: guardrails/rules.md
-    # - Examples:
-    #   - RAG: guardrails/examples/rag.md
-    #   - Code Execution after URL: guardrails/examples/url.md
-    #   - Unsafe Code: guardrails/examples/url.md
-    #   - GitHub Issues: guardrails/examples/github_pip.md
-    #   - Prevent Information Leak: guardrails/examples/leak.md
-    #   - PII Leak: guardrails/examples/pii.md
-    #   - Secrets: guardrails/examples/secrets.md
-    #   - GitHub Token Leak: guardrails/examples/github_token.md
-    #   - Email Address: guardrails/examples/email.md
-    #   - Syntax: guardrails/examples/syntax.md
-    #   - Copyright: guardrails/examples/copyright.md
-    #   - Loop Detection: guardrails/examples/loop.md
-  - MCP-Scan:
-    - Overview: mcp-scan/index.md
-    - Scanning: mcp-scan/scanning.md
-    - Proxying: mcp-scan/proxying.md
-    - Guardrails: mcp-scan/guardrails.md
-    - Issue Codes: mcp-scan/issue-code-reference.md
-  - Integrations:
-    - Explorer:
-      - Overview: explorer/index.md
-      - Benchmarks: explorer/benchmarks.md
-      - Search: explorer/search.md
-      - Self-Host Explorer: explorer/self-hosted.md
-      - Traces and Datasets: explorer/traces-datasets.md
-      - Explorer API:
-        - Client Setup: explorer/api/client-setup.md
-        - Trace Format: explorer/api/trace-format.md
-        - Annotations: explorer/api/annotations.md
-        - SDK Installation: explorer/api/sdk-installation.md
-        - Dataset Metadata: 
-          - GetDatasetMetadata API : explorer/api/dataset-metadata/get.md
-          - UpdateDatasetMetadata API : explorer/api/dataset-metadata/update.md
-        - Uploading Traces: 
-          - File Uploads: explorer/api/uploading-traces/file-uploads.md
-          - Push API: explorer/api/uploading-traces/push-api.md
-          - Append Messages API: explorer/api/uploading-traces/append-messages.md
-    - Gateway:
-      - Overview: gateway/index.md
-      - Self-Hosted Gateway: gateway/self-hosted.md
-      - LLM Integrations:
-        - OpenAI: gateway/llm-provider-integrations/openai.md
-        - Anthropic: gateway/llm-provider-integrations/anthropic.md
-        - Gemini: gateway/llm-provider-integrations/gemini.md
-      - Agent Integrations:
-        - Microsoft AutoGen: gateway/agent-integrations/microsoft-autogen.md
-        - OpenAI Agents SDK: gateway/agent-integrations/openai-agents-sdk.md
-        - OpenAI Swarm: gateway/agent-integrations/openai-swarm.md
-        - OpenHands: gateway/agent-integrations/openhands.md
-        - SWE Agent: gateway/agent-integrations/swe-agent.md
-        - Browser Use: gateway/agent-integrations/browser-use.md
-    - Testing: 
-      - Overview: testing/index.md
-      - Quickstart: testing/quickstart.md
-      - Examples: 
-        - Computer Use Agent: testing/examples/computer-use.md
-        - LangGraph: testing/examples/langgraph.md
-        - Function Calling Agents: testing/examples/openai-python-agent.md
-        - OpenAI Swarm: testing/examples/swarm.md
-      - Running Tests: 
-        - pytest Compatibility: testing/running/pytest-compatibility.md
-        - Visual Debugging: testing/running/visual-debugging.md
-      - Writing Tests: 
-        - Integrate Your Agent: testing/writing/integrate.md
-        - Matchers: testing/writing/matchers.md
-        - Parameterized Tests: testing/writing/parameterized-tests.md
-        - Tests: testing/writing/tests.md
-        - Traces: testing/writing/traces.ipynb
+  - Overview: mcp-scan/index.md
+  - Scanning: mcp-scan/scanning.md
+  - Proxying: mcp-scan/proxying.md
+  - Guardrails: mcp-scan/guardrails.md
+  - Issue Codes: mcp-scan/issue-code-reference.md
+  - Advanced Guardrails: mcp-scan/guardrails-reference.md

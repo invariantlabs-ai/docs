@@ -10,7 +10,7 @@ icon: bootstrap/hdd-network
 Monitors, logs, and safeguards all MCP traffic on your machine.
 </div>
 
-The `mcp-scan proxy` command temporarily intercepts the MCP traffic on your machine, using [Gateway](../guardrails/gateway.md), to safeguard and audit MCP calls on your machine. This allows you to inspect the runtime behavior of agents and tools, and to prevent attacks from e.g., untrusted sources (like websites or emails) that may try to exploit or hijack your agents.
+The `mcp-scan proxy` command temporarily intercepts the MCP traffic on your machine to safeguard and audit MCP calls. This allows you to inspect the runtime behavior of agents and tools, and to prevent attacks from e.g., untrusted sources (like websites or emails) that may try to exploit or hijack your agents.
 
 `mcp-scan proxy` is a dynamic security layer that runs as long as the CLI process is running, and continuously monitors all MCP traffic on your machine.
 
@@ -24,7 +24,7 @@ To get started, run the following command in your terminal:
 uvx --with "mcp-scan[proxy]" mcp-scan@latest proxy
 ```
 
-As visible from the output, this temporarily rewrites all MCP server configurations across your machine, to route calls via [Gateway](../guardrails/gateway.md), allowing you to inspect and guardrail MCP calls.
+As visible from the output, this temporarily rewrites all MCP server configurations across your machine, allowing you to inspect and guardrail MCP calls.
 
 This transparently proxies all MCP calls on your machine, and logs them to the console, in which `mcp-scan proxy` is running:
 
