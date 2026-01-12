@@ -19,7 +19,7 @@ Use MCP-scan to safeguard your MCP integrations.
 - Scanning of Claude, Cursor, Windsurf, and other file-based MCP client configurations
 - Scanning for prompt injection attacks in tool descriptions and [tool poisoning attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) using [Guardrails](https://github.com/invariantlabs-ai/invariant?tab=readme-ov-file#analyzer)
 - Live runtime monitoring of MCP traffic using `mcp-scan proxy`
-- _MCP guardrailing_ of tool calls and responses, including PII detection, secrets detection, tool restrictions, and [custom guardrailing policies](./guardrails)
+- _MCP guardrailing_ of tool calls and responses, including PII detection, secrets detection, tool restrictions, and [custom guardrailing policies](./guardrails.md)
 - Detection of cross-origin escalation attacks ([tool shadowing](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks))
 - _Tool Pinning_ to detect and prevent [MCP rug pull attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks), i.e. detects changes to MCP tools via hashing
 
@@ -83,28 +83,26 @@ For automated scanning, we recommend using the `--json` flag and parsing the out
 
 ## Next Steps
 
-If you are interested in learning more about securing MCP and agents more generally, consider reading one of the following chapters next.
-
 <div class='tiles'>
 
-<a href="./scanning" class='tile primary'>
+<a href="./scanning.md" class='tile primary'>
     <span class='tile-title'>MCP Server Scanning →</span>
     <span class='tile-description'>Scans your configured MCP servers for malicious tool descriptions and behavior.</span>
 </a>
 
-<a href="./proxying" class='tile primary'>
+<a href="./proxying.md" class='tile primary'>
     <span class='tile-title'>MCP Proxying with mcp-scan</span>
     <span class='tile-description'>Monitors, logs, and safeguards all MCP traffic on your machine.</span>
 </a>
 
-<a href="../guardrails/" class='tile'>
-    <span class='tile-title'>Guardrails →</span>
-    <span class='tile-description'>Learn the fundamentals about guardrailing with Invariant.</span>
+<a href="./guardrails.md" class='tile'>
+    <span class='tile-title'>Guardrails Configuration →</span>
+    <span class='tile-description'>Configure guardrailing rules for your MCP integrations.</span>
 </a>
 
-<a href="../explorer/" class='tile'>
-    <span class='tile-title'>Explorer →</span>
-    <span class='tile-description'>Configure your guardrailing rules in Explorer, and visualize agent behavior.</span>
+<a href="./issue-code-reference.md" class='tile'>
+    <span class='tile-title'>Issue Codes →</span>
+    <span class='tile-description'>Reference for all security issues detected by MCP-scan.</span>
 </a>
 
 </div>

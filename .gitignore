@@ -3,3 +3,4 @@ __pycache__
 visited.log
 contents.txt
 broken-links.txt
+site/

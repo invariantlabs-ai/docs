@@ -113,14 +113,34 @@ a:visted {
     box-shadow: none;
     color: var(--text-color);
     border-radius: 50pt !important;
-    margin-top: 2pt;
+    margin-top: 2.5pt;
 }
 
 @media screen and (max-width:60em) {
     .md-search__form {
-        margin-top: 5pt;
+        margin-top: 50pt;
         margin-left: 5pt;
         margin-right: 5pt;
+    }
+}
+
+@media screen and (min-width: 100em) {
+    .md-search__form {
+        margin-top: 1.25pt;
+    }
+
+    .md-header__title {
+        margin-top: -2pt;
+    }
+}
+
+@media screen and (min-width: 125em) {
+    .md-search__form {
+        margin-top: -1pt;
+    }
+
+    .md-header__title {
+        margin-top: -1pt;
     }
 }
 
