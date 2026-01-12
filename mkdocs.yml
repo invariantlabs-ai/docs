@@ -49,6 +49,9 @@ use_directory_urls: true
 
 plugins:
   - search
+  - redirects:
+      redirect_maps:
+        'index.md': 'mcp-scan/index.md'
 
 nav:
   - Overview: mcp-scan/index.md
