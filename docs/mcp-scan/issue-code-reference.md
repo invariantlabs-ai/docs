@@ -8,7 +8,7 @@ icon: bootstrap/x-circle
 This is the reference for all issues that can be detected via `mcp-scan`.
 
 ## Issues
-Issues are identified security threats that result in compromised MCP servers, and should be addressed as soon as possible.
+Issues are identified security threats that result in compromised MCP servers or skills, and should be addressed as soon as possible.
 <h3 id="E001">E001: Tool poisoning, prompt injection.</h3>
 Detected a prompt injection in the tool description. The tool should be deactivated immediately. 
 <h3 id="E002">E002: Tool poisoning, cross server interaction.</h3>
