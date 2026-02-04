@@ -15,6 +15,10 @@ Detected a prompt injection in the tool description. The tool should be deactiva
 The tool description refers to a tool from another server. MCP servers should be self-contained. If an MCP server refers to a tool from another server, there is a high risk of compromising the behavior of that tool.
 <h3 id="E003">E003: Tool poisoning, hijacking agent behavior.</h3>
 The tool description contains instructions that interfere with the Agent's course of action. Tools should be at the disposal of the agent and should not provide it with instructions. 
+<h3 id="E004">E004: Prompt injection in skill.</h3>
+Detected a prompt injection in the skill instructions. The skill attempts to override the agent's safety guidelines or intended behavior.
+<h3 id="E005">E005: Suspicious download URL detected in skill.</h3>
+Detected a suspicious URL in the skill instructions that could lead the agent to download and execute malicious scripts or binaries.
 
 ## Warnings
 Warnings are potential security threats. Keep an eye on them.
@@ -22,6 +26,8 @@ Warnings are potential security threats. Keep an eye on them.
 The tool's description includes one or more words commonly linked to malicious activity, such as "Ignore", "crucial", or "important".
 <h3 id="W003">W003: Entity has changed.</h3>
 The tool description has changed. This could be a rug pull attack, where the agent has swapped a benign tool with a malicious one.
+<h3 id="W007">W007: Insecure credential handling detected in skill.</h3>
+The skill handles credentials (such as API keys, secrets, passwords, or tokens) insecurely by directly adding them to the LLM context. This exposure could lead to data exfiltration attacks.
 
 ## Toxic Flows
 A toxic flow is a threat that arises when multiple tools (that are benign individually) can be used in combination by an attacker in a malicious way.
