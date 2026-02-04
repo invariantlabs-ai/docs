@@ -19,6 +19,8 @@ The tool description contains instructions that interfere with the Agent's cours
 Detected a prompt injection in the skill instructions. The skill attempts to override the agent's safety guidelines or intended behavior.
 <h3 id="E005">E005: Suspicious download URL detected in skill.</h3>
 Detected a suspicious URL in the skill instructions that could lead the agent to download and execute malicious scripts or binaries.
+<h3 id="E006">E006: Malicious code patterns detected in skill.</h3> 
+Detected high-risk patterns in the skill content, such as data exfiltration, backdoors, remote code execution, or obfuscation techniques.
 
 ## Warnings
 Warnings are potential security threats. Keep an eye on them.
@@ -28,6 +30,16 @@ The tool's description includes one or more words commonly linked to malicious a
 The tool description has changed. This could be a rug pull attack, where the agent has swapped a benign tool with a malicious one.
 <h3 id="W007">W007: Insecure credential handling detected in skill.</h3>
 The skill handles credentials (such as API keys, secrets, passwords, or tokens) insecurely by directly adding them to the LLM context. This exposure could lead to data exfiltration attacks.
+<h3 id="W008">W008: Hardcoded secrets detected in skill.</h3>
+Detected sensitive credentials (such as API keys, passwords, or tokens) directly embedded within the skill instructions. Secrets should never be hardcoded in plain text.
+<h3 id="W009">W009: Direct financial execution capability detected.</h3>
+The skill contains specific tools explicitly designed for financial operations, such as processing payments, cryptocurrency transactions, banking integrations, or asset trading.
+<h3 id="W011">W011: Exposure to untrusted third-party content.</h3>
+The skill is designed to fetch or read data from untrusted public sources (such as arbitrary websites or social media). This creates a risk of indirect prompt injection, where malicious external content can manipulate the agent's behavior.
+<h3 id="W012">W012: Unverifiable external dependency detected.</h3>
+The skill fetches instructions or code from an external URL at runtime (e.g., raw GitHub files or Pastebin). This dynamic dependency allows the external source to modify the agent's behavior without updates to the skill itself.
+<h3 id="W013">W013: Attempt to compromise machine state in skill instructions.</h3>
+The skill instructions encourage the agent to alter the host system's fundamental state or security configuration. Examples include creating new user accounts, modifying core system files, or accessing protected system credential stores.
 
 ## Toxic Flows
 A toxic flow is a threat that arises when multiple tools (that are benign individually) can be used in combination by an attacker in a malicious way.
