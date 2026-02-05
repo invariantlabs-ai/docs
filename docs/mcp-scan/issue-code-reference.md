@@ -38,8 +38,8 @@ The skill contains specific tools explicitly designed for financial operations, 
 The skill is designed to fetch or read data from untrusted public sources (such as arbitrary websites or social media). This creates a risk of indirect prompt injection, where malicious external content can manipulate the agent's behavior.
 <h3 id="W012">W012: Unverifiable external dependency detected.</h3>
 The skill fetches instructions or code from an external URL at runtime (e.g., raw GitHub files or Pastebin). This dynamic dependency allows the external source to modify the agent's behavior without updates to the skill itself.
-<h3 id="W013">W013: Attempt to compromise machine state in skill instructions.</h3>
-The skill instructions encourage the agent to alter the host system's fundamental state or security configuration. Examples include creating new user accounts, modifying core system files, or accessing protected system credential stores.
+<h3 id="W013">W013: Compromise User Machine.</h3>
+The skills that prompt the agent to compromise the security or integrity of the user's machine. Examples include modifying systemctl service files or startup scripts to add persistent programs; deleting critical system files; altering system configurations to weaken security; installing backdoors or unauthorized software
 
 ## Toxic Flows
 A toxic flow is a threat that arises when multiple tools (that are benign individually) can be used in combination by an attacker in a malicious way.
